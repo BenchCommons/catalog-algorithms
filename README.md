@@ -4,7 +4,7 @@
 
 [![CI](https://github.com/matbrgz/Hello-World/actions/workflows/hello-world.yml/badge.svg)](https://github.com/matbrgz/Hello-World/actions/workflows/hello-world.yml)
 ![Languages](https://img.shields.io/badge/languages-452-blue)
-![Tested in CI](https://img.shields.io/badge/tested%20in%20CI-363%20(80%25)-brightgreen)
+![Tested in CI](https://img.shields.io/badge/tested%20in%20CI-365%20(81%25)-brightgreen)
 ![TIOBE coverage](https://img.shields.io/badge/TIOBE%20top%20100-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -14,9 +14,9 @@ the first program almost everyone writes in a new language. This repository coll
 the languages that shaped computing history, the new languages people are talking about, Brazilian languages,
 and a long tail of assembly, shell, scientific, hardware, markup and esoteric languages.
 
-**363 of 452 programs (80%) are checked on every push** by GitHub Actions on Linux, macOS and Windows:
+**365 of 452 programs (81%) are checked on every push** by GitHub Actions on Linux, macOS and Windows:
 
-- ✅ **333 run** and their output is checked to contain "Hello World";
+- ✅ **335 run** and their output is checked to contain "Hello World";
 - 🔧 **30 are compiled or validated** with the language's official tool, for languages that cannot print text
   (shaders, smart contracts, hardware, configuration) or have no free runtime.
 
@@ -186,7 +186,7 @@ Languages that shaped programming, ordered by the year they first appeared.
 | **Icon** | 1977 | [`HelloWorld.icn`](languages/icon/HelloWorld.icn) | ✅ |  |
 | **Hope** | 1978 | [`HelloWorld.hop`](languages/hope/HelloWorld.hop) | ✅ |  |
 | **Modula-2** | 1978 | [`HelloWorld.mod`](languages/modula-2/HelloWorld.mod) | ✅ |  |
-| **dBase** | 1979 | [`HelloWorld.prg`](languages/dbase/HelloWorld.prg) | ✅ |  |
+| **dBase** | 1979 | [`HelloWorld.prg`](languages/dbase/HelloWorld.prg) |  |  |
 | **REXX** | 1979 | [`HelloWorld.rexx`](languages/rexx/HelloWorld.rexx) | ✅ |  |
 | **BBC BASIC** | 1981 | [`HelloWorld.bbc`](languages/bbc-basic/HelloWorld.bbc) | ✅ |  |
 | **PostScript** | 1982 | [`HelloWorld.ps`](languages/postscript/HelloWorld.ps) | ✅ |  |
@@ -197,7 +197,7 @@ Languages that shaped programming, ordered by the year they first appeared.
 | **Clipper** | 1985 | [`HelloWorld.prg`](languages/clipper/HelloWorld.prg) | ✅ |  |
 | **Miranda** | 1985 | [`HelloWorld.mira`](languages/miranda/HelloWorld.mira) | ✅ |  |
 | **Eiffel** | 1986 | [`hello_world.e`](languages/eiffel/hello_world.e) | ✅ |  |
-| **ABC** | 1987 | [`HelloWorld.abc`](languages/abc/HelloWorld.abc) |  |  |
+| **ABC** | 1987 | [`HelloWorld.abc`](languages/abc/HelloWorld.abc) | ✅ |  |
 | **HyperTalk** | 1987 | [`HelloWorld.hypertalk`](languages/hypertalk/HelloWorld.hypertalk) |  |  |
 | **Oberon** | 1987 | [`HelloWorld.Mod`](languages/oberon/HelloWorld.Mod) | ✅ |  |
 | **Self** | 1987 | [`HelloWorld.self`](languages/self/HelloWorld.self) |  |  |
@@ -284,7 +284,7 @@ Functional, logic, object-oriented and scripting languages outside the TIOBE top
 | **Fennel** | [`HelloWorld.fnl`](languages/fennel/HelloWorld.fnl) | ✅ |  |
 | **FreeBASIC** | [`HelloWorld.bas`](languages/freebasic/HelloWorld.bas) | ✅ |  |
 | **Frege** | [`HelloWorld.fr`](languages/frege/HelloWorld.fr) | ✅ |  |
-| **G-Portugol** | [`HelloWorld.gpt`](languages/g-portugol/HelloWorld.gpt) |  | open source Portugol compiler, 2005 |
+| **G-Portugol** | [`HelloWorld.gpt`](languages/g-portugol/HelloWorld.gpt) | ✅ | open source Portugol compiler, 2005 |
 | **Genie** | [`HelloWorld.gs`](languages/genie/HelloWorld.gs) | ✅ |  |
 | **Golo** | [`HelloWorld.golo`](languages/golo/HelloWorld.golo) | ✅ |  |
 | **Gosu** | [`HelloWorld.gsp`](languages/gosu/HelloWorld.gsp) | ✅ |  |
@@ -484,7 +484,7 @@ Languages embedded in game engines and applications.
 | **ChaiScript** | [`HelloWorld.chai`](languages/chaiscript/HelloWorld.chai) | ✅ |  |
 | **GDScript (Godot)** | [`hello_world.gd`](languages/gdscript/hello_world.gd) | ✅ |  |
 | **Gravity** | [`HelloWorld.gravity`](languages/gravity/HelloWorld.gravity) | ✅ |  |
-| **Inform 7** | [`story.ni`](languages/inform-7/story.ni) |  |  |
+| **Inform 7** | [`story.ni`](languages/inform-7/story.ni) | ✅ |  |
 | **LSL (Second Life)** | [`HelloWorld.lsl`](languages/lsl/HelloWorld.lsl) | 🔧 |  |
 | **Luau (Roblox)** | [`HelloWorld.luau`](languages/luau/HelloWorld.luau) | ✅ |  |
 | **MicroPython** | [`main.py`](languages/micropython/main.py) | ✅ |  |
@@ -582,7 +582,7 @@ Languages created in Brazil or designed for programming in Portuguese. Some of t
 |---|---|---|---|
 | **BIRL** | [`HelloWorld.birl`](languages/birl/HelloWorld.birl) | ✅ | keywords from bodybuilder Bambam's catchphrases |
 | **Elixir** | [`HelloWorld.exs`](languages/elixir/HelloWorld.exs) | ✅ | created by José Valim, 2012 |
-| **G-Portugol** | [`HelloWorld.gpt`](languages/g-portugol/HelloWorld.gpt) |  | open source Portugol compiler, 2005 |
+| **G-Portugol** | [`HelloWorld.gpt`](languages/g-portugol/HelloWorld.gpt) | ✅ | open source Portugol compiler, 2005 |
 | **Lua** | [`HelloWorld.lua`](languages/lua/HelloWorld.lua) | ✅ | PUC-Rio, 1993 — the most widely used Brazilian language |
 | **Portugol (VisuAlg)** | [`HelloWorld.alg`](languages/visualg/HelloWorld.alg) | ✅ | pseudocode used to teach programming in Brazil |
 | **Portugol Studio** | [`HelloWorld.por`](languages/portugol-studio/HelloWorld.por) | ✅ | UNIVALI |
