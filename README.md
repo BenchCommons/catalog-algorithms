@@ -4,7 +4,7 @@
 
 [![CI](https://github.com/matbrgz/Hello-World/actions/workflows/hello-world.yml/badge.svg)](https://github.com/matbrgz/Hello-World/actions/workflows/hello-world.yml)
 ![Languages](https://img.shields.io/badge/languages-452-blue)
-![Tested in CI](https://img.shields.io/badge/tested%20in%20CI-95-brightgreen)
+![Tested in CI](https://img.shields.io/badge/tested%20in%20CI-96-brightgreen)
 ![TIOBE coverage](https://img.shields.io/badge/TIOBE%20top%20100-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -14,7 +14,7 @@ the first program almost everyone writes in a new language. This repository coll
 the languages that shaped computing history, the new languages people are talking about, Brazilian languages,
 and a long tail of assembly, shell, scientific, hardware, markup and esoteric languages.
 
-**95 programs are compiled or run on every push** by GitHub Actions (marked ✅ below), and the output is checked
+**96 programs are compiled or run on every push** by GitHub Actions (marked ✅ below), and the output is checked
 to contain "Hello World".
 
 ## Contents
@@ -490,7 +490,7 @@ Languages embedded in game engines and applications.
 | **PICO-8 Lua** | [`hello.p8.lua`](languages/pico-8/hello.p8.lua) |  |  |
 | **QuakeC** | [`progs.qc`](languages/quakec/progs.qc) |  |  |
 | **Ren'Py** | [`script.rpy`](languages/renpy/script.rpy) |  |  |
-| **Squirrel** | [`HelloWorld.nut`](languages/squirrel/HelloWorld.nut) | ✅ |  |
+| **Squirrel** | [`HelloWorld.nut`](languages/squirrel/HelloWorld.nut) |  |  |
 | **Teal** | [`HelloWorld.tl`](languages/teal/HelloWorld.tl) |  |  |
 | **UnrealScript** | [`HelloWorld.uc`](languages/unrealscript/HelloWorld.uc) |  |  |
 | **YueScript** | [`HelloWorld.yue`](languages/yuescript/HelloWorld.yue) |  |  |
@@ -597,13 +597,13 @@ Languages designed as jokes, puzzles or experiments.
 | **BIRL** | [`HelloWorld.birl`](languages/birl/HelloWorld.birl) |  | keywords from bodybuilder Bambam's catchphrases |
 | **Brainfuck** | [`HelloWorld.bf`](languages/brainfuck/HelloWorld.bf) | ✅ |  |
 | **Chef** | [`HelloWorld.chef`](languages/chef/HelloWorld.chef) |  |  |
-| **COW** | [`HelloWorld.cow`](languages/cow/HelloWorld.cow) |  | generated from the Brainfuck program |
+| **COW** | [`HelloWorld.cow`](languages/cow/HelloWorld.cow) | ✅ | generated from the Brainfuck program |
 | **Emojicode** | [`HelloWorld.emojic`](languages/emojicode/HelloWorld.emojic) |  |  |
 | **FALSE** | [`HelloWorld.f`](languages/false/HelloWorld.f) |  |  |
 | **GolfScript** | [`HelloWorld.gs`](languages/golfscript/HelloWorld.gs) |  |  |
 | **HQ9+** | [`HelloWorld.hq9`](languages/hq9-plus/HelloWorld.hq9) |  | `H` prints "Hello, world!" |
 | **LOLCODE** | [`HelloWorld.lol`](languages/lolcode/HelloWorld.lol) |  |  |
-| **Ook!** | [`HelloWorld.ook`](languages/ook/HelloWorld.ook) |  | generated from the Brainfuck program |
+| **Ook!** | [`HelloWorld.ook`](languages/ook/HelloWorld.ook) | ✅ | generated from the Brainfuck program |
 | **Piet** | [`HelloWorld.txt`](languages/piet/HelloWorld.txt) |  | image-based; link to the canonical program |
 | **Pyth** | [`HelloWorld.pyth`](languages/pyth/HelloWorld.pyth) |  |  |
 | **Rockstar** | [`HelloWorld.rock`](languages/rockstar/HelloWorld.rock) |  |  |

@@ -4,5 +4,9 @@
     "HelloWorld.cow"
   ],
   "section": "esoteric",
-  "notes": "generated from the Brainfuck program"
+  "notes": "generated from the Brainfuck program",
+  "test": {
+    "group": "base",
+    "run": "python3 \"$HELLO_ROOT/scripts/esolang.py\" cow HelloWorld.cow"
+  }
 }

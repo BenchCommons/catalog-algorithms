@@ -5,10 +5,7 @@
   ],
   "section": "esoteric",
   "test": {
-    "group": "apt",
-    "run": "bf HelloWorld.bf",
-    "apt": [
-      "bf"
-    ]
+    "group": "base",
+    "run": "python3 \"$HELLO_ROOT/scripts/esolang.py\" bf HelloWorld.bf"
   }
 }

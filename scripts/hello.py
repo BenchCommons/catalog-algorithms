@@ -295,7 +295,7 @@ def cmd_test(args):
         try:
             for f in l["files"]:
                 shutil.copy(os.path.join(LANG_DIR, l["slug"], f), tmp)
-            proc = subprocess.run(["sh", "-c", test["run"]], cwd=tmp, stdin=subprocess.DEVNULL,
+            proc = subprocess.run(["sh", "-c", test["run"]], cwd=tmp, env=dict(os.environ, HELLO_ROOT=ROOT), stdin=subprocess.DEVNULL,
                                   stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=args.timeout)
             out = proc.stdout.decode("utf-8", "replace")
             ok = "helloworld" in normalize(out) and (proc.returncode == 0 or test.get("allow_nonzero"))

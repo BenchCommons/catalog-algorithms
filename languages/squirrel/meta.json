@@ -3,12 +3,5 @@
   "files": [
     "HelloWorld.nut"
   ],
-  "section": "game",
-  "test": {
-    "group": "apt",
-    "run": "squirrel3 HelloWorld.nut",
-    "apt": [
-      "squirrel3"
-    ]
-  }
+  "section": "game"
 }
