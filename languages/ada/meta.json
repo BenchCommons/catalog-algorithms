@@ -8,7 +8,7 @@
   },
   "test": {
     "group": "apt",
-    "run": "gnatmake -q HelloWorld.adb -o hello && ./hello",
+    "run": "gnatmake -q helloworld.adb -o hello && ./hello",
     "apt": [
       "gnat"
     ],

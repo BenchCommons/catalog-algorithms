@@ -47,4 +47,5 @@ jobs:
       - uses: mlugg/setup-zig@v2
       - uses: dart-lang/setup-dart@v1
       - uses: crystal-lang/install-crystal@v1
+      - uses: VirtusLab/scala-cli-setup@v1
       - run: python3 scripts/hello.py test --group extra --strict

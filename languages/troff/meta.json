@@ -8,7 +8,7 @@
     "group": "apt",
     "run": "groff -ms -T utf8 HelloWorld.ms",
     "apt": [
-      "groff-base"
+      "groff"
     ],
     "needs": [
       "groff"

@@ -7,10 +7,7 @@
     "rank": 44
   },
   "test": {
-    "group": "apt",
-    "run": "scala HelloWorld.scala",
-    "apt": [
-      "scala"
-    ]
+    "group": "extra",
+    "run": "scala-cli run --server=false HelloWorld.scala"
   }
 }
