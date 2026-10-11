@@ -1,0 +1,2 @@
+// PowerBuilder PowerScript (e.g. in the open event of an application object)
+MessageBox("Hello", "Hello World")

@@ -1,0 +1,4 @@
+Uses "Console"
+
+Console_WriteLine("Hello World")
+Console_WaitKey

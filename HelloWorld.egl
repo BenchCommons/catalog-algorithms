@@ -1,0 +1,7 @@
+package hello;
+
+program HelloWorld type BasicProgram
+    function main()
+        SysLib.writeStdout("Hello World");
+    end
+end

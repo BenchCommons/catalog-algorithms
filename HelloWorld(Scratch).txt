@@ -1,0 +1,5 @@
+// Scratch is block-based. Textual form using the scratchblocks notation
+// (https://scratchblocks.github.io):
+
+when green flag clicked
+say [Hello World]
