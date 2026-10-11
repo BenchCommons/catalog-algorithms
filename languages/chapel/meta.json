@@ -1,0 +1,7 @@
+{
+  "name": "Chapel",
+  "files": [
+    "HelloWorld.chpl"
+  ],
+  "section": "modern"
+}

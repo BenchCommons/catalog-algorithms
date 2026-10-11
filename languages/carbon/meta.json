@@ -1,0 +1,8 @@
+{
+  "name": "Carbon",
+  "files": [
+    "HelloWorld.carbon"
+  ],
+  "section": "modern",
+  "notes": "experimental"
+}

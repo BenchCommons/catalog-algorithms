@@ -1,0 +1,16 @@
+{
+  "name": "TypeScript",
+  "files": [
+    "HelloWorld.ts"
+  ],
+  "tiobe": {
+    "rank": 39
+  },
+  "test": {
+    "group": "base",
+    "run": "npx --yes tsx HelloWorld.ts",
+    "needs": [
+      "npx"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Cypher",
+  "files": [
+    "HelloWorld.cypher"
+  ],
+  "section": "query"
+}

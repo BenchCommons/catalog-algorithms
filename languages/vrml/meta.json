@@ -1,0 +1,7 @@
+{
+  "name": "VRML",
+  "files": [
+    "HelloWorld.wrl"
+  ],
+  "section": "markup"
+}

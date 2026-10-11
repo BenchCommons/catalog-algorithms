@@ -1,0 +1,7 @@
+{
+  "name": "Graphviz DOT",
+  "files": [
+    "HelloWorld.dot"
+  ],
+  "section": "markup"
+}

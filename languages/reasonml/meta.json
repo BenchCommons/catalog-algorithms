@@ -1,0 +1,7 @@
+{
+  "name": "ReasonML",
+  "files": [
+    "HelloWorld.re"
+  ],
+  "section": "general"
+}

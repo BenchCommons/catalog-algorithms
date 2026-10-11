@@ -1,0 +1,7 @@
+{
+  "name": "JSON",
+  "files": [
+    "hello.json"
+  ],
+  "section": "config"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "dc",
+  "files": [
+    "HelloWorld.dc"
+  ],
+  "section": "shells",
+  "test": {
+    "group": "apt",
+    "run": "dc HelloWorld.dc",
+    "apt": [
+      "dc"
+    ]
+  }
+}

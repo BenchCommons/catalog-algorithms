@@ -1,0 +1,7 @@
+{
+  "name": "YAML",
+  "files": [
+    "hello.yaml"
+  ],
+  "section": "config"
+}

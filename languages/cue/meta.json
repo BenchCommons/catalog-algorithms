@@ -1,0 +1,7 @@
+{
+  "name": "CUE",
+  "files": [
+    "HelloWorld.cue"
+  ],
+  "section": "config"
+}

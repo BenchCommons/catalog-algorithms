@@ -1,0 +1,7 @@
+{
+  "name": "YSH (Oils)",
+  "files": [
+    "HelloWorld.ysh"
+  ],
+  "section": "shells"
+}

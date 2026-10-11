@@ -1,0 +1,16 @@
+{
+  "name": "OCaml",
+  "files": [
+    "HelloWorld.ml"
+  ],
+  "tiobe": {
+    "rank": 38
+  },
+  "test": {
+    "group": "apt",
+    "run": "ocaml HelloWorld.ml",
+    "apt": [
+      "ocaml-nox"
+    ]
+  }
+}

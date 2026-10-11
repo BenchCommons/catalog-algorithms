@@ -1,0 +1,17 @@
+{
+  "name": "GNU Octave",
+  "files": [
+    "HelloWorld.m"
+  ],
+  "section": "scientific",
+  "test": {
+    "group": "apt",
+    "run": "octave-cli --no-gui HelloWorld.m",
+    "apt": [
+      "octave"
+    ],
+    "needs": [
+      "octave-cli"
+    ]
+  }
+}

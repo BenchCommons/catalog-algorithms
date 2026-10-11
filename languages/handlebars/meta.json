@@ -1,0 +1,7 @@
+{
+  "name": "Handlebars",
+  "files": [
+    "HelloWorld.hbs"
+  ],
+  "section": "markup"
+}

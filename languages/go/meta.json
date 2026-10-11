@@ -1,0 +1,13 @@
+{
+  "name": "Go",
+  "files": [
+    "HelloWorld.go"
+  ],
+  "tiobe": {
+    "rank": 12
+  },
+  "test": {
+    "group": "base",
+    "run": "go run HelloWorld.go"
+  }
+}

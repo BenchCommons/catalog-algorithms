@@ -1,0 +1,16 @@
+{
+  "name": "R",
+  "files": [
+    "HelloWorld.r"
+  ],
+  "tiobe": {
+    "rank": 9
+  },
+  "test": {
+    "group": "apt",
+    "run": "Rscript HelloWorld.r",
+    "apt": [
+      "r-base-core"
+    ]
+  }
+}

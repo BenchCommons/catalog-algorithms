@@ -1,0 +1,7 @@
+{
+  "name": "AutoLISP",
+  "files": [
+    "HelloWorld.lsp"
+  ],
+  "section": "general"
+}

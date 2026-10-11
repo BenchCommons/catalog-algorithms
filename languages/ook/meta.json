@@ -1,0 +1,12 @@
+{
+  "name": "Ook!",
+  "files": [
+    "HelloWorld.ook"
+  ],
+  "section": "esoteric",
+  "notes": "generated from the Brainfuck program",
+  "test": {
+    "group": "base",
+    "run": "python3 \"$HELLO_ROOT/scripts/esolang.py\" ook HelloWorld.ook"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Solidity",
+  "files": [
+    "HelloWorld.sol"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  }
+}

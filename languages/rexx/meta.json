@@ -1,0 +1,15 @@
+{
+  "name": "REXX",
+  "files": [
+    "HelloWorld.rexx"
+  ],
+  "section": "historical",
+  "year": 1979,
+  "test": {
+    "group": "apt",
+    "run": "regina HelloWorld.rexx",
+    "apt": [
+      "regina-rexx"
+    ]
+  }
+}

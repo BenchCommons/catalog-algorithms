@@ -1,0 +1,7 @@
+{
+  "name": "Liquid",
+  "files": [
+    "HelloWorld.liquid"
+  ],
+  "section": "markup"
+}

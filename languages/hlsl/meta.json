@@ -1,0 +1,7 @@
+{
+  "name": "HLSL",
+  "files": [
+    "HelloWorld.hlsl"
+  ],
+  "section": "hardware"
+}

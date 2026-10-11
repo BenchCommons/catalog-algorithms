@@ -1,0 +1,11 @@
+{
+  "name": "Dash",
+  "files": [
+    "HelloWorld.sh"
+  ],
+  "section": "shells",
+  "test": {
+    "group": "base",
+    "run": "dash HelloWorld.sh"
+  }
+}

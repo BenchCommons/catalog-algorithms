@@ -1,0 +1,7 @@
+{
+  "name": "Vue (SFC)",
+  "files": [
+    "HelloWorld.vue"
+  ],
+  "section": "markup"
+}

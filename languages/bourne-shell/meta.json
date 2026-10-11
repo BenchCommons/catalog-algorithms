@@ -1,0 +1,13 @@
+{
+  "name": "Bourne shell",
+  "files": [
+    "HelloWorld.sh"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "test": {
+    "group": "base",
+    "run": "sh HelloWorld.sh"
+  }
+}

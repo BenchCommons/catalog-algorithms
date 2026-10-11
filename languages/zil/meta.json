@@ -1,0 +1,7 @@
+{
+  "name": "ZIL (Zork Implementation Language)",
+  "files": [
+    "hello.zil"
+  ],
+  "section": "game"
+}

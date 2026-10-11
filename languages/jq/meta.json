@@ -1,0 +1,11 @@
+{
+  "name": "jq",
+  "files": [
+    "HelloWorld.jq"
+  ],
+  "section": "shells",
+  "test": {
+    "group": "base",
+    "run": "jq -n -r -f HelloWorld.jq"
+  }
+}

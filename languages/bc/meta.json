@@ -1,0 +1,16 @@
+{
+  "name": "bc",
+  "files": [
+    "HelloWorld.bc"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "test": {
+    "group": "apt",
+    "run": "bc -q HelloWorld.bc",
+    "apt": [
+      "bc"
+    ]
+  }
+}

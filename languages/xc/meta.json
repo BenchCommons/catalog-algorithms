@@ -1,0 +1,16 @@
+{
+  "name": "XC",
+  "files": [
+    "HelloWorld.xc"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "test": {
+    "group": "base",
+    "run": "cc -x c -o hello HelloWorld.xc && ./hello",
+    "needs": [
+      "cc"
+    ]
+  }
+}

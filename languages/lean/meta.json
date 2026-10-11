@@ -1,0 +1,7 @@
+{
+  "name": "Lean 4",
+  "files": [
+    "HelloWorld.lean"
+  ],
+  "section": "modern"
+}

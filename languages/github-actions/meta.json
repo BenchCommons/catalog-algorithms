@@ -1,0 +1,7 @@
+{
+  "name": "GitHub Actions",
+  "files": [
+    "hello-world.yml"
+  ],
+  "section": "config"
+}

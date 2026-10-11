@@ -1,0 +1,7 @@
+{
+  "name": "ink! (Rust)",
+  "files": [
+    "lib.rs"
+  ],
+  "section": "blockchain"
+}

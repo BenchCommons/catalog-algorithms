@@ -1,0 +1,8 @@
+{
+  "name": "OpenQASM",
+  "files": [
+    "HelloWorld.qasm"
+  ],
+  "section": "hardware",
+  "notes": "quantum circuit; no text output"
+}

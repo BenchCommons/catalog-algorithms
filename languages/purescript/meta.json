@@ -1,0 +1,7 @@
+{
+  "name": "PureScript",
+  "files": [
+    "Main.purs"
+  ],
+  "section": "general"
+}

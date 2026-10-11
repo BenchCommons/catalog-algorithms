@@ -1,0 +1,16 @@
+{
+  "name": "C",
+  "files": [
+    "HelloWorld.c"
+  ],
+  "tiobe": {
+    "rank": 2
+  },
+  "test": {
+    "group": "base",
+    "run": "cc -o hello HelloWorld.c && ./hello",
+    "needs": [
+      "cc"
+    ]
+  }
+}

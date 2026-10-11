@@ -1,0 +1,15 @@
+{
+  "name": "Verilog / SystemVerilog",
+  "files": [
+    "HelloWorld.sv"
+  ],
+  "section": "historical",
+  "year": 1984,
+  "test": {
+    "group": "apt",
+    "run": "iverilog -g2012 -o hello HelloWorld.sv && vvp hello",
+    "apt": [
+      "iverilog"
+    ]
+  }
+}

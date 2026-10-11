@@ -1,0 +1,7 @@
+{
+  "name": "MicroPython",
+  "files": [
+    "main.py"
+  ],
+  "section": "game"
+}

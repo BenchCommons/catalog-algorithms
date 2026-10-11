@@ -1,0 +1,7 @@
+{
+  "name": "FreeBASIC",
+  "files": [
+    "HelloWorld.bas"
+  ],
+  "section": "general"
+}

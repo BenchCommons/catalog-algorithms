@@ -1,0 +1,11 @@
+{
+  "name": "Potigol",
+  "files": [
+    "HelloWorld.poti"
+  ],
+  "section": "general",
+  "tags": [
+    "brazilian"
+  ],
+  "notes": "IFRN, functional language in Portuguese"
+}

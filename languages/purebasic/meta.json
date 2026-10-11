@@ -1,0 +1,9 @@
+{
+  "name": "PureBasic",
+  "files": [
+    "HelloWorld.pb"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  }
+}

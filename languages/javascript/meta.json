@@ -1,0 +1,13 @@
+{
+  "name": "JavaScript",
+  "files": [
+    "HelloWorld.js"
+  ],
+  "tiobe": {
+    "rank": 6
+  },
+  "test": {
+    "group": "base",
+    "run": "node HelloWorld.js"
+  }
+}

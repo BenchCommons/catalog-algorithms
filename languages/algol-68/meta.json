@@ -1,0 +1,15 @@
+{
+  "name": "ALGOL 68",
+  "files": [
+    "HelloWorld.a68"
+  ],
+  "section": "historical",
+  "year": 1968,
+  "test": {
+    "group": "apt",
+    "run": "a68g HelloWorld.a68",
+    "apt": [
+      "algol68g"
+    ]
+  }
+}

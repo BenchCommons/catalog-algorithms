@@ -1,0 +1,7 @@
+{
+  "name": "Cairo",
+  "files": [
+    "hello_world.cairo"
+  ],
+  "section": "blockchain"
+}

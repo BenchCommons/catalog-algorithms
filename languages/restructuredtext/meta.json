@@ -1,0 +1,7 @@
+{
+  "name": "reStructuredText",
+  "files": [
+    "HelloWorld.rst"
+  ],
+  "section": "markup"
+}

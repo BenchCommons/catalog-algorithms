@@ -1,0 +1,13 @@
+{
+  "name": "PowerShell",
+  "files": [
+    "HelloWorld.ps1"
+  ],
+  "tiobe": {
+    "rank": 32
+  },
+  "test": {
+    "group": "base",
+    "run": "pwsh -NoProfile -File HelloWorld.ps1"
+  }
+}

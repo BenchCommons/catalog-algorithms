@@ -1,0 +1,3 @@
+Piet programs are images (abstract paintings in the style of Piet Mondrian).
+The canonical Hello World image by Thomas Schoch is at:
+https://www.dangermouse.net/esoteric/piet/samples.html

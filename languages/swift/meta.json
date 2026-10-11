@@ -1,0 +1,13 @@
+{
+  "name": "Swift",
+  "files": [
+    "HelloWorld.swift"
+  ],
+  "tiobe": {
+    "rank": 18
+  },
+  "test": {
+    "group": "base",
+    "run": "swift HelloWorld.swift"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "VBScript",
+  "files": [
+    "HelloWorld.vbs"
+  ],
+  "tiobe": {
+    "rank": 37
+  }
+}

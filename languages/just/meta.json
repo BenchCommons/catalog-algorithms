@@ -1,0 +1,7 @@
+{
+  "name": "just",
+  "files": [
+    "justfile"
+  ],
+  "section": "config"
+}

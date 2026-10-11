@@ -1,0 +1,13 @@
+{
+  "name": "Java",
+  "files": [
+    "HelloWorld.java"
+  ],
+  "tiobe": {
+    "rank": 4
+  },
+  "test": {
+    "group": "base",
+    "run": "java HelloWorld.java"
+  }
+}

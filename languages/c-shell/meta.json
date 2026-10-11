@@ -1,0 +1,16 @@
+{
+  "name": "C shell",
+  "files": [
+    "HelloWorld.csh"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "test": {
+    "group": "apt",
+    "run": "csh HelloWorld.csh",
+    "apt": [
+      "csh"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Modelica",
+  "files": [
+    "HelloWorld.mo"
+  ],
+  "section": "scientific"
+}

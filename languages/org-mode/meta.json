@@ -1,0 +1,7 @@
+{
+  "name": "Org mode",
+  "files": [
+    "HelloWorld.org"
+  ],
+  "section": "markup"
+}

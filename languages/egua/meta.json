@@ -1,0 +1,11 @@
+{
+  "name": "Égua / Delégua",
+  "files": [
+    "HelloWorld.egua"
+  ],
+  "section": "general",
+  "tags": [
+    "brazilian"
+  ],
+  "notes": "Delégua is a fork of Égua and runs `.egua` files"
+}

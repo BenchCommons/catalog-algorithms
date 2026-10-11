@@ -1,0 +1,7 @@
+{
+  "name": "XQuery",
+  "files": [
+    "HelloWorld.xq"
+  ],
+  "section": "query"
+}

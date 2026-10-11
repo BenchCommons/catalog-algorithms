@@ -1,0 +1,13 @@
+{
+  "name": "ECMAScript",
+  "files": [
+    "HelloWorld.mjs"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "test": {
+    "group": "base",
+    "run": "node HelloWorld.mjs"
+  }
+}

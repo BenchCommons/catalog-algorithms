@@ -1,0 +1,11 @@
+{
+  "name": "Portugol (VisuAlg)",
+  "files": [
+    "HelloWorld.alg"
+  ],
+  "section": "general",
+  "tags": [
+    "brazilian"
+  ],
+  "notes": "pseudocode used to teach programming in Brazil"
+}

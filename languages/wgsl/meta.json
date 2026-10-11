@@ -1,0 +1,8 @@
+{
+  "name": "WGSL",
+  "files": [
+    "HelloWorld.wgsl"
+  ],
+  "section": "hardware",
+  "notes": "no text output; renders a solid color"
+}

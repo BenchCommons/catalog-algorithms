@@ -1,0 +1,7 @@
+{
+  "name": "MiniZinc",
+  "files": [
+    "HelloWorld.mzn"
+  ],
+  "section": "scientific"
+}

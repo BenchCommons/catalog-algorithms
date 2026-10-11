@@ -1,0 +1,16 @@
+{
+  "name": "VHDL",
+  "files": [
+    "HelloWorld.vhd"
+  ],
+  "tiobe": {
+    "rank": 47
+  },
+  "test": {
+    "group": "apt",
+    "run": "ghdl -a HelloWorld.vhd && ghdl -e HelloWorld && ghdl -r HelloWorld",
+    "apt": [
+      "ghdl"
+    ]
+  }
+}

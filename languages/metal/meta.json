@@ -1,0 +1,7 @@
+{
+  "name": "Metal Shading Language",
+  "files": [
+    "HelloWorld.metal"
+  ],
+  "section": "hardware"
+}

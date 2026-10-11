@@ -1,0 +1,8 @@
+{
+  "name": "GLSL",
+  "files": [
+    "HelloWorld.comp"
+  ],
+  "section": "hardware",
+  "notes": "Vulkan compute shader with `debugPrintfEXT`"
+}

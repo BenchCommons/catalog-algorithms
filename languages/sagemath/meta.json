@@ -1,0 +1,7 @@
+{
+  "name": "SageMath",
+  "files": [
+    "HelloWorld.sage"
+  ],
+  "section": "scientific"
+}

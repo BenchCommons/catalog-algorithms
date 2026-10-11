@@ -1,0 +1,7 @@
+{
+  "name": "PlantUML",
+  "files": [
+    "HelloWorld.puml"
+  ],
+  "section": "markup"
+}

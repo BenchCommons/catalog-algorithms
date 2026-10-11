@@ -1,0 +1,7 @@
+{
+  "name": "Nix",
+  "files": [
+    "HelloWorld.nix"
+  ],
+  "section": "config"
+}

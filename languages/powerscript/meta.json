@@ -1,0 +1,9 @@
+{
+  "name": "PowerScript",
+  "files": [
+    "HelloWorld.powerscript"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  }
+}

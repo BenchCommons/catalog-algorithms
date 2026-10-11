@@ -1,0 +1,14 @@
+{
+  "name": "Genie",
+  "files": [
+    "HelloWorld.gs"
+  ],
+  "section": "general",
+  "test": {
+    "group": "apt",
+    "run": "valac -o hello HelloWorld.gs && ./hello",
+    "apt": [
+      "valac"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Ansible",
+  "files": [
+    "hello-world.yml"
+  ],
+  "section": "config"
+}

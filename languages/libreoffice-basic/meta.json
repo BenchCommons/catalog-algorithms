@@ -1,0 +1,7 @@
+{
+  "name": "LibreOffice Basic",
+  "files": [
+    "HelloWorld.bas"
+  ],
+  "section": "shells"
+}

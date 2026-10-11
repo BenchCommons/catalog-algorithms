@@ -1,0 +1,7 @@
+{
+  "name": "Bicep",
+  "files": [
+    "main.bicep"
+  ],
+  "section": "config"
+}

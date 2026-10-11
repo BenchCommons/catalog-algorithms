@@ -1,0 +1,7 @@
+{
+  "name": "WebAssembly (WAT)",
+  "files": [
+    "HelloWorld.wat"
+  ],
+  "section": "modern"
+}

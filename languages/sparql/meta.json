@@ -1,0 +1,7 @@
+{
+  "name": "SPARQL",
+  "files": [
+    "HelloWorld.rq"
+  ],
+  "section": "query"
+}

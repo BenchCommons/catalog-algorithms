@@ -1,0 +1,7 @@
+{
+  "name": "Michelson (Tezos)",
+  "files": [
+    "hello_world.tz"
+  ],
+  "section": "blockchain"
+}

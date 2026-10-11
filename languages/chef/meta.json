@@ -1,0 +1,7 @@
+{
+  "name": "Chef",
+  "files": [
+    "HelloWorld.chef"
+  ],
+  "section": "esoteric"
+}

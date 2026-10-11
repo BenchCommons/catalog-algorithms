@@ -1,0 +1,19 @@
+{
+  "name": "COBOL",
+  "files": [
+    "HelloWorld.cob"
+  ],
+  "tiobe": {
+    "rank": 20
+  },
+  "test": {
+    "group": "apt",
+    "run": "cobc -x -o hello HelloWorld.cob && ./hello",
+    "apt": [
+      "gnucobol"
+    ],
+    "needs": [
+      "cobc"
+    ]
+  }
+}

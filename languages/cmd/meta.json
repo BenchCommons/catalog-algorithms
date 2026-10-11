@@ -1,0 +1,7 @@
+{
+  "name": "Windows CMD (NT batch)",
+  "files": [
+    "HelloWorld.cmd"
+  ],
+  "section": "shells"
+}

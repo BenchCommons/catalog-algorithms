@@ -1,0 +1,10 @@
+{
+  "name": "JScript",
+  "files": [
+    "HelloWorld.js"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "notes": "Windows Script Host"
+}

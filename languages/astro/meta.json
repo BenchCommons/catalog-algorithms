@@ -1,0 +1,7 @@
+{
+  "name": "Astro",
+  "files": [
+    "HelloWorld.astro"
+  ],
+  "section": "markup"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Bash",
+  "files": [
+    "HelloWorld.bash"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "test": {
+    "group": "base",
+    "run": "bash HelloWorld.bash"
+  }
+}

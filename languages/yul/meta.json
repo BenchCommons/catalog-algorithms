@@ -1,0 +1,7 @@
+{
+  "name": "Yul",
+  "files": [
+    "HelloWorld.yul"
+  ],
+  "section": "blockchain"
+}

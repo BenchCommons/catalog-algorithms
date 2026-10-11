@@ -1,0 +1,7 @@
+{
+  "name": "Dhall",
+  "files": [
+    "HelloWorld.dhall"
+  ],
+  "section": "config"
+}

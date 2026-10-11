@@ -1,0 +1,13 @@
+{
+  "name": "Ruby",
+  "files": [
+    "HelloWorld.rb"
+  ],
+  "tiobe": {
+    "rank": 22
+  },
+  "test": {
+    "group": "base",
+    "run": "ruby HelloWorld.rb"
+  }
+}

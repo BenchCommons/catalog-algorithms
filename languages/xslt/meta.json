@@ -1,0 +1,16 @@
+{
+  "name": "XSLT",
+  "files": [
+    "HelloWorld.xsl"
+  ],
+  "tiobe": {
+    "rank": 48
+  },
+  "test": {
+    "group": "apt",
+    "run": "xsltproc HelloWorld.xsl HelloWorld.xsl",
+    "apt": [
+      "xsltproc"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Rego (Open Policy Agent)",
+  "files": [
+    "hello.rego"
+  ],
+  "section": "config"
+}

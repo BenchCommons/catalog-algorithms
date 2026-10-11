@@ -1,0 +1,7 @@
+{
+  "name": "Squirrel",
+  "files": [
+    "HelloWorld.nut"
+  ],
+  "section": "game"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "AsciiDoc",
+  "files": [
+    "HelloWorld.adoc"
+  ],
+  "section": "markup"
+}

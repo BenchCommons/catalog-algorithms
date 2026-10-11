@@ -1,0 +1,7 @@
+{
+  "name": "Ballerina",
+  "files": [
+    "HelloWorld.bal"
+  ],
+  "section": "modern"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Meson",
+  "files": [
+    "meson.build"
+  ],
+  "section": "config"
+}
