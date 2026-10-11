@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.nix"
   ],
-  "section": "config"
+  "section": "config",
+  "test": {
+    "group": "docker",
+    "image": "nixos/nix:2.31.2",
+    "run": "nix-instantiate --eval HelloWorld.nix"
+  }
 }

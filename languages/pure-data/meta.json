@@ -6,5 +6,15 @@
   "tiobe": {
     "group": "51-100"
   },
-  "notes": "patch file; prints to the Pd console"
+  "notes": "patch file; prints to the Pd console",
+  "test": {
+    "group": "apt",
+    "run": "pd -nogui -noaudio -nomidi -stderr -open HelloWorld.pd -send \"pd quit\"",
+    "apt": [
+      "puredata-core"
+    ],
+    "needs": [
+      "pd"
+    ]
+  }
 }

@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.cljs"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "clojure:temurin-21-tools-deps-1.12.1.1550-bookworm-slim",
+    "run": "apt-get update -qq && apt-get install -y -qq nodejs >/dev/null && clojure -Sdeps \"{:deps {org.clojure/clojurescript {:mvn/version \\\"1.12.42\\\"}}}\" -M -m cljs.main -re node HelloWorld.cljs"
+  }
 }

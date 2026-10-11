@@ -51,11 +51,22 @@ jobs:
       - uses: erlef/setup-beam@v1
         with:
           otp-version: '27'
-          gleam-version: '1.9.1'
+          gleam-version: '1.14.0'
       - uses: vlang/setup-v@v1
       - name: Start PostgreSQL
         run: sudo systemctl start postgresql.service
       - run: python3 scripts/hello.py test --group extra --strict
+
+  docker:
+    name: Run (Docker ${{ matrix.shard }}/4)
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/hello.py test --group docker --strict --shard ${{ matrix.shard }}/4 --timeout 600
 
   macos:
     name: Run (macOS)

@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.janet"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.21",
+    "run": "apk add -q janet >/dev/null && janet HelloWorld.janet"
+  }
 }

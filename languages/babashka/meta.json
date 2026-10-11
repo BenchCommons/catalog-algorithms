@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.bb"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "babashka/babashka:1.12.208",
+    "run": "bb HelloWorld.bb"
+  }
 }

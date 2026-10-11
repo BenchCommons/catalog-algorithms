@@ -6,5 +6,12 @@
   "tiobe": {
     "group": "51-100"
   },
-  "year": 1967
+  "year": 1967,
+  "test": {
+    "group": "apt",
+    "run": "ucblogo HelloWorld.logo",
+    "apt": [
+      "ucblogo"
+    ]
+  }
 }

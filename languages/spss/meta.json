@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.sps"
   ],
-  "section": "scientific"
+  "section": "scientific",
+  "test": {
+    "group": "apt",
+    "run": "pspp HelloWorld.sps",
+    "apt": [
+      "pspp"
+    ]
+  }
 }

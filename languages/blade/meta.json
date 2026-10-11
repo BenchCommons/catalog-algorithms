@@ -3,5 +3,10 @@
   "files": [
     "hello.blade.php"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.21",
+    "run": "apk add -q composer php83-tokenizer php83-ctype php83-fileinfo php83-dom php83-xml >/dev/null && composer require -q illuminate/view:11.31.0 && php -r 'require \"vendor/autoload.php\"; $c = new Illuminate\\View\\Compilers\\BladeCompiler(new Illuminate\\Filesystem\\Filesystem, sys_get_temp_dir()); eval(\"?>\" . $c->compileString(file_get_contents(\"hello.blade.php\")));'"
+  }
 }

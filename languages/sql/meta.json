@@ -5,5 +5,15 @@
   ],
   "tiobe": {
     "rank": 8
+  },
+  "test": {
+    "group": "apt",
+    "run": "sqlite3 < HelloWorld.sql",
+    "apt": [
+      "sqlite3"
+    ],
+    "needs": [
+      "sqlite3"
+    ]
   }
 }

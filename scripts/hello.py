@@ -22,7 +22,7 @@ LANG_DIR = os.path.join(ROOT, "languages")
 README = os.path.join(ROOT, "README.md")
 REPO = "matbrgz/Hello-World"
 TIOBE_MONTH = "September 2026"
-TEST_GROUPS = ("base", "apt", "extra", "macos", "windows")
+TEST_GROUPS = ("base", "apt", "extra", "docker", "macos", "windows")
 
 # Section id -> (title, intro). Order defines README order.
 SECTIONS = [
@@ -81,7 +81,10 @@ def table(header, rows):
 
 
 def tested(lang):
-    return "✅" if lang.get("test") else ""
+    test = lang.get("test")
+    if not test:
+        return ""
+    return "🔧" if test.get("kind") == "compile" else "✅"
 
 
 def name_key(lang):
@@ -91,6 +94,8 @@ def name_key(lang):
 def render_readme(langs):
     count = len(langs)
     n_tested = sum(1 for l in langs if l.get("test"))
+    n_run = sum(1 for l in langs if l.get("test") and l["test"].get("kind") != "compile")
+    pct = round(100.0 * n_tested / count)
     top50 = sorted((l for l in langs if l.get("tiobe", {}).get("rank")), key=lambda l: l["tiobe"]["rank"])
     next50 = sorted((l for l in langs if l.get("tiobe", {}).get("group") == "51-100"),
                     key=lambda l: l["tiobe"].get("as", l["name"]).lower())
@@ -103,7 +108,7 @@ def render_readme(langs):
 
 [![CI](https://github.com/{repo}/actions/workflows/hello-world.yml/badge.svg)](https://github.com/{repo}/actions/workflows/hello-world.yml)
 ![Languages](https://img.shields.io/badge/languages-{count}-blue)
-![Tested in CI](https://img.shields.io/badge/tested%20in%20CI-{tested}-brightgreen)
+![Tested in CI](https://img.shields.io/badge/tested%20in%20CI-{tested}%20({pct}%25)-brightgreen)
 ![TIOBE coverage](https://img.shields.io/badge/TIOBE%20top%20100-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -113,9 +118,12 @@ the first program almost everyone writes in a new language. This repository coll
 the languages that shaped computing history, the new languages people are talking about, Brazilian languages,
 and a long tail of assembly, shell, scientific, hardware, markup and esoteric languages.
 
-**{tested} programs are compiled or run on every push** by GitHub Actions (marked ✅ below), and the output is checked
-to contain "Hello World".
-""".format(repo=REPO, count=count, tested=n_tested))
+**{tested} of {count} programs ({pct}%) are checked on every push** by GitHub Actions on Linux, macOS and Windows:
+
+- ✅ **{run} run** and their output is checked to contain "Hello World";
+- 🔧 **{compiled} are compiled or validated** with the language's official tool, for languages that cannot print text
+  (shaders, smart contracts, hardware, configuration) or have no free runtime.
+""".format(repo=REPO, count=count, tested=n_tested, pct=pct, run=n_run, compiled=n_tested - n_run))
 
     toc = ["- [TIOBE Index — Top 50](#tiobe-index--top-50)", "- [TIOBE Index — 51 to 100](#tiobe-index--51-to-100)"]
     sec_with_rows = [s for s in SECTIONS if any(l.get("section") == s[0] for l in langs)]
@@ -183,7 +191,9 @@ python3 scripts/hello.py readme             # regenerate this README from langua
      `section` is one of: %s.
      `test` is optional: add it when the language can run on a GitHub runner. `group` is `base` (tools preinstalled
      on Ubuntu), `apt` (with an `"apt": ["package"]` list), `extra` (tools set up in the workflow), `macos` or
-     `windows`. `needs` lists the commands that must exist (defaults to the first word of `run`).
+     `windows`, or `docker` (with a pinned `"image"`; `run` executes inside it). `needs` lists the commands that must
+     exist (defaults to the first word of `run`). Set `"kind": "compile"` when the program cannot print and the test
+     only checks that the official tool accepts it.
 3. The program should print (or display) `Hello World` and be the idiomatic, minimal version for that language.
 4. Run `python3 scripts/hello.py readme` and `python3 scripts/hello.py check`, then open a pull request.
 
@@ -253,6 +263,12 @@ def cmd_check(_args):
                 errors.append("%s: test.run is empty" % where)
             if test.get("group") == "apt" and not test.get("apt"):
                 errors.append("%s: apt group needs an 'apt' package list" % where)
+            if test.get("group") == "docker":
+                image = test.get("image", "")
+                if ":" not in image or image.endswith(":latest"):
+                    errors.append("%s: docker image must be pinned to a version tag" % where)
+            if test.get("kind", "run") not in ("run", "compile"):
+                errors.append("%s: test.kind must be 'run' or 'compile'" % where)
     if len(ranks) != 50:
         errors.append("TIOBE top 50 has %d ranked languages, expected 50" % len(ranks))
     next50 = [l for l in langs if l.get("tiobe", {}).get("group") == "51-100"]
@@ -280,10 +296,16 @@ def cmd_test(args):
         langs = [l for l in langs if l["test"]["group"] == args.group]
     if args.lang:
         langs = [l for l in langs if l["slug"] in args.lang]
+    if args.shard:
+        index, total = (int(n) for n in args.shard.split("/"))
+        langs = [l for i, l in enumerate(langs) if i % total == index - 1]
     passed, failed, skipped = [], [], []
     for l in langs:
         test = l["test"]
-        needs = test.get("needs") or [test["run"].split()[0]]
+        if test["group"] == "docker":
+            needs = ["docker"]
+        else:
+            needs = test.get("needs") or [test["run"].split()[0]]
         missing = [n for n in needs if shutil.which(n) is None]
         if missing:
             if args.strict:
@@ -296,10 +318,19 @@ def cmd_test(args):
         try:
             for f in l["files"]:
                 shutil.copy(os.path.join(LANG_DIR, l["slug"], f), tmp)
-            proc = subprocess.run(["sh", "-c", test["run"]], cwd=tmp, env=dict(os.environ, HELLO_ROOT=ROOT), stdin=subprocess.DEVNULL,
+            if test["group"] == "docker":
+                cmd = ["docker", "run", "--rm", "--platform", test.get("platform", "linux/amd64"),
+                       "-v", "%s:/src" % tmp, "-w", "/src", "--entrypoint", test.get("shell", "sh"),
+                       test["image"], "-c", test["run"]]
+            else:
+                cmd = ["sh", "-c", test["run"]]
+            proc = subprocess.run(cmd, cwd=tmp, env=dict(os.environ, HELLO_ROOT=ROOT), stdin=subprocess.DEVNULL,
                                   stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=args.timeout)
             out = proc.stdout.decode("utf-8", "replace")
-            ok = "helloworld" in normalize(out) and (proc.returncode == 0 or test.get("allow_nonzero"))
+            if test.get("kind") == "compile":
+                ok = proc.returncode == 0
+            else:
+                ok = "helloworld" in normalize(out) and (proc.returncode == 0 or test.get("allow_nonzero"))
         except subprocess.TimeoutExpired:
             out, ok = "timeout after %ds" % args.timeout, False
         finally:
@@ -340,6 +371,7 @@ def main():
     t.add_argument("--lang", action="append")
     t.add_argument("--strict", action="store_true", help="fail when a toolchain is missing")
     t.add_argument("--timeout", type=int, default=180)
+    t.add_argument("--shard", help="run only shard I of N, as I/N")
     a = sub.add_parser("apt-packages")
     a.add_argument("--group", choices=TEST_GROUPS)
     args = p.parse_args()

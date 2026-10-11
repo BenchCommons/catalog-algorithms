@@ -1,7 +1,16 @@
 {
   "name": "QuakeC",
   "files": [
-    "progs.qc"
+    "progs.qc",
+    "progs.src"
   ],
-  "section": "game"
+  "section": "game",
+  "test": {
+    "group": "apt",
+    "kind": "compile",
+    "run": "fteqcc",
+    "apt": [
+      "fteqcc"
+    ]
+  }
 }

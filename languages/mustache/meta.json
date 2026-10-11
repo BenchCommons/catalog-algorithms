@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.mustache"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "docker",
+    "image": "node:22.11.0-slim",
+    "run": "echo \"{\\\"greeting\\\": true}\" > view.json && npx -y mustache@4.2.0 view.json HelloWorld.mustache"
+  }
 }

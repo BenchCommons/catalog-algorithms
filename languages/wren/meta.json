@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.wren"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSLo w.zip https://github.com/wren-lang/wren-cli/releases/download/0.4.0/wren-cli-linux-0.4.0.zip && unzip -qj w.zip && chmod +x wren_cli && ./wren_cli HelloWorld.wren"
+  }
 }

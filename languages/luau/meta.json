@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.luau"
   ],
-  "section": "game"
+  "section": "game",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL -o /tmp/luau.zip https://github.com/luau-lang/luau/releases/download/0.742/luau-ubuntu.zip && unzip -q /tmp/luau.zip -d /tmp/luau && /tmp/luau/luau HelloWorld.luau"
+  }
 }

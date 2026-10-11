@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.imba"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "npx -y imba@2.0.0-alpha.253 HelloWorld.imba"
+  }
 }

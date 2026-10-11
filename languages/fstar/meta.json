@@ -3,5 +3,11 @@
   "files": [
     "HelloWorld.fst"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "kind": "compile",
+    "group": "docker",
+    "image": "buildpack-deps:bookworm-curl",
+    "run": "curl -sSL https://github.com/FStarLang/FStar/releases/download/v2026.09.20/fstar-v2026.09.20-Linux-x86_64.tar.gz | tar xz && ls fstar fstar/bin; fstar/bin/fstar.exe HelloWorld.fst"
+  }
 }

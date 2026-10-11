@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.nrx"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "eclipse-temurin:17.0.13_11-jdk",
+    "run": "curl -sSLo nrx.zip https://www.netrexx.org/files/NetRexx-5.10-GA.zip && jar xf nrx.zip lib/NetRexxF.jar && java -jar lib/NetRexxF.jar -exec -nologo HelloWorld.nrx"
+  }
 }

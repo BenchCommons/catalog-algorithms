@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.pwn"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "mkdir /tmp/pawn && curl -fsSL https://github.com/compuphase/pawn/releases/download/v4.1.7152/binaries-linux.tgz | tar xz -C /tmp/pawn && export LD_LIBRARY_PATH=/tmp/pawn/bin TERM=dumb && /tmp/pawn/bin/pawncc -C64 -i/tmp/pawn/include HelloWorld.pwn && /tmp/pawn/bin/pawnrun HelloWorld.amx"
+  }
 }

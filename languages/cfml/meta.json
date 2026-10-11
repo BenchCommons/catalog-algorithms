@@ -5,5 +5,10 @@
   ],
   "tiobe": {
     "group": "51-100"
+  },
+  "test": {
+    "group": "docker",
+    "image": "ortussolutions/commandbox:jre17-3.16.0",
+    "run": "box execute HelloWorld.cfm"
   }
 }

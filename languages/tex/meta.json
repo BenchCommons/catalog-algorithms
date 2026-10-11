@@ -3,5 +3,17 @@
   "files": [
     "HelloWorld.tex"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "apt",
+    "run": "tex -interaction=nonstopmode HelloWorld.tex >/dev/null && dvitype HelloWorld.dvi",
+    "apt": [
+      "texlive-base",
+      "texlive-binaries"
+    ],
+    "needs": [
+      "tex",
+      "dvitype"
+    ]
+  }
 }

@@ -4,5 +4,10 @@
     "HelloWorld.py"
   ],
   "section": "historical",
-  "year": 2000
+  "year": 2000,
+  "test": {
+    "group": "docker",
+    "image": "python:2.7.18-slim",
+    "run": "python HelloWorld.py"
+  }
 }

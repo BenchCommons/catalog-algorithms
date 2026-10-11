@@ -3,5 +3,13 @@
   "files": [
     "HelloWorld.cu"
   ],
-  "section": "hardware"
+  "section": "hardware",
+  "test": {
+    "group": "apt",
+    "kind": "compile",
+    "run": "nvcc -o hello HelloWorld.cu",
+    "apt": [
+      "nvidia-cuda-toolkit"
+    ]
+  }
 }

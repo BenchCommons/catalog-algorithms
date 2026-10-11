@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.ts"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "npm i --silent --no-audit --no-fund assemblyscript@0.27.31 && npx asc HelloWorld.ts -o hello.wasm --bindings esm && node --input-type=module -e \"import {hello} from './hello.js'; console.log(hello())\""
+  }
 }

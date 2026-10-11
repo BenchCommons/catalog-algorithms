@@ -3,5 +3,9 @@
   "files": [
     "HelloWorld.js"
   ],
-  "section": "shells"
+  "section": "shells",
+  "test": {
+    "group": "macos",
+    "run": "osascript -l JavaScript HelloWorld.js"
+  }
 }

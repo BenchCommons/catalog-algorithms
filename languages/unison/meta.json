@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.u"
   ],
-  "section": "modern"
+  "section": "modern",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL https://github.com/unisonweb/unison/releases/download/release%2F1.5.0/ucm-linux-x64.tar.gz | tar xz && ./ucm --codebase-create cb run.file HelloWorld.u helloWorld"
+  }
 }

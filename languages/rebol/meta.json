@@ -5,5 +5,10 @@
   ],
   "tiobe": {
     "group": "51-100"
+  },
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.2.0",
+    "run": "curl -sSL https://github.com/Oldes/Rebol3/releases/download/3.22.1/rebol3-core-linux-x64.gz | gunzip > rebol3 && chmod +x rebol3 && ./rebol3 -qs HelloWorld.reb"
   }
 }

@@ -1,1 +1,1 @@
-Transcript showln: 'Hello World'.
+Transcript showCr: 'Hello World'.

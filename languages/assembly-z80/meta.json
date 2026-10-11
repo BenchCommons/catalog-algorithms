@@ -3,5 +3,13 @@
   "files": [
     "HELLO.ASM"
   ],
-  "section": "assembly"
+  "section": "assembly",
+  "test": {
+    "group": "apt",
+    "kind": "compile",
+    "run": "z80asm HELLO.ASM -o HELLO.COM",
+    "apt": [
+      "z80asm"
+    ]
+  }
 }

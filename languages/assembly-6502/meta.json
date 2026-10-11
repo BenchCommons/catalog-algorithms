@@ -4,5 +4,13 @@
     "HelloWorld.asm"
   ],
   "section": "assembly",
-  "notes": "64tass syntax; `SYS 49152` to run"
+  "notes": "64tass syntax; `SYS 49152` to run",
+  "test": {
+    "group": "apt",
+    "kind": "compile",
+    "run": "64tass -q -o hello.prg HelloWorld.asm",
+    "apt": [
+      "64tass"
+    ]
+  }
 }

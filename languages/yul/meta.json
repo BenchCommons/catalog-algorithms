@@ -3,5 +3,11 @@
   "files": [
     "HelloWorld.yul"
   ],
-  "section": "blockchain"
+  "section": "blockchain",
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "ethereum/solc:0.8.30-alpine",
+    "run": "solc --strict-assembly HelloWorld.yul"
+  }
 }

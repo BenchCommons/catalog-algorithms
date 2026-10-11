@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.ex"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates curl >/dev/null && curl -fsSL https://github.com/OpenEuphoria/euphoria/releases/download/4.1.0/euphoria-4.1.0-Linux-x64-57179171dbed.tar.gz | tar xz -C /opt && /opt/euphoria-4.1.0-Linux-x64/bin/eui HelloWorld.ex"
+  }
 }

@@ -3,5 +3,16 @@
   "files": [
     "Main.elm"
   ],
-  "section": "modern"
+  "section": "modern",
+  "test": {
+    "group": "apt",
+    "kind": "compile",
+    "run": "yes | elm init >/dev/null && elm make Main.elm --output=main.js",
+    "apt": [
+      "elm-compiler"
+    ],
+    "needs": [
+      "elm"
+    ]
+  }
 }

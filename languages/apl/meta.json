@@ -4,5 +4,10 @@
     "HelloWorld.apl"
   ],
   "section": "historical",
-  "year": 1966
+  "year": 1966,
+  "test": {
+    "group": "docker",
+    "image": "dyalog/dyalog:19.0",
+    "run": "dyalogscript HelloWorld.apl"
+  }
 }

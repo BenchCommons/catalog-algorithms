@@ -1,9 +1,11 @@
+from amaranth.hdl import Module
 from amaranth.sim import Simulator
 
-def hello():
-    print("Hello World")
-    yield
 
-sim = Simulator(None)
-sim.add_process(hello)
+async def hello(ctx):
+    print("Hello World")
+
+
+sim = Simulator(Module())
+sim.add_testbench(hello)
 sim.run()

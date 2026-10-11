@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.tl"
   ],
-  "section": "game"
+  "section": "game",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL https://github.com/teal-language/tl/releases/download/v0.24.8/tl-0.24.8-linux-x86_64.tar.gz | tar xz && ./tl-0.24.8-linux-x86_64/tl run HelloWorld.tl"
+  }
 }

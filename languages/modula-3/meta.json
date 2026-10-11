@@ -4,5 +4,10 @@
     "Main.m3"
   ],
   "section": "historical",
-  "year": 1988
+  "year": 1988,
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:trixie",
+    "run": "curl -sSLO https://github.com/modula3/cm3/releases/download/d5.12.0/cm3_5.12.0_amd64.deb && dpkg -i cm3_5.12.0_amd64.deb >/dev/null && mkdir src && cp Main.m3 src/ && printf 'import(\"libm3\")\\nimplementation(\"Main\")\\nprogram(\"hello\")\\n' > src/m3makefile && export PATH=$PATH:/usr/local/cm3/bin && cm3 >/dev/null && ./*/hello"
+  }
 }

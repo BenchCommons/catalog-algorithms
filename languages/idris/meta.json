@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.idr"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "ghcr.io/stefan-hoeck/idris2-pack:nightly-260901-noble",
+    "run": "idris2 HelloWorld.idr -o hello && ./build/exec/hello"
+  }
 }

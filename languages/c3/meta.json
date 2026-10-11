@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.c3"
   ],
-  "section": "modern"
+  "section": "modern",
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:bookworm",
+    "run": "curl -sSL https://github.com/c3lang/c3c/releases/download/v0.7.1/c3-linux.tar.gz | tar xz && ./c3/c3c compile -o hi HelloWorld.c3 && ./hi"
+  }
 }

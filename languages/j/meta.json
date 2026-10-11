@@ -5,5 +5,10 @@
   ],
   "tiobe": {
     "group": "51-100"
+  },
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates curl >/dev/null && curl -fsSL https://www.jsoftware.com/download/j9.6/install/j9.6_linux64.tar.gz | tar xz -C /opt && /opt/j9.6/bin/jconsole HelloWorld.ijs"
   }
 }

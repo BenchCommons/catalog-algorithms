@@ -4,5 +4,10 @@
     "HelloWorld.mira"
   ],
   "section": "historical",
-  "year": 1985
+  "year": 1985,
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL https://www.cs.kent.ac.uk/people/staff/dat/miranda/src/mira-2066-src.tgz | tar xz -C /opt && make -s -C /opt/miranda CC=\"gcc -fcommon -w\" >/dev/null 2>&1 && cp HelloWorld.mira hello.m && echo hello | /opt/miranda/mira -lib /opt/miranda/miralib hello.m"
+  }
 }

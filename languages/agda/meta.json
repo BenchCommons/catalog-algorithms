@@ -3,5 +3,17 @@
   "files": [
     "HelloWorld.agda"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "apt",
+    "run": "agda --compile HelloWorld.agda >/dev/null && ./HelloWorld",
+    "apt": [
+      "agda",
+      "agda-stdlib",
+      "ghc"
+    ],
+    "needs": [
+      "agda"
+    ]
+  }
 }

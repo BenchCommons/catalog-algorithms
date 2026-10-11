@@ -4,5 +4,15 @@
     "HelloWorld.m"
   ],
   "section": "historical",
-  "year": 1966
+  "year": 1966,
+  "test": {
+    "group": "apt",
+    "run": "gtm_dist=/usr/lib/x86_64-linux-gnu/fis-gtm/V7.0-005_x86_64 gtmroutines=. /usr/lib/x86_64-linux-gnu/fis-gtm/V7.0-005_x86_64/mumps -run HELLO^HelloWorld",
+    "apt": [
+      "fis-gtm"
+    ],
+    "needs": [
+      "/usr/lib/x86_64-linux-gnu/fis-gtm/V7.0-005_x86_64/mumps"
+    ]
+  }
 }
