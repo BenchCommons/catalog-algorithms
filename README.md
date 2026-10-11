@@ -2,13 +2,13 @@
 
 > "Hello World" in every programming language we can get our hands on.
 
-![Languages](https://img.shields.io/badge/languages-157-blue)
+![Languages](https://img.shields.io/badge/languages-163-blue)
 ![TIOBE coverage](https://img.shields.io/badge/TIOBE%20top%20100-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 Since 1974, when Brian Kernighan used it in *Programming in C: A Tutorial*, printing **Hello World** has been
 the first program almost everyone writes in a new language. This repository collects that program in
-**157 languages**: every language in the [TIOBE Index](https://www.tiobe.com/tiobe-index/) top 100,
+**163 languages**: every language in the [TIOBE Index](https://www.tiobe.com/tiobe-index/) top 100,
 the languages that shaped computing history, the new languages people are talking about, and a few esoteric ones for fun.
 
 ## Contents
@@ -17,6 +17,7 @@ the languages that shaped computing history, the new languages people are talkin
 - [TIOBE Index — 51 to 100](#tiobe-index--51-to-100)
 - [Historical languages](#historical-languages)
 - [Modern & trending languages](#modern--trending-languages)
+- [Brazilian languages 🇧🇷](#brazilian-languages-)
 - [Esoteric & other](#esoteric--other)
 - [Contributing](#contributing)
 
@@ -199,6 +200,21 @@ New or fast-growing languages that are not (yet) in the TIOBE top 100.
 | **Vala** | [`HelloWorld.vala`](HelloWorld.vala) |  |
 | **WebAssembly (WAT)** | [`HelloWorld.wat`](HelloWorld.wat) |  |
 
+## Brazilian languages 🇧🇷
+
+Languages created in Brazil or designed for programming in Portuguese. Lua and Elixir also appear in the tables above.
+
+| Language | File | Notes |
+|---|---|---|
+| **Lua** | [`HelloWorld.lua`](HelloWorld.lua) | PUC-Rio, 1993 — the most widely used Brazilian language |
+| **Elixir** | [`HelloWorld.exs`](HelloWorld.exs) | created by José Valim, 2012 |
+| **Portugol (VisuAlg)** | [`HelloWorld(VisuAlg).alg`](HelloWorld%28VisuAlg%29.alg) | pseudocode used to teach programming in Brazil |
+| **Portugol Studio** | [`HelloWorld.por`](HelloWorld.por) | UNIVALI |
+| **G-Portugol** | [`HelloWorld.gpt`](HelloWorld.gpt) | open source Portugol compiler, 2005 |
+| **Potigol** | [`HelloWorld.poti`](HelloWorld.poti) | IFRN, functional language in Portuguese |
+| **Égua / Delégua** | [`HelloWorld.egua`](HelloWorld.egua) | Delégua is a fork of Égua and runs `.egua` files |
+| **BIRL** | [`HelloWorld.birl`](HelloWorld.birl) | esoteric, keywords from bodybuilder Bambam's catchphrases |
+
 ## Esoteric & other
 
 | Language | File | Notes |
@@ -225,6 +241,10 @@ New or fast-growing languages that are not (yet) in the TIOBE top 100.
 5. Add a row to the right table in this README and open a pull request.
 
 ## Contributors
+
+Maintained by [@matbrgz](https://github.com/matbrgz).
+
+[![matbrgz](https://github.com/matbrgz.png?size=64)](https://github.com/matbrgz)
 
 [![Contributors](https://contrib.rocks/image?repo=matbrgz/Hello-World)](https://github.com/matbrgz/Hello-World/graphs/contributors)
 
