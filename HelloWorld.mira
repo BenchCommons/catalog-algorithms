@@ -1,1 +1,2 @@
-main = "Hello World\n"
+|| Miranda: load this script with "mira HelloWorld.mira" and evaluate "hello" at the prompt
+hello = "Hello World\n"
