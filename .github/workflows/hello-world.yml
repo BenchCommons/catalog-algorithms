@@ -66,6 +66,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 scripts/hello.py test --group docker --strict --shard ${{ matrix.shard }}/4 --timeout 600
+        env:
+          HELLO_DOCKER_MIRROR: mirror.gcr.io
 
   macos:
     name: Run (macOS)

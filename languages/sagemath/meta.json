@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.sage"
   ],
-  "section": "scientific"
+  "section": "scientific",
+  "test": {
+    "group": "docker",
+    "image": "python:3.12.11-slim",
+    "run": "pip install -q --root-user-action=ignore --only-binary=:all: passagemath-standard==10.8.12 2>/dev/null && cp HelloWorld.sage /tmp/ && sage-run /tmp/HelloWorld.sage"
+  }
 }

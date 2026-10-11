@@ -5,5 +5,10 @@
   ],
   "tiobe": {
     "rank": 34
+  },
+  "test": {
+    "group": "docker",
+    "image": "gvenzl/oracle-free:23.9-slim",
+    "run": "export ORACLE_PASSWORD=hello && (/opt/oracle/container-entrypoint.sh > /tmp/db.log 2>&1 &) && until grep -q \"DATABASE IS READY TO USE\" /tmp/db.log; do sleep 5; done && sqlplus -s system/hello@//localhost/FREEPDB1 @HelloWorld.pls < /dev/null"
   }
 }

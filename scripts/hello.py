@@ -15,6 +15,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -323,14 +324,22 @@ def cmd_test(args):
                 os.chmod(tmp, 0o777)
                 for f in os.listdir(tmp):
                     os.chmod(os.path.join(tmp, f), 0o666)
-                cmd =["docker", "run", "--rm", "--platform", test.get("platform", "linux/amd64"),
+                image = test["image"]
+                mirror = os.environ.get("HELLO_DOCKER_MIRROR")
+                if mirror and "/" not in image.split(":")[0]:
+                    image = "%s/library/%s" % (mirror, image)  # official images, avoids Docker Hub rate limits
+                cmd = ["docker", "run", "--rm", "--platform", test.get("platform", "linux/amd64"),
                        "-v", "%s:/src" % tmp, "-w", "/src", "--entrypoint", test.get("shell", "sh"),
-                       test["image"], "-c", test["run"]]
+                       image, "-c", test["run"]]
             else:
                 cmd = ["sh", "-c", test["run"]]
-            proc = subprocess.run(cmd, cwd=tmp, env=dict(os.environ, HELLO_ROOT=ROOT), stdin=subprocess.DEVNULL,
-                                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=args.timeout)
-            out = proc.stdout.decode("utf-8", "replace")
+            for _ in range(3):
+                proc = subprocess.run(cmd, cwd=tmp, env=dict(os.environ, HELLO_ROOT=ROOT), stdin=subprocess.DEVNULL,
+                                      stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=args.timeout)
+                out = proc.stdout.decode("utf-8", "replace")
+                if "toomanyrequests" not in out:
+                    break
+                time.sleep(60)  # registry rate limit: wait and retry
             if test.get("kind") == "compile":
                 ok = proc.returncode == 0
             else:

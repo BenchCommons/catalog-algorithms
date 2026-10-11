@@ -3,5 +3,10 @@
   "files": [
     "World.zep"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "php:8.3.26-cli",
+    "run": "apt-get update -qq && apt-get install -y -qq $PHPIZE_DEPS sudo >/dev/null 2>&1 && pecl install zephir_parser-2.9.0 >/dev/null 2>&1 && docker-php-ext-enable zephir_parser && curl -fsSL -o /usr/local/bin/zephir https://github.com/zephir-lang/zephir/releases/download/1.6.1/zephir.phar && chmod +x /usr/local/bin/zephir && cd /tmp && zephir init hello >/dev/null && cp /src/World.zep /tmp/hello/hello/world.zep && cd /tmp/hello && zephir build >/dev/null 2>&1 && php -d extension=hello -r \"Hello\\\\World::say();\""
+  }
 }

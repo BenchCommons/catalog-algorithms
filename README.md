@@ -4,7 +4,7 @@
 
 [![CI](https://github.com/matbrgz/Hello-World/actions/workflows/hello-world.yml/badge.svg)](https://github.com/matbrgz/Hello-World/actions/workflows/hello-world.yml)
 ![Languages](https://img.shields.io/badge/languages-452-blue)
-![Tested in CI](https://img.shields.io/badge/tested%20in%20CI-357%20(79%25)-brightgreen)
+![Tested in CI](https://img.shields.io/badge/tested%20in%20CI-363%20(80%25)-brightgreen)
 ![TIOBE coverage](https://img.shields.io/badge/TIOBE%20top%20100-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -14,9 +14,9 @@ the first program almost everyone writes in a new language. This repository coll
 the languages that shaped computing history, the new languages people are talking about, Brazilian languages,
 and a long tail of assembly, shell, scientific, hardware, markup and esoteric languages.
 
-**357 of 452 programs (79%) are checked on every push** by GitHub Actions on Linux, macOS and Windows:
+**363 of 452 programs (80%) are checked on every push** by GitHub Actions on Linux, macOS and Windows:
 
-- ✅ **327 run** and their output is checked to contain "Hello World";
+- ✅ **333 run** and their output is checked to contain "Hello World";
 - 🔧 **30 are compiled or validated** with the language's official tool, for languages that cannot print text
   (shaders, smart contracts, hardware, configuration) or have no free runtime.
 
@@ -80,7 +80,7 @@ Ranking from the TIOBE Index of **September 2026**. Rankings change every month;
 | 31 | **Lua** | [`HelloWorld.lua`](languages/lua/HelloWorld.lua) | ✅ |  |
 | 32 | **PowerShell** | [`HelloWorld.ps1`](languages/powershell/HelloWorld.ps1) | ✅ |  |
 | 33 | **D** | [`HelloWorld.d`](languages/d/HelloWorld.d) | ✅ |  |
-| 34 | **PL/SQL** | [`HelloWorld.pls`](languages/pl-sql/HelloWorld.pls) |  |  |
+| 34 | **PL/SQL** | [`HelloWorld.pls`](languages/pl-sql/HelloWorld.pls) | ✅ |  |
 | 35 | **ABAP** | [`HelloWorld.abap`](languages/abap/HelloWorld.abap) | ✅ |  |
 | 36 | **Transact-SQL** | [`HelloWorld.sql`](languages/transact-sql/HelloWorld.sql) | ✅ |  |
 | 37 | **VBScript** | [`HelloWorld.vbs`](languages/vbscript/HelloWorld.vbs) | ✅ |  |
@@ -186,7 +186,7 @@ Languages that shaped programming, ordered by the year they first appeared.
 | **Icon** | 1977 | [`HelloWorld.icn`](languages/icon/HelloWorld.icn) | ✅ |  |
 | **Hope** | 1978 | [`HelloWorld.hop`](languages/hope/HelloWorld.hop) | ✅ |  |
 | **Modula-2** | 1978 | [`HelloWorld.mod`](languages/modula-2/HelloWorld.mod) | ✅ |  |
-| **dBase** | 1979 | [`HelloWorld.prg`](languages/dbase/HelloWorld.prg) |  |  |
+| **dBase** | 1979 | [`HelloWorld.prg`](languages/dbase/HelloWorld.prg) | ✅ |  |
 | **REXX** | 1979 | [`HelloWorld.rexx`](languages/rexx/HelloWorld.rexx) | ✅ |  |
 | **BBC BASIC** | 1981 | [`HelloWorld.bbc`](languages/bbc-basic/HelloWorld.bbc) | ✅ |  |
 | **PostScript** | 1982 | [`HelloWorld.ps`](languages/postscript/HelloWorld.ps) | ✅ |  |
@@ -311,7 +311,7 @@ Functional, logic, object-oriented and scripting languages outside the TIOBE top
 | **newLISP** | [`HelloWorld.lsp`](languages/newlisp/HelloWorld.lsp) | ✅ |  |
 | **Objective-J** | [`HelloWorld.j`](languages/objective-j/HelloWorld.j) | ✅ |  |
 | **Oxygene** | [`HelloWorld.pas`](languages/oxygene/HelloWorld.pas) |  |  |
-| **Oz** | [`HelloWorld.oz`](languages/oz/HelloWorld.oz) |  |  |
+| **Oz** | [`HelloWorld.oz`](languages/oz/HelloWorld.oz) | ✅ |  |
 | **Pawn** | [`HelloWorld.pwn`](languages/pawn/HelloWorld.pwn) | ✅ |  |
 | **Picat** | [`hello_world.pi`](languages/picat/hello_world.pi) | ✅ |  |
 | **PicoLisp** | [`HelloWorld.l`](languages/picolisp/HelloWorld.l) | ✅ |  |
@@ -331,11 +331,11 @@ Functional, logic, object-oriented and scripting languages outside the TIOBE top
 | **Toit** | [`hello.toit`](languages/toit/hello.toit) | ✅ |  |
 | **Umka** | [`HelloWorld.um`](languages/umka/HelloWorld.um) | ✅ |  |
 | **Unicon** | [`HelloWorld.icn`](languages/unicon/HelloWorld.icn) | ✅ |  |
-| **Vale** | [`HelloWorld.vale`](languages/vale/HelloWorld.vale) | ✅ |  |
+| **Vale** | [`HelloWorld.vale`](languages/vale/HelloWorld.vale) |  |  |
 | **Wren** | [`HelloWorld.wren`](languages/wren/HelloWorld.wren) | ✅ |  |
 | **X10** | [`HelloWorld.x10`](languages/x10/HelloWorld.x10) |  |  |
 | **Xtend** | [`HelloWorld.xtend`](languages/xtend/HelloWorld.xtend) | ✅ |  |
-| **Zephir** | [`World.zep`](languages/zephir/World.zep) |  |  |
+| **Zephir** | [`World.zep`](languages/zephir/World.zep) | ✅ |  |
 | **Égua / Delégua** | [`HelloWorld.egua`](languages/egua/HelloWorld.egua) | ✅ | Delégua is a fork of Égua and runs `.egua` files |
 
 ## Assembly, IR & bytecode
@@ -350,7 +350,7 @@ Machine-level languages for specific architectures and virtual machines.
 | **Assembly (MIPS, SPIM/MARS)** | [`HelloWorld.asm`](languages/assembly-mips/HelloWorld.asm) | ✅ |  |
 | **Assembly (RISC-V, Linux)** | [`HelloWorld.s`](languages/assembly-risc-v/HelloWorld.s) | ✅ |  |
 | **Assembly (x86-64, Linux, NASM)** | [`HelloWorld.asm`](languages/assembly-x86-64-linux/HelloWorld.asm) | ✅ |  |
-| **Assembly (Z80, CP/M)** | [`HELLO.ASM`](languages/assembly-z80/HELLO.ASM) | 🔧 |  |
+| **Assembly (Z80, CP/M)** | [`HELLO.ASM`](languages/assembly-z80/HELLO.ASM) | ✅ |  |
 | **C--** | [`HelloWorld.cmm`](languages/c-minus-minus/HelloWorld.cmm) |  |  |
 | **CIL (.NET IL)** | [`HelloWorld.il`](languages/cil/HelloWorld.il) | ✅ |  |
 | **JVM bytecode (Jasmin)** | [`HelloWorld.j`](languages/jasmin/HelloWorld.j) | ✅ |  |
@@ -407,10 +407,10 @@ Numerical computing, computer algebra and statistics.
 | **Maxima** | [`HelloWorld.mac`](languages/maxima/HelloWorld.mac) | ✅ |  |
 | **MiniZinc** | [`HelloWorld.mzn`](languages/minizinc/HelloWorld.mzn) | ✅ |  |
 | **Modelica** | [`HelloWorld.mo`](languages/modelica/HelloWorld.mo) | ✅ |  |
-| **Nial** | [`HelloWorld.ndf`](languages/nial/HelloWorld.ndf) |  |  |
+| **Nial** | [`HelloWorld.ndf`](languages/nial/HelloWorld.ndf) | ✅ |  |
 | **PARI/GP** | [`HelloWorld.gp`](languages/pari-gp/HelloWorld.gp) | ✅ |  |
 | **REDUCE** | [`HelloWorld.red`](languages/reduce/HelloWorld.red) | ✅ |  |
-| **SageMath** | [`HelloWorld.sage`](languages/sagemath/HelloWorld.sage) |  |  |
+| **SageMath** | [`HelloWorld.sage`](languages/sagemath/HelloWorld.sage) | ✅ |  |
 | **Scilab** | [`HelloWorld.sce`](languages/scilab/HelloWorld.sce) | ✅ |  |
 | **SPSS Syntax** | [`HelloWorld.sps`](languages/spss/HelloWorld.sps) | ✅ |  |
 | **Stan** | [`HelloWorld.stan`](languages/stan/HelloWorld.stan) | ✅ |  |
@@ -466,7 +466,7 @@ Blockchain and smart-contract languages.
 | **Clarity** | [`hello-world.clar`](languages/clarity/hello-world.clar) | 🔧 |  |
 | **ink! (Rust)** | [`lib.rs`](languages/ink/lib.rs) | 🔧 |  |
 | **Michelson (Tezos)** | [`hello_world.tz`](languages/michelson/hello_world.tz) | ✅ |  |
-| **Move** | [`hello_world.move`](languages/move/hello_world.move) |  |  |
+| **Move** | [`hello_world.move`](languages/move/hello_world.move) | 🔧 |  |
 | **Sway (Fuel)** | [`main.sw`](languages/sway/main.sw) | 🔧 |  |
 | **Vyper** | [`HelloWorld.vy`](languages/vyper/HelloWorld.vy) | 🔧 |  |
 | **Yul** | [`HelloWorld.yul`](languages/yul/HelloWorld.yul) | 🔧 |  |

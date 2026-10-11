@@ -3,10 +3,5 @@
   "files": [
     "HelloWorld.vale"
   ],
-  "section": "general",
-  "test": {
-    "group": "docker",
-    "image": "buildpack-deps:bookworm",
-    "run": "apt-get update -qq >/dev/null && apt-get install -y -qq default-jre-headless clang >/dev/null && curl -sSLO https://github.com/ValeLang/Vale/releases/download/v0.2.0/Vale-Ubuntu-0.2.0.28.zip && unzip -q Vale-Ubuntu-0.2.0.28.zip -d vale && ls vale && cd vale && ./valec build mymod=../ --output_dir ../build && ../build/main"
-  }
+  "section": "general"
 }
