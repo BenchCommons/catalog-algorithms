@@ -1,0 +1,7 @@
+{
+  "name": "Assembly (MIPS, SPIM/MARS)",
+  "files": [
+    "HelloWorld.asm"
+  ],
+  "section": "assembly"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "F#",
+  "files": [
+    "HelloWorld.fs"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "test": {
+    "group": "base",
+    "run": "cp HelloWorld.fs hello.fsx && dotnet fsi hello.fsx",
+    "needs": [
+      "dotnet"
+    ]
+  }
+}

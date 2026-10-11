@@ -1,0 +1,7 @@
+{
+  "name": "HCL (Terraform)",
+  "files": [
+    "main.tf"
+  ],
+  "section": "config"
+}

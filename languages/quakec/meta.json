@@ -1,0 +1,7 @@
+{
+  "name": "QuakeC",
+  "files": [
+    "progs.qc"
+  ],
+  "section": "game"
+}

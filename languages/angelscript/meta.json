@@ -1,0 +1,7 @@
+{
+  "name": "AngelScript",
+  "files": [
+    "HelloWorld.as"
+  ],
+  "section": "game"
+}

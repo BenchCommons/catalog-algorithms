@@ -1,0 +1,7 @@
+{
+  "name": "Gleam",
+  "files": [
+    "HelloWorld.gleam"
+  ],
+  "section": "modern"
+}

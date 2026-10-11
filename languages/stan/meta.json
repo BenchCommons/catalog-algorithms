@@ -1,0 +1,7 @@
+{
+  "name": "Stan",
+  "files": [
+    "HelloWorld.stan"
+  ],
+  "section": "scientific"
+}

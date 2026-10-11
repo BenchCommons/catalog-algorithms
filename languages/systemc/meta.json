@@ -1,0 +1,7 @@
+{
+  "name": "SystemC",
+  "files": [
+    "HelloWorld.cpp"
+  ],
+  "section": "hardware"
+}

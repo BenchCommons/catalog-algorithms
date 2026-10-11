@@ -1,0 +1,9 @@
+{
+  "name": "COOL",
+  "files": [
+    "HelloWorld.cl",
+    "HelloWorld2.cl"
+  ],
+  "section": "general",
+  "notes": "Classroom Object Oriented Language; two variants"
+}

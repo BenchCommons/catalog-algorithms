@@ -1,0 +1,7 @@
+{
+  "name": "TeX (plain)",
+  "files": [
+    "HelloWorld.tex"
+  ],
+  "section": "markup"
+}

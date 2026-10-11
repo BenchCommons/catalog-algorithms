@@ -1,0 +1,16 @@
+{
+  "name": "Prolog",
+  "files": [
+    "HelloWorld.pro"
+  ],
+  "tiobe": {
+    "rank": 29
+  },
+  "test": {
+    "group": "apt",
+    "run": "swipl HelloWorld.pro",
+    "apt": [
+      "swi-prolog-nox"
+    ]
+  }
+}

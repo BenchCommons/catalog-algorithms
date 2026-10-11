@@ -1,0 +1,7 @@
+{
+  "name": "Assembly (Z80, CP/M)",
+  "files": [
+    "HELLO.ASM"
+  ],
+  "section": "assembly"
+}

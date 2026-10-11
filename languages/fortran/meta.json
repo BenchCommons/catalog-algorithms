@@ -1,0 +1,16 @@
+{
+  "name": "Fortran",
+  "files": [
+    "HelloWorld.f90"
+  ],
+  "tiobe": {
+    "rank": 11
+  },
+  "test": {
+    "group": "apt",
+    "run": "gfortran -o hello HelloWorld.f90 && ./hello",
+    "apt": [
+      "gfortran"
+    ]
+  }
+}

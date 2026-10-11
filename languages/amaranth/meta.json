@@ -1,0 +1,7 @@
+{
+  "name": "Amaranth HDL",
+  "files": [
+    "hello_world.py"
+  ],
+  "section": "hardware"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Pure Data",
+  "files": [
+    "HelloWorld.pd"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "notes": "patch file; prints to the Pd console"
+}

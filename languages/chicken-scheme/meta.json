@@ -1,0 +1,7 @@
+{
+  "name": "CHICKEN Scheme",
+  "files": [
+    "HelloWorld.scm"
+  ],
+  "section": "general"
+}

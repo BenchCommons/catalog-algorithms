@@ -1,0 +1,14 @@
+{
+  "name": "Elvish",
+  "files": [
+    "HelloWorld.elv"
+  ],
+  "section": "shells",
+  "test": {
+    "group": "apt",
+    "run": "elvish HelloWorld.elv",
+    "apt": [
+      "elvish"
+    ]
+  }
+}

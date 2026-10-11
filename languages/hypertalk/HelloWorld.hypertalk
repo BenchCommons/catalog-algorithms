@@ -1,0 +1,3 @@
+on openStack
+  answer "Hello World"
+end openStack

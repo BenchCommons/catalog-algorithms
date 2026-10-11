@@ -1,0 +1,7 @@
+{
+  "name": "Typst",
+  "files": [
+    "HelloWorld.typ"
+  ],
+  "section": "markup"
+}

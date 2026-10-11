@@ -1,0 +1,13 @@
+{
+  "name": "Zig",
+  "files": [
+    "HelloWorld.zig"
+  ],
+  "tiobe": {
+    "rank": 40
+  },
+  "test": {
+    "group": "extra",
+    "run": "zig run HelloWorld.zig"
+  }
+}

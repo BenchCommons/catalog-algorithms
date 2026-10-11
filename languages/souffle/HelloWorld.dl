@@ -1,0 +1,4 @@
+.decl hello(message: symbol)
+.output hello(IO=stdout)
+
+hello("Hello World").

@@ -1,0 +1,8 @@
+{
+  "name": "HQ9+",
+  "files": [
+    "HelloWorld.hq9"
+  ],
+  "section": "esoteric",
+  "notes": "`H` prints \"Hello, world!\""
+}

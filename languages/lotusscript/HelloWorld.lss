@@ -1,0 +1,3 @@
+Sub Initialize
+    Messagebox "Hello World"
+End Sub

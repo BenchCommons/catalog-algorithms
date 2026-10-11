@@ -1,0 +1,10 @@
+{
+  "name": "Logo",
+  "files": [
+    "HelloWorld.logo"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "year": 1967
+}

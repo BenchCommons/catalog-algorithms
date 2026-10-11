@@ -1,0 +1,16 @@
+{
+  "name": "Clojure",
+  "files": [
+    "HelloWorld.clj"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "test": {
+    "group": "apt",
+    "run": "clojure HelloWorld.clj",
+    "apt": [
+      "clojure"
+    ]
+  }
+}

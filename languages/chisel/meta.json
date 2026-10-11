@@ -1,0 +1,7 @@
+{
+  "name": "Chisel",
+  "files": [
+    "HelloWorld.scala"
+  ],
+  "section": "hardware"
+}

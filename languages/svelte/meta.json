@@ -1,0 +1,7 @@
+{
+  "name": "Svelte",
+  "files": [
+    "HelloWorld.svelte"
+  ],
+  "section": "markup"
+}

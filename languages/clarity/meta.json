@@ -1,0 +1,7 @@
+{
+  "name": "Clarity",
+  "files": [
+    "hello-world.clar"
+  ],
+  "section": "blockchain"
+}

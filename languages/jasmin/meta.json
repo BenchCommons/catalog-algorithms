@@ -1,0 +1,7 @@
+{
+  "name": "JVM bytecode (Jasmin)",
+  "files": [
+    "HelloWorld.j"
+  ],
+  "section": "assembly"
+}

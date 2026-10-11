@@ -1,0 +1,9 @@
+{
+  "name": "Ring",
+  "files": [
+    "HelloWorld.ring"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  }
+}

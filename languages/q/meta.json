@@ -1,0 +1,10 @@
+{
+  "name": "Q (kdb+)",
+  "files": [
+    "HelloWorld.q"
+  ],
+  "tiobe": {
+    "group": "51-100",
+    "as": "Q"
+  }
+}

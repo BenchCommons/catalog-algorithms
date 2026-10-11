@@ -1,0 +1,11 @@
+{
+  "name": "Assembly (x86, DOS)",
+  "files": [
+    "HelloWorld.asm"
+  ],
+  "tiobe": {
+    "rank": 16,
+    "as": "Assembly language"
+  },
+  "notes": "MASM/TASM, DOS `int 21h`"
+}

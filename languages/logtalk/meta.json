@@ -1,0 +1,7 @@
+{
+  "name": "Logtalk",
+  "files": [
+    "hello_world.lgt"
+  ],
+  "section": "general"
+}

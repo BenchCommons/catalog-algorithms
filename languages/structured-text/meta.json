@@ -1,0 +1,10 @@
+{
+  "name": "Structured Text",
+  "files": [
+    "HelloWorld.st"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "notes": "IEC 61131-3"
+}

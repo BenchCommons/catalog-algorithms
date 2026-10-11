@@ -1,0 +1,4 @@
+SELECT ?message
+WHERE {
+  BIND("Hello World" AS ?message)
+}

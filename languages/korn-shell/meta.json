@@ -1,0 +1,14 @@
+{
+  "name": "Korn shell",
+  "files": [
+    "HelloWorld.ksh"
+  ],
+  "section": "shells",
+  "test": {
+    "group": "apt",
+    "run": "ksh HelloWorld.ksh",
+    "apt": [
+      "ksh"
+    ]
+  }
+}

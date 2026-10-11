@@ -1,0 +1,7 @@
+{
+  "name": "Babashka",
+  "files": [
+    "HelloWorld.bb"
+  ],
+  "section": "general"
+}

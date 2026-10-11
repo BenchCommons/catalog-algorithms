@@ -1,0 +1,7 @@
+{
+  "name": "Assembly (ARM64, macOS)",
+  "files": [
+    "HelloWorld.s"
+  ],
+  "section": "assembly"
+}

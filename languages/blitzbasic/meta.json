@@ -1,0 +1,7 @@
+{
+  "name": "BlitzBasic",
+  "files": [
+    "HelloWorld.bb"
+  ],
+  "section": "game"
+}

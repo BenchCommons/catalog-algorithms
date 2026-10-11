@@ -1,0 +1,10 @@
+{
+  "name": "Scratch",
+  "files": [
+    "HelloWorld.txt"
+  ],
+  "tiobe": {
+    "rank": 15
+  },
+  "notes": "textual (scratchblocks) form"
+}

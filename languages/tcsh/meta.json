@@ -1,0 +1,16 @@
+{
+  "name": "tcsh",
+  "files": [
+    "HelloWorld.tcsh"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "test": {
+    "group": "apt",
+    "run": "tcsh HelloWorld.tcsh",
+    "apt": [
+      "tcsh"
+    ]
+  }
+}

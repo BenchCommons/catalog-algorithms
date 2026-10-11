@@ -1,0 +1,7 @@
+{
+  "name": "Nushell",
+  "files": [
+    "HelloWorld.nu"
+  ],
+  "section": "shells"
+}

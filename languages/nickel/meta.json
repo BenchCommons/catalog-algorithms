@@ -1,0 +1,7 @@
+{
+  "name": "Nickel",
+  "files": [
+    "HelloWorld.ncl"
+  ],
+  "section": "config"
+}

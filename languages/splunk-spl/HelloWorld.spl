@@ -1,0 +1,3 @@
+| makeresults
+| eval message="Hello World"
+| table message

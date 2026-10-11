@@ -1,0 +1,14 @@
+{
+  "name": "m4",
+  "files": [
+    "HelloWorld.m4"
+  ],
+  "section": "shells",
+  "test": {
+    "group": "apt",
+    "run": "m4 HelloWorld.m4",
+    "apt": [
+      "m4"
+    ]
+  }
+}

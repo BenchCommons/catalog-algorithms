@@ -1,0 +1,8 @@
+{
+  "name": "Excel formula",
+  "files": [
+    "HelloWorld.xlsx.txt"
+  ],
+  "section": "query",
+  "notes": "type it into any cell"
+}

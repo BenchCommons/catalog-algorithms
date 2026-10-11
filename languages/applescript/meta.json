@@ -1,0 +1,9 @@
+{
+  "name": "AppleScript",
+  "files": [
+    "HelloWorld.applescript"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  }
+}

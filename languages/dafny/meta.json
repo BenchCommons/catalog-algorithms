@@ -1,0 +1,7 @@
+{
+  "name": "Dafny",
+  "files": [
+    "HelloWorld.dfy"
+  ],
+  "section": "general"
+}

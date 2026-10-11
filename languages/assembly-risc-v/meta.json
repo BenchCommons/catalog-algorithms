@@ -1,0 +1,7 @@
+{
+  "name": "Assembly (RISC-V, Linux)",
+  "files": [
+    "HelloWorld.s"
+  ],
+  "section": "assembly"
+}

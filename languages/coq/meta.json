@@ -1,0 +1,7 @@
+{
+  "name": "Rocq (Coq)",
+  "files": [
+    "HelloWorld.v"
+  ],
+  "section": "general"
+}

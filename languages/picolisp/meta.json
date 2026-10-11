@@ -1,0 +1,7 @@
+{
+  "name": "PicoLisp",
+  "files": [
+    "HelloWorld.l"
+  ],
+  "section": "general"
+}

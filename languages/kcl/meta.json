@@ -1,0 +1,7 @@
+{
+  "name": "KCL",
+  "files": [
+    "HelloWorld.k"
+  ],
+  "section": "config"
+}

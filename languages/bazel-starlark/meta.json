@@ -1,0 +1,7 @@
+{
+  "name": "Starlark (Bazel)",
+  "files": [
+    "BUILD.bazel"
+  ],
+  "section": "config"
+}

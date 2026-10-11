@@ -1,0 +1,7 @@
+{
+  "name": "Bluespec SystemVerilog",
+  "files": [
+    "HelloWorld.bsv"
+  ],
+  "section": "hardware"
+}

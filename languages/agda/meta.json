@@ -1,0 +1,7 @@
+{
+  "name": "Agda",
+  "files": [
+    "HelloWorld.agda"
+  ],
+  "section": "general"
+}

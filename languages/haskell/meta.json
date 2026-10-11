@@ -1,0 +1,16 @@
+{
+  "name": "Haskell",
+  "files": [
+    "HelloWorld.hs"
+  ],
+  "tiobe": {
+    "rank": 49
+  },
+  "test": {
+    "group": "apt",
+    "run": "runghc HelloWorld.hs",
+    "apt": [
+      "ghc"
+    ]
+  }
+}

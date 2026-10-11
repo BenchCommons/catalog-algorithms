@@ -1,0 +1,13 @@
+{
+  "name": "Perl",
+  "files": [
+    "HelloWorld.pl"
+  ],
+  "tiobe": {
+    "rank": 23
+  },
+  "test": {
+    "group": "base",
+    "run": "perl HelloWorld.pl"
+  }
+}

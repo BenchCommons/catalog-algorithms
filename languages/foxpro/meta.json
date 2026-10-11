@@ -1,0 +1,10 @@
+{
+  "name": "Visual FoxPro",
+  "files": [
+    "HelloWorld.prg"
+  ],
+  "tiobe": {
+    "rank": 50,
+    "as": "(Visual) FoxPro"
+  }
+}

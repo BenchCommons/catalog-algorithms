@@ -1,0 +1,6 @@
+parameter unit;
+storage string;
+code { DROP ;
+       PUSH string "Hello World" ;
+       NIL operation ;
+       PAIR }

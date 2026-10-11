@@ -1,0 +1,7 @@
+{
+  "name": "Gradle Kotlin DSL",
+  "files": [
+    "build.gradle.kts"
+  ],
+  "section": "config"
+}

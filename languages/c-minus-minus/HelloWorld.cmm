@@ -1,0 +1,8 @@
+section "data" {
+    hello: bits8[] "Hello World\n\0";
+}
+
+foreign "C" main() {
+    foreign "C" printf(hello);
+    return (0);
+}

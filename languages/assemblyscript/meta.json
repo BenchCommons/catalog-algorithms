@@ -1,0 +1,7 @@
+{
+  "name": "AssemblyScript",
+  "files": [
+    "HelloWorld.ts"
+  ],
+  "section": "general"
+}

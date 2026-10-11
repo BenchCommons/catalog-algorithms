@@ -1,0 +1,16 @@
+{
+  "name": "D",
+  "files": [
+    "HelloWorld.d"
+  ],
+  "tiobe": {
+    "rank": 33
+  },
+  "test": {
+    "group": "apt",
+    "run": "ldc2 -run HelloWorld.d",
+    "apt": [
+      "ldc"
+    ]
+  }
+}

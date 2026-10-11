@@ -1,0 +1,7 @@
+{
+  "name": "EJS",
+  "files": [
+    "HelloWorld.ejs"
+  ],
+  "section": "markup"
+}

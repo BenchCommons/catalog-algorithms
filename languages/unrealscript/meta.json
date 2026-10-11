@@ -1,0 +1,7 @@
+{
+  "name": "UnrealScript",
+  "files": [
+    "HelloWorld.uc"
+  ],
+  "section": "game"
+}

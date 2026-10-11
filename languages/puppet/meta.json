@@ -1,0 +1,7 @@
+{
+  "name": "Puppet",
+  "files": [
+    "hello_world.pp"
+  ],
+  "section": "config"
+}

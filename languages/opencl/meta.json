@@ -1,0 +1,9 @@
+{
+  "name": "OpenCL",
+  "files": [
+    "HelloWorld.cl"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  }
+}

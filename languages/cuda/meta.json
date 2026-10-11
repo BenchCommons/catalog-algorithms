@@ -1,0 +1,7 @@
+{
+  "name": "CUDA",
+  "files": [
+    "HelloWorld.cu"
+  ],
+  "section": "hardware"
+}

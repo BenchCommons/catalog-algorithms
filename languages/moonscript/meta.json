@@ -1,0 +1,7 @@
+{
+  "name": "MoonScript",
+  "files": [
+    "HelloWorld.moon"
+  ],
+  "section": "general"
+}

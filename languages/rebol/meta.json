@@ -1,0 +1,9 @@
+{
+  "name": "REBOL",
+  "files": [
+    "HelloWorld.reb"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  }
+}

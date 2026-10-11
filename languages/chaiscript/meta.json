@@ -1,0 +1,7 @@
+{
+  "name": "ChaiScript",
+  "files": [
+    "HelloWorld.chai"
+  ],
+  "section": "game"
+}

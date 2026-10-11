@@ -1,0 +1,10 @@
+{
+  "name": "GML (GameMaker Language)",
+  "files": [
+    "HelloWorld.gml"
+  ],
+  "tiobe": {
+    "rank": 30,
+    "as": "GML"
+  }
+}

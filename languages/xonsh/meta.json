@@ -1,0 +1,7 @@
+{
+  "name": "Xonsh",
+  "files": [
+    "HelloWorld.xsh"
+  ],
+  "section": "shells"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "GDScript (Godot)",
+  "files": [
+    "hello_world.gd"
+  ],
+  "section": "game"
+}

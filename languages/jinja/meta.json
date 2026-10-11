@@ -1,0 +1,7 @@
+{
+  "name": "Jinja",
+  "files": [
+    "HelloWorld.jinja"
+  ],
+  "section": "markup"
+}

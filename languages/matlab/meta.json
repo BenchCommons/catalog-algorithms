@@ -1,0 +1,20 @@
+{
+  "name": "MATLAB",
+  "files": [
+    "HelloWorld.m"
+  ],
+  "tiobe": {
+    "rank": 27
+  },
+  "notes": "also runs in GNU Octave",
+  "test": {
+    "group": "apt",
+    "run": "octave-cli --no-gui HelloWorld.m",
+    "apt": [
+      "octave"
+    ],
+    "needs": [
+      "octave-cli"
+    ]
+  }
+}

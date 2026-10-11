@@ -1,0 +1,7 @@
+{
+  "name": "PL/pgSQL",
+  "files": [
+    "HelloWorld.sql"
+  ],
+  "section": "query"
+}

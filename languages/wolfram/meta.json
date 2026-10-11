@@ -1,0 +1,7 @@
+{
+  "name": "Wolfram Language (Mathematica)",
+  "files": [
+    "HelloWorld.wl"
+  ],
+  "section": "scientific"
+}

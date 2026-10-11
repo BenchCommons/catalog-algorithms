@@ -1,0 +1,8 @@
+{
+  "name": "Assembly (6502, Commodore 64)",
+  "files": [
+    "HelloWorld.asm"
+  ],
+  "section": "assembly",
+  "notes": "64tass syntax; `SYS 49152` to run"
+}

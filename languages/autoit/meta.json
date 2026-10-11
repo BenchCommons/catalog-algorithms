@@ -1,0 +1,7 @@
+{
+  "name": "AutoIt",
+  "files": [
+    "HelloWorld.au3"
+  ],
+  "section": "shells"
+}

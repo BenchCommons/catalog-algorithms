@@ -1,0 +1,7 @@
+{
+  "name": "Mustache",
+  "files": [
+    "HelloWorld.mustache"
+  ],
+  "section": "markup"
+}

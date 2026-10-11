@@ -1,0 +1,8 @@
+{
+  "name": "COW",
+  "files": [
+    "HelloWorld.cow"
+  ],
+  "section": "esoteric",
+  "notes": "generated from the Brainfuck program"
+}

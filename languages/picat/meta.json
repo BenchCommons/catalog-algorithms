@@ -1,0 +1,7 @@
+{
+  "name": "Picat",
+  "files": [
+    "hello_world.pi"
+  ],
+  "section": "general"
+}

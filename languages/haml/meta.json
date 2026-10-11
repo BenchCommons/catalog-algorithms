@@ -1,0 +1,7 @@
+{
+  "name": "Haml",
+  "files": [
+    "HelloWorld.haml"
+  ],
+  "section": "markup"
+}

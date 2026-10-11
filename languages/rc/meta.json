@@ -1,0 +1,14 @@
+{
+  "name": "rc (Plan 9 shell)",
+  "files": [
+    "HelloWorld.rc"
+  ],
+  "section": "shells",
+  "test": {
+    "group": "apt",
+    "run": "rc HelloWorld.rc",
+    "apt": [
+      "rc"
+    ]
+  }
+}

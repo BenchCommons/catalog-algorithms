@@ -1,0 +1,7 @@
+{
+  "name": "LSL (Second Life)",
+  "files": [
+    "HelloWorld.lsl"
+  ],
+  "section": "game"
+}

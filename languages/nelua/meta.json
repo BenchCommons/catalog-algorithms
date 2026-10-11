@@ -1,0 +1,7 @@
+{
+  "name": "Nelua",
+  "files": [
+    "HelloWorld.nelua"
+  ],
+  "section": "general"
+}

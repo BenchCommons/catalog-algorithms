@@ -1,0 +1,11 @@
+{
+  "name": "CMake",
+  "files": [
+    "HelloWorld.cmake"
+  ],
+  "section": "config",
+  "test": {
+    "group": "base",
+    "run": "cmake -P HelloWorld.cmake"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Blade (Laravel)",
+  "files": [
+    "hello.blade.php"
+  ],
+  "section": "markup"
+}

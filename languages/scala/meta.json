@@ -1,0 +1,16 @@
+{
+  "name": "Scala",
+  "files": [
+    "HelloWorld.scala"
+  ],
+  "tiobe": {
+    "rank": 44
+  },
+  "test": {
+    "group": "apt",
+    "run": "scala HelloWorld.scala",
+    "apt": [
+      "scala"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Groovy",
+  "files": [
+    "HelloWorld.groovy"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  },
+  "test": {
+    "group": "apt",
+    "run": "groovy HelloWorld.groovy",
+    "apt": [
+      "groovy"
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+#USE "course.lib"
+
+PROC hello.world (CHAN BYTE keyboard?, screen!, error!)
+  out.string ("Hello World*n", 0, screen!)
+:

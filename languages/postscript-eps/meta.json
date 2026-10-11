@@ -1,0 +1,7 @@
+{
+  "name": "Encapsulated PostScript",
+  "files": [
+    "HelloWorld.eps"
+  ],
+  "section": "markup"
+}

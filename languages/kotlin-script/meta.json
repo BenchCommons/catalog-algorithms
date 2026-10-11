@@ -1,0 +1,7 @@
+{
+  "name": "Kotlin Script",
+  "files": [
+    "HelloWorld.main.kts"
+  ],
+  "section": "general"
+}

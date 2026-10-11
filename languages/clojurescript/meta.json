@@ -1,0 +1,7 @@
+{
+  "name": "ClojureScript",
+  "files": [
+    "HelloWorld.cljs"
+  ],
+  "section": "general"
+}

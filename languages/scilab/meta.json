@@ -1,0 +1,7 @@
+{
+  "name": "Scilab",
+  "files": [
+    "HelloWorld.sce"
+  ],
+  "section": "scientific"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Python",
+  "files": [
+    "HelloWorld.py"
+  ],
+  "tiobe": {
+    "rank": 1
+  },
+  "test": {
+    "group": "base",
+    "run": "python3 HelloWorld.py"
+  }
+}

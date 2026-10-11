@@ -1,0 +1,14 @@
+{
+  "name": "Brainfuck",
+  "files": [
+    "HelloWorld.bf"
+  ],
+  "section": "esoteric",
+  "test": {
+    "group": "apt",
+    "run": "bf HelloWorld.bf",
+    "apt": [
+      "bf"
+    ]
+  }
+}

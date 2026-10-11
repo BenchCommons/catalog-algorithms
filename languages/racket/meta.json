@@ -1,0 +1,14 @@
+{
+  "name": "Racket",
+  "files": [
+    "HelloWorld.rkt"
+  ],
+  "section": "modern",
+  "test": {
+    "group": "apt",
+    "run": "racket HelloWorld.rkt",
+    "apt": [
+      "racket"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "J",
+  "files": [
+    "HelloWorld.ijs"
+  ],
+  "tiobe": {
+    "group": "51-100"
+  }
+}

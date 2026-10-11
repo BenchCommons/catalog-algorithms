@@ -1,0 +1,11 @@
+{
+  "name": "ERB (Embedded Ruby)",
+  "files": [
+    "HelloWorld.erb"
+  ],
+  "section": "markup",
+  "test": {
+    "group": "base",
+    "run": "erb HelloWorld.erb"
+  }
+}
