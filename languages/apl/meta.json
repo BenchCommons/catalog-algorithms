@@ -7,7 +7,7 @@
   "year": 1966,
   "test": {
     "group": "docker",
-    "image": "dyalog/dyalog:19.0",
-    "run": "dyalogscript HelloWorld.apl"
+    "image": "gcc:14.2.0",
+    "run": "curl -sSL https://ftp.gnu.org/gnu/apl/apl-2.0.tar.gz | tar xz && (cd apl-2.0 && ./configure -q CXX_WERROR=no && make -s -j\"$(nproc)\" && make -s install) >/dev/null 2>&1 && { cat HelloWorld.apl; echo ')OFF'; } | apl --silent --noColor --script"
   }
 }
