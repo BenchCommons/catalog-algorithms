@@ -1,0 +1,50 @@
+name: Hello World
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Metadata & README
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/hello.py check
+
+  base:
+    name: Run (preinstalled toolchains)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/hello.py test --group base --strict
+
+  apt:
+    name: Run (apt toolchains)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install toolchains
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends $(python3 scripts/hello.py apt-packages --group apt)
+      - run: python3 scripts/hello.py test --group apt --strict
+
+  extra:
+    name: Run (setup actions)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mlugg/setup-zig@v2
+      - uses: dart-lang/setup-dart@v1
+      - uses: crystal-lang/install-crystal@v1
+      - run: python3 scripts/hello.py test --group extra --strict
