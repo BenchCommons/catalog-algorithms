@@ -1,209 +1,233 @@
-# Hello-World
-
-Hello World in all possible programming languages
-
-## Aim
-
-This repository should eventually contain the famous "Hello World" program in all the programming languages possible...
-
-## How to Contribute to this repository
-
-- Star this repository using 'Star' button on the top.
-- Click on Fork Repository using the 'Fork' button on the top.
-- Clone the forked repository on your PC. Using this command on your Git bash or any terminal with git support : `git clone url`.
-- Now create a new branch with this command: `git branch branchname` and then use that branch by this command: `git checkout branchname`.
-- Go ahead and make changes.
-- After making changes use this command to add the changes: `git add filename`, and then `git commit -m "message here"`.
-- After that use this command: `git push origin branchname`.
-- Create a pull request, and wait for Pull Request to get merged.
-
-## How to make changes?
-
-- Check if the language in which you want to contribute is already covered or not?
-- Add code for your language with file name `HelloWorld.extension of your programming language` like `py` for python. `c` for language C.
-- Add your language to this file in the below list.
-
-## Languages Covered
-
-- [x] **ABAP**
-ABAP is a high-level programming language created by the German software company SAP SE. It is currently positioned, alongside Java, as the language for programming the SAP Application Server, which is part of the NetWeaver platform for building business applications.
-
-- [x] **Assembly**
-An assembly language, often abbreviated asm, is any low-level programming language in which there is a very strong correspondence between the program's statements and the architecture's machine code instructions. Each assembly language is specific to a particular computer architecture and operating system.
-
-- [x] **Autoit**
-AutoIt is a freeware automation language for Microsoft Windows. In its earliest release, the software was primarily intended to create automation scripts for Microsoft Windows programs but has since grown to include enhancements in both programming language design and overall functionality.
-- [x] **BASIC**
-BASIC is a family of general-purpose, high-level programming languages whose design philosophy emphasizes ease of use. In 1964, John G. Kemeny and Thomas E. Kurtz designed the original BASIC language at Dartmouth College. They wanted to enable students in fields other than science and mathematics to use computers.
-  
-BASIC is a family of general-purpose, high-level programming languages whose design philosophy emphasizes ease of use. In 1964, John G. Kemeny and Thomas E. Kurtz designed the original BASIC language at Dartmouth College. They wanted to enable students in fields other than science and mathematics to use computers.
-
-- [x] **Batch**
-
-A batch file is a kind of script file in DOS, OS/2 and Microsoft Windows. It consists of a series of commands to be executed by the command-line interpreter, stored in a plain text file.
-
-- [x] **Brainfuck**
-Brainfuck is an esoteric programming language created in 1993 by Urban Müller, and notable for its extreme minimalism. The language consists of only eight simple commands and an instruction pointer. While it is fully Turing complete, it is not intended for practical use, but to challenge and amuse programmers.
-
-- [x] **C**
-
-C is a high-level and general-purpose programming language that is ideal for developing firmware or portable applications. Originally intended for writing system software, C was developed at Bell Labs by Dennis Ritchie for the Unix Operating System in the early 1970s.
-
-- [x] **C#**
-
-C# is a general-purpose, multi-paradigm programming language encompassing strong typing, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines. It was developed around 2000 by Microsoft within its .NET initiative and later approved as a standard by Ecma and ISO.
-
-- [x] **C++**
-
-C++ is a general-purpose object-oriented programming (OOP) language, developed by Bjarne Stroustrup, and is an extension of the C language. It is therefore possible to code C++ in a "C style" or "object-oriented style." C++ is considered to be an intermediate-level language, as it encapsulates both high- and low-level language features. Initially, the language was called "C with classes" as it had all the properties of the C language with an additional concept of "classes."
-
-- [x] **Cobol**
-
-COBOL is a compiled English-like computer programming language designed for business use. It is imperative, procedural and, since 2002, object-oriented. COBOL is primarily used in business, finance, and administrative systems for companies and governments.
-
-- [x] **COOL**
-
-COOL or Classroom Object Oriented Language is used for teaching compilers and is the only language which has more number of compilers than the number of programs written in it.  It generates code for a MIPS simulator, SPIM. Thus it is easily portable to other platforms. It has many of the features of modern programming languages, including objects, automatic memory management, strong static typing and simple reflection.
-
-- [x] **CoffeeScript**
-
-CoffeeScript is a programming language that transcompiles to JavaScript. It adds syntactic sugar inspired by Ruby, Python and Haskell in an effort to enhance JavaScript's brevity and readability.Specific additional features include list comprehension and pattern matc
-- [x] **ClojureScript**
-
-Clojure is a dialect of the Lisp programming language. Clojure is a general-purpose programming language with an emphasis on functional programming. It runs on the Java virtual machine and the Common Language Runtime.
-
-- [x] **Crystal**
-
-Crystal is a programming language that is still under development which aims to provide a programming experience that is “Fast as C, slick as Ruby”.
-
-- [x] **D**
-
-D is an object-oriented, imperative, multi-paradigm system programming language created by Walter Bright of Digital Mars and released in 2001. Bright was joined in the design and development effort in 2007 by Andrei Alexandrescu.
-
-- [x] **Dart**
-
-Dart is a general-purpose programming language originally developed by Google and later has been standardized. It is used to build web, server, and mobile applications. It's getting more and more exposed through Flutter cross-platform mobile development framework. Dart is an object-oriented, class defined language using the good-old C-style syntax that can be optionally compiled into JavaScript. It supports interfaces, mixins, abstract classes, reified generics, static typing, and a sound type system.
-
-- [x] **Delphi**
-
-Delphi is both an object oriented programming language (OOP) and an Integrated Development Environment (IDE). Published by the Embarcadero company (formerly CodeGear and more formerly Borland), Delphi is an alternative to language such as Visual Basic offering development with both rapidity and good quality. 
-
-- [x] **Elixir**
-
-Elixir is a functional, concurrent, general-purpose programming language that runs on the Erlang virtual machine. Elixir builds on top of Erlang and shares the same abstractions for building distributed, fault-tolerant applications. Elixir also provides a productive tooling and an extensible design.
-
-- [x] **Emojic**
-
-- [x] **Erlang**
-
-Erlang is a general purpose or you might say a functional programming language and runtime environment. It was built in such a way that it had inherent support for concurrency, distribution and fault tolerance. Erlang was originally developed to be used in several large telecommunication systems. But it has now slowly made its foray into diverse sectors like ecommerce, computer telephony and banking sectors as well.
-
-- [x] **F#**
-
-- [x] **Fortran**
-
-- [x] **Go**
-
-Go is a programming language created in 2009 by Google employees Robert Griesemer, Rob Pike, and Ken Thompson. Go is a statically typed, compiled language in the tradition of C, with memory safety, garbage collection, structural typing, and CSP-style concurrency.
-
-- [x] **Groovy**
-
-- [x] **Haskell**
-
-- [x] **HTML**
-
-Html Stands For Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web.Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.
-
-- [x] **INTERCAL**
-
-INTERCAL was created in 1972 by two hackers from Princeton as a parody to satirizes various aspects of programming languages then. Anything that the compiler couldn't understand got skipped and the entire code read like someone pleading. The language was Turing-complete, and hence capable of implementing any algorithm. Though the programmer might be driven into advanced stages of insanity from the attempt.
-
-- [x] **Java**
-
-Java is a general-purpose computer-programming language that is concurrent, class-based, object-oriented and specifically designed to have as few implementation dependencies as possible. It is intended to let application developers "write once, run anywhere" (WORA), meaning that compiled Java code can run on all platforms that support Java without the need for recompilation.
-
-- [x] **JavaScript**
-
-JavaScript, often abbreviated as JS, is a high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm. Alongside HTML and CSS, JavaScript is one of the three core technologies of the World Wide Web.
-
-- [x] **Julia**
-
-- [x] **Juliar**
-
-- [x] **Kotlin**
-
-Kotlin is a statically typed programming language that runs on the Java virtual machine and also can be compiled to JavaScript source code or use the LLVM compiler infrastructure. While the syntax is not compatible with Java, the JVM implementation of the Kotlin standard library is designed to interoperate with Java code and is reliant on Java code from the existing Java Class Library, such as the collections framework. 
-
-- [x] **Lisp**
-
-- [x] **Lua**
-
-- [x] **Matlab**
-
-- [x] **Nim**
-
-Nim is a systems and applications programming language. Statically typed and compiled, it provides unparalleled performance in an elegant package.
-
-- [x] **Objective-C**
-
-- [x] **OCaml**
-
-OCaml or Objective Caml, is a general purpose programming language with an emphasis on expressiveness and safety.
-
-- [x] **Pascal**
-
-- [x] **Perl**
-
-- [x] **Perl 6**
-
-- [x] **PHP**
-
-PHP: Hypertext Preprocessor is a server-side scripting language designed for Web development, but also used as a general-purpose programming language. It was originally created by Rasmus Lerdorf in 1994, the PHP reference implementation is now produced by The PHP Group.
-
-- [x] **PostScript**
-
-- [x] **PowerShell**
-
-- [x] **Prolog**
-
-- [x] **Python**
-
-- [x] **R**
-
-- [x] **Ruby**
-
-- [x] **Rust**
-
-- [x] **Scala**
-
-- [x] **Shakespeare**
-
-The Shakespeare Programming Language is a programming language created with the design goal to make the source code resemble Shakespeare plays.  There are no fancy data or control structures, just basic arithmetic and gotos. The language combines the expressiveness of BASIC with the user-friendliness of assembly language, but is much more verbose.
-
-- [x] **Shell**
-
-- [x] **Solidity**
-
-- [x] **SQL**
-
-- [x] **Standard ML**
-
-Standard ML is a general-purpose, modular, functional programming language with compile-time type checking and type inference; and a descendant of the ML programming language used in the Logic for Computable Functions theorem-proving project.
-
-- [x] **Swift**
-
-Swift is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. for iOS, macOS, watchOS, tvOS, and Linux. Swift is designed to work with Apple's Cocoa and Cocoa Touch frameworks and the large body of existing Objective-C code written for Apple products.
-
-- [x] **Tool Comman Language(TCL)**
-
-- [x] **TypeScript**
-
-- [x] **VB.NET**
-
-- [x] **Whitespace**
-
-Whitespace is an esoteric programming language developed by Edwin Brady and Chris Morris at the University of Durham. The language consists of spaces, tabs and linefeeds.
+# Hello World 🌍
+
+> "Hello World" in every programming language we can get our hands on.
+
+![Languages](https://img.shields.io/badge/languages-157-blue)
+![TIOBE coverage](https://img.shields.io/badge/TIOBE%20top%20100-100%25-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+Since 1974, when Brian Kernighan used it in *Programming in C: A Tutorial*, printing **Hello World** has been
+the first program almost everyone writes in a new language. This repository collects that program in
+**157 languages**: every language in the [TIOBE Index](https://www.tiobe.com/tiobe-index/) top 100,
+the languages that shaped computing history, the new languages people are talking about, and a few esoteric ones for fun.
+
+## Contents
+
+- [TIOBE Index — Top 50](#tiobe-index--top-50)
+- [TIOBE Index — 51 to 100](#tiobe-index--51-to-100)
+- [Historical languages](#historical-languages)
+- [Modern & trending languages](#modern--trending-languages)
+- [Esoteric & other](#esoteric--other)
+- [Contributing](#contributing)
+
+## TIOBE Index — Top 50
+
+Ranking from the TIOBE Index of **September 2026**. Rankings change every month; the list is a snapshot.
+Purely graphical languages (Scratch, LabVIEW, Ladder Logic) have no text syntax, so their files contain a textual representation.
+
+| # | Language | File | Notes |
+|---|---|---|---|
+| 1 | **Python** | [`HelloWorld.py`](HelloWorld.py) |  |
+| 2 | **C** | [`HelloWorld.c`](HelloWorld.c) |  |
+| 3 | **C++** | [`HelloWorld.cpp`](HelloWorld.cpp) |  |
+| 4 | **Java** | [`HelloWorld.java`](HelloWorld.java) |  |
+| 5 | **C#** | [`HelloWorld.cs`](HelloWorld.cs) |  |
+| 6 | **JavaScript** | [`HelloWorld.js`](HelloWorld.js) |  |
+| 7 | **Visual Basic (.NET)** | [`HelloWorld.vb`](HelloWorld.vb) |  |
+| 8 | **SQL** | [`HelloWorld.sql`](HelloWorld.sql) |  |
+| 9 | **R** | [`HelloWorld.r`](HelloWorld.r) |  |
+| 10 | **Rust** | [`HelloWorld.rs`](HelloWorld.rs) |  |
+| 11 | **Fortran** | [`HelloWorld.f90`](HelloWorld.f90) |  |
+| 12 | **Go** | [`HelloWorld.go`](HelloWorld.go) |  |
+| 13 | **Delphi / Object Pascal** | [`HelloWorld.dpr`](HelloWorld.dpr) |  |
+| 14 | **PHP** | [`HelloWorld.php`](HelloWorld.php) |  |
+| 15 | **Scratch** | [`HelloWorld(Scratch).txt`](HelloWorld%28Scratch%29.txt) | textual (scratchblocks) form |
+| 16 | **Assembly (x86, DOS)** | [`HelloWorld.asm`](HelloWorld.asm) |  |
+| 17 | **Ada** | [`HelloWorld.adb`](HelloWorld.adb) |  |
+| 18 | **Swift** | [`HelloWorld.swift`](HelloWorld.swift) |  |
+| 19 | **Objective-C** | [`HelloWorld(Objective-C).m`](HelloWorld%28Objective-C%29.m) |  |
+| 20 | **COBOL** | [`HelloWorld.cob`](HelloWorld.cob) |  |
+| 21 | **Julia** | [`HelloWorld.jl`](HelloWorld.jl) |  |
+| 22 | **Ruby** | [`HelloWorld.rb`](HelloWorld.rb) |  |
+| 23 | **Perl** | [`HelloWorld.pl`](HelloWorld.pl) |  |
+| 24 | **SAS** | [`HelloWorld.sas`](HelloWorld.sas) |  |
+| 25 | **Classic Visual Basic (VB6)** | [`HelloWorld(VB6).bas`](HelloWorld%28VB6%29.bas) |  |
+| 26 | **Kotlin** | [`HelloWorld.kt`](HelloWorld.kt) |  |
+| 27 | **MATLAB** | [`HelloWorld(MATLAB).m`](HelloWorld%28MATLAB%29.m) |  |
+| 28 | **Caml (Caml Light)** | [`HelloWorld(Caml).ml`](HelloWorld%28Caml%29.ml) |  |
+| 29 | **Prolog** | [`HelloWorld.pro`](HelloWorld.pro) |  |
+| 30 | **GML (GameMaker Language)** | [`HelloWorld.gml`](HelloWorld.gml) |  |
+| 31 | **Lua** | [`HelloWorld.lua`](HelloWorld.lua) |  |
+| 32 | **PowerShell** | [`HelloWorld.ps1`](HelloWorld.ps1) |  |
+| 33 | **D** | [`HelloWorld.d`](HelloWorld.d) |  |
+| 34 | **PL/SQL** | [`HelloWorld.pls`](HelloWorld.pls) |  |
+| 35 | **ABAP** | [`HelloWorld.ABAP`](HelloWorld.ABAP) |  |
+| 36 | **Transact-SQL** | [`HelloWorld(T-SQL).sql`](HelloWorld%28T-SQL%29.sql) |  |
+| 37 | **VBScript** | [`HelloWorld.vbs`](HelloWorld.vbs) |  |
+| 38 | **OCaml** | [`HelloWorld.ml`](HelloWorld.ml) |  |
+| 39 | **TypeScript** | [`HelloWorld.ts`](HelloWorld.ts) |  |
+| 40 | **Zig** | [`HelloWorld.zig`](HelloWorld.zig) |  |
+| 41 | **Dart** | [`HelloWorld.dart`](HelloWorld.dart) |  |
+| 42 | **X++** | [`HelloWorld.xpp`](HelloWorld.xpp) |  |
+| 43 | **Lisp (Common Lisp)** | [`HelloWorld.lisp`](HelloWorld.lisp) |  |
+| 44 | **Scala** | [`HelloWorld.scala`](HelloWorld.scala) |  |
+| 45 | **LabVIEW** | [`HelloWorld(LabVIEW).txt`](HelloWorld%28LabVIEW%29.txt) | graphical; textual description |
+| 46 | **Ladder Logic** | [`HelloWorld(LadderLogic).txt`](HelloWorld%28LadderLogic%29.txt) | graphical; ASCII rung |
+| 47 | **VHDL** | [`HelloWorld.vhd`](HelloWorld.vhd) |  |
+| 48 | **XSLT** | [`HelloWorld.xsl`](HelloWorld.xsl) |  |
+| 49 | **Haskell** | [`HelloWorld.hs`](HelloWorld.hs) |  |
+| 50 | **(Visual) FoxPro** | [`HelloWorld(FoxPro).prg`](HelloWorld%28FoxPro%29.prg) |  |
+
+## TIOBE Index — 51 to 100
+
+TIOBE publishes positions 51–100 unranked, in alphabetical order.
+
+| Language | File | Notes |
+|---|---|---|
+| **ActionScript** | [`HelloWorld.as`](HelloWorld.as) |  |
+| **Apex** | [`HelloWorld.cls`](HelloWorld.cls) |  |
+| **AppleScript** | [`HelloWorld.applescript`](HelloWorld.applescript) |  |
+| **Awk** | [`HelloWorld.awk`](HelloWorld.awk) |  |
+| **Bash** | [`HelloWorld.bash`](HelloWorld.bash) |  |
+| **bc** | [`HelloWorld.bc`](HelloWorld.bc) |  |
+| **BCPL** | [`HelloWorld.bcpl`](HelloWorld.bcpl) |  |
+| **Bourne shell** | [`HelloWorld.sh`](HelloWorld.sh) |  |
+| **C shell** | [`HelloWorld.csh`](HelloWorld.csh) |  |
+| **CFML** | [`HelloWorld.cfm`](HelloWorld.cfm) |  |
+| **CL (OS/400)** | [`HelloWorld.clle`](HelloWorld.clle) |  |
+| **Clojure** | [`HelloWorld.clj`](HelloWorld.clj) |  |
+| **CoffeeScript** | [`HelloWorld.coffee`](HelloWorld.coffee) |  |
+| **cT** | [`HelloWorld(cT).t`](HelloWorld%28cT%29.t) |  |
+| **ECMAScript** | [`HelloWorld.mjs`](HelloWorld.mjs) |  |
+| **EGL** | [`HelloWorld.egl`](HelloWorld.egl) |  |
+| **Elixir** | [`HelloWorld.exs`](HelloWorld.exs) |  |
+| **Erlang** | [`HelloWorld.erl`](HelloWorld.erl) |  |
+| **F#** | [`HelloWorld.fs`](HelloWorld.fs) |  |
+| **GAMS** | [`HelloWorld.gms`](HelloWorld.gms) |  |
+| **Groovy** | [`HelloWorld.groovy`](HelloWorld.groovy) |  |
+| **Io** | [`HelloWorld.io`](HelloWorld.io) |  |
+| **J** | [`HelloWorld.ijs`](HelloWorld.ijs) |  |
+| **J#** | [`HelloWorld.jsl`](HelloWorld.jsl) |  |
+| **JScript** | [`HelloWorld(JScript).js`](HelloWorld%28JScript%29.js) |  |
+| **Logo** | [`HelloWorld.logo`](HelloWorld.logo) |  |
+| **ML** | [`HelloWorld.sml`](HelloWorld.sml) | Standard ML |
+| **MS-DOS batch** | [`HelloWorld.bat`](HelloWorld.bat) |  |
+| **NetLogo** | [`HelloWorld.nls`](HelloWorld.nls) |  |
+| **Nim** | [`HelloWorld.nim`](HelloWorld.nim) |  |
+| **OpenCL** | [`HelloWorld(OpenCL).cl`](HelloWorld%28OpenCL%29.cl) |  |
+| **PL/I** | [`HelloWorld.pli`](HelloWorld.pli) |  |
+| **PowerScript** | [`HelloWorld.powerscript`](HelloWorld.powerscript) |  |
+| **Pure Data** | [`HelloWorld.pd`](HelloWorld.pd) |  |
+| **PureBasic** | [`HelloWorld.pb`](HelloWorld.pb) |  |
+| **Q (kdb+)** | [`HelloWorld.q`](HelloWorld.q) |  |
+| **REBOL** | [`HelloWorld.reb`](HelloWorld.reb) |  |
+| **Ring** | [`HelloWorld.ring`](HelloWorld.ring) |  |
+| **Scheme** | [`HelloWorld.scm`](HelloWorld.scm) |  |
+| **Solidity** | [`HelloWorld.sol`](HelloWorld.sol) |  |
+| **Structured Text** | [`HelloWorld(StructuredText).st`](HelloWorld%28StructuredText%29.st) |  |
+| **Tcl** | [`HelloWorld.tcl`](HelloWorld.tcl) |  |
+| **tcsh** | [`HelloWorld.tcsh`](HelloWorld.tcsh) |  |
+| **thinBasic** | [`HelloWorld.tbasic`](HelloWorld.tbasic) |  |
+| **V** | [`HelloWorld.v`](HelloWorld.v) |  |
+| **Xbase++** | [`HelloWorld(Xbase++).prg`](HelloWorld%28Xbase%2B%2B%29.prg) |  |
+| **XC** | [`HelloWorld.xc`](HelloWorld.xc) |  |
+| **Xojo** | [`HelloWorld.xojo_code`](HelloWorld.xojo_code) |  |
+| **XPL** | [`HelloWorld.xpl`](HelloWorld.xpl) |  |
+| **Z shell** | [`HelloWorld.zsh`](HelloWorld.zsh) |  |
+
+## Historical languages
+
+Languages that shaped programming, ordered by the year they first appeared.
+Some historical languages that are still ranked (Fortran, Lisp, COBOL, BCPL, PL/I, Logo…) are listed in the TIOBE tables above.
+
+| Language | Year | File | Notes |
+|---|---|---|---|
+| **RPG** | 1959 | [`HelloWorld.rpgle`](HelloWorld.rpgle) | modern free-form RPG IV |
+| **ALGOL 60** | 1960 | [`HelloWorld.alg`](HelloWorld.alg) |  |
+| **BASIC** | 1964 | [`HelloWorld.bas`](HelloWorld.bas) |  |
+| **APL** | 1966 | [`HelloWorld.apl`](HelloWorld.apl) |  |
+| **MUMPS (M)** | 1966 | [`HelloWorld.mps`](HelloWorld.mps) |  |
+| **Simula** | 1967 | [`HelloWorld.sim`](HelloWorld.sim) |  |
+| **SNOBOL4** | 1967 | [`HelloWorld.sno`](HelloWorld.sno) |  |
+| **ALGOL 68** | 1968 | [`HelloWorld.a68`](HelloWorld.a68) |  |
+| **B** | 1969 | [`HelloWorld.b`](HelloWorld.b) |  |
+| **Forth** | 1970 | [`HelloWorld.fth`](HelloWorld.fth) |  |
+| **Pascal** | 1970 | [`HelloWorld.pas`](HelloWorld.pas) |  |
+| **INTERCAL** | 1972 | [`HelloWorld.i`](HelloWorld.i) |  |
+| **Smalltalk** | 1972 | [`HelloWorld(Smalltalk).st`](HelloWorld%28Smalltalk%29.st) |  |
+| **Icon** | 1977 | [`HelloWorld.icn`](HelloWorld.icn) |  |
+| **Modula-2** | 1978 | [`HelloWorld.mod`](HelloWorld.mod) |  |
+| **REXX** | 1979 | [`HelloWorld.rexx`](HelloWorld.rexx) |  |
+| **PostScript** | 1982 | [`HelloWorld.ps`](HelloWorld.ps) |  |
+| **Standard ML** | 1983 | [`HelloWorld.sml`](HelloWorld.sml) |  |
+| **Verilog / SystemVerilog** | 1984 | [`HelloWorld.sv`](HelloWorld.sv) |  |
+| **Miranda** | 1985 | [`HelloWorld.mira`](HelloWorld.mira) |  |
+| **Eiffel** | 1986 | [`HelloWorld.e`](HelloWorld.e) |  |
+| **Oberon** | 1987 | [`HelloWorld.ob`](HelloWorld.ob) |  |
+
+## Modern & trending languages
+
+New or fast-growing languages that are not (yet) in the TIOBE top 100.
+
+| Language | File | Notes |
+|---|---|---|
+| **Ballerina** | [`HelloWorld.bal`](HelloWorld.bal) |  |
+| **Bend** | [`HelloWorld.bend`](HelloWorld.bend) |  |
+| **C3** | [`HelloWorld.c3`](HelloWorld.c3) |  |
+| **Carbon** | [`HelloWorld.carbon`](HelloWorld.carbon) | experimental |
+| **Chapel** | [`HelloWorld.chpl`](HelloWorld.chpl) |  |
+| **Crystal** | [`HelloWorld.cr`](HelloWorld.cr) |  |
+| **Elm** | [`HelloWorld.elm`](HelloWorld.elm) |  |
+| **Gleam** | [`HelloWorld.gleam`](HelloWorld.gleam) |  |
+| **Grain** | [`HelloWorld.gr`](HelloWorld.gr) |  |
+| **Hare** | [`HelloWorld.ha`](HelloWorld.ha) |  |
+| **Haxe** | [`HelloWorld.hx`](HelloWorld.hx) |  |
+| **Inko** | [`HelloWorld.inko`](HelloWorld.inko) |  |
+| **Jai** | [`HelloWorld.jai`](HelloWorld.jai) | closed beta |
+| **Koka** | [`HelloWorld.kk`](HelloWorld.kk) |  |
+| **Lean 4** | [`HelloWorld.lean`](HelloWorld.lean) |  |
+| **Mojo** | [`HelloWorld.mojo`](HelloWorld.mojo) |  |
+| **MoonBit** | [`HelloWorld.mbt`](HelloWorld.mbt) |  |
+| **Odin** | [`HelloWorld.odin`](HelloWorld.odin) |  |
+| **Pony** | [`HelloWorld.pony`](HelloWorld.pony) |  |
+| **Q#** | [`HelloWorld.qs`](HelloWorld.qs) |  |
+| **Racket** | [`HelloWorld.rkt`](HelloWorld.rkt) |  |
+| **Raku (Perl 6)** | [`HelloWorld.p6`](HelloWorld.p6) |  |
+| **ReScript** | [`HelloWorld.res`](HelloWorld.res) |  |
+| **Roc** | [`HelloWorld.roc`](HelloWorld.roc) |  |
+| **Unison** | [`HelloWorld.u`](HelloWorld.u) |  |
+| **Vala** | [`HelloWorld.vala`](HelloWorld.vala) |  |
+| **WebAssembly (WAT)** | [`HelloWorld.wat`](HelloWorld.wat) |  |
+
+## Esoteric & other
+
+| Language | File | Notes |
+|---|---|---|
+| **AutoIt** | [`HelloWorld.au3`](HelloWorld.au3) |  |
+| **Brainfuck** | [`HelloWorld.bf`](HelloWorld.bf) |  |
+| **ClojureScript** | [`HelloWorld.cljx`](HelloWorld.cljx) |  |
+| **COOL** | [`HelloWorld.cl`](HelloWorld.cl) |  |
+| **COOL (alt.)** | [`HelloWorld1.cl`](HelloWorld1.cl) |  |
+| **Emojicode** | [`helloworld.emojic`](helloworld.emojic) |  |
+| **HTML** | [`HelloWorld.html`](HelloWorld.html) |  |
+| **Juliar** | [`HelloWorld.jrl`](HelloWorld.jrl) |  |
+| **Shakespeare** | [`HelloWorld.spl`](HelloWorld.spl) |  |
+| **Whitespace** | [`HelloWorld.ws`](HelloWorld.ws) |  |
+
+## Contributing
+
+1. Check the tables above: is the language already covered?
+2. Fork the repository and create a branch: `git checkout -b add-<language>`.
+3. Add a file named `HelloWorld.<extension>` (for example `HelloWorld.py`).
+   If the extension is already taken by another language, use `HelloWorld(<Language>).<extension>`
+   (for example `HelloWorld(MATLAB).m` next to `HelloWorld(Objective-C).m`).
+4. The program should print (or display) `Hello World` and be the idiomatic, minimal version for that language.
+5. Add a row to the right table in this README and open a pull request.
 
 ## Contributors
 
-[![](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/images/0)](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/links/0)[![](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/images/1)](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/links/1)[![](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/images/2)](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/links/2)[![](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/images/3)](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/links/3)[![](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/images/4)](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/links/4)[![](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/images/5)](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/links/5)[![](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/images/6)](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/links/6)[![](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/images/7)](https://sourcerer.io/fame/Omkar-Ajnadkar/Omkar-Ajnadkar/Hello-World/links/7)
+[![Contributors](https://contrib.rocks/image?repo=matbrgz/Hello-World)](https://github.com/matbrgz/Hello-World/graphs/contributors)
+
+## License
+
+[MIT](LICENSE)

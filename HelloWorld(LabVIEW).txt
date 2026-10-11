@@ -1,0 +1,12 @@
+LabVIEW is a graphical (dataflow) language, so there is no textual source.
+Textual representation of HelloWorld.vi:
+
+Block Diagram
++-------------------------------------------------------------+
+|                                                             |
+|   [ "Hello World" ] ---string---> [ One Button Dialog ]     |
+|    (String Constant)                 (Dialog & UI palette)  |
+|                                                             |
++-------------------------------------------------------------+
+
+Front Panel: empty. Run the VI and a dialog shows "Hello World".

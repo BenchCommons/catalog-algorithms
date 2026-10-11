@@ -1,0 +1,8 @@
+Ladder Logic (IEC 61131-3 LD) is graphical. Textual representation of one rung:
+when the Start input closes, the string "Hello World" is moved to the HMI tag.
+
+     Start                                         +-----------------------+
+ |----| |-------------------------------------------| MOV                   |---|
+ |                                                 |  Source: 'Hello World'|   |
+ |                                                 |  Dest:   HMI_Message  |   |
+ |                                                 +-----------------------+   |

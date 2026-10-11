@@ -1,0 +1,3 @@
+PGM
+    SNDPGMMSG MSG('Hello World')
+ENDPGM

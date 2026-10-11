@@ -1,0 +1,4 @@
+BEGIN
+    COMMENT ALGOL 60;
+    OUTSTRING(1, "Hello World");
+END
