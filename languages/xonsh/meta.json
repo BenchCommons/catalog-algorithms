@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.xsh"
   ],
-  "section": "shells"
+  "section": "shells",
+  "test": {
+    "group": "base",
+    "run": "pipx run xonsh HelloWorld.xsh",
+    "needs": [
+      "pipx"
+    ]
+  }
 }

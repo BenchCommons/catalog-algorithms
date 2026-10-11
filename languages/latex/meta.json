@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.tex"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "apt",
+    "run": "pandoc -f latex -t plain HelloWorld.tex",
+    "apt": [
+      "pandoc"
+    ]
+  }
 }

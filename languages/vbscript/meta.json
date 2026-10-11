@@ -5,5 +5,12 @@
   ],
   "tiobe": {
     "rank": 37
+  },
+  "test": {
+    "group": "windows",
+    "run": "cscript //nologo HelloWorld.vbs",
+    "needs": [
+      "cscript"
+    ]
   }
 }

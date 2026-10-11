@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.lsp"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "apt",
+    "run": "newlisp HelloWorld.lsp",
+    "apt": [
+      "newlisp"
+    ]
+  }
 }

@@ -6,5 +6,12 @@
   "tiobe": {
     "group": "51-100"
   },
-  "notes": "Windows Script Host"
+  "notes": "Windows Script Host",
+  "test": {
+    "group": "windows",
+    "run": "cscript //nologo HelloWorld.js",
+    "needs": [
+      "cscript"
+    ]
+  }
 }

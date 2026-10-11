@@ -3,5 +3,9 @@
   "files": [
     "HelloWorld.bf93"
   ],
-  "section": "esoteric"
+  "section": "esoteric",
+  "test": {
+    "group": "base",
+    "run": "python3 \"$HELLO_ROOT/scripts/esolang.py\" befunge HelloWorld.bf93"
+  }
 }

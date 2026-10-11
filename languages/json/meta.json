@@ -3,5 +3,9 @@
   "files": [
     "hello.json"
   ],
-  "section": "config"
+  "section": "config",
+  "test": {
+    "group": "base",
+    "run": "jq -r .message hello.json"
+  }
 }

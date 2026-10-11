@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.md"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "apt",
+    "run": "pandoc -t plain HelloWorld.md",
+    "apt": [
+      "pandoc"
+    ]
+  }
 }

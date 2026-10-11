@@ -3,5 +3,15 @@
   "files": [
     "HelloWorld.dats"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "apt",
+    "run": "patscc -o hello HelloWorld.dats && ./hello",
+    "apt": [
+      "ats2-lang"
+    ],
+    "needs": [
+      "patscc"
+    ]
+  }
 }

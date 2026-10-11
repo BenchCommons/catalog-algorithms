@@ -3,5 +3,9 @@
   "files": [
     "hello.yaml"
   ],
-  "section": "config"
+  "section": "config",
+  "test": {
+    "group": "base",
+    "run": "yq '.message' hello.yaml"
+  }
 }

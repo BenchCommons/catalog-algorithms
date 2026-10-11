@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.hy"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "base",
+    "run": "pipx run hy HelloWorld.hy",
+    "needs": [
+      "pipx"
+    ]
+  }
 }

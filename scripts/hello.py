@@ -22,7 +22,7 @@ LANG_DIR = os.path.join(ROOT, "languages")
 README = os.path.join(ROOT, "README.md")
 REPO = "matbrgz/Hello-World"
 TIOBE_MONTH = "September 2026"
-TEST_GROUPS = ("base", "apt", "extra")
+TEST_GROUPS = ("base", "apt", "extra", "macos", "windows")
 
 # Section id -> (title, intro). Order defines README order.
 SECTIONS = [
@@ -181,8 +181,9 @@ python3 scripts/hello.py readme             # regenerate this README from langua
      }
      ```
      `section` is one of: %s.
-     `test` is optional: add it when the language can run on Ubuntu (`group` `base` for tools preinstalled on the
-     GitHub runner, `apt` with an `"apt": ["package"]` list, or `extra` for tools set up in the workflow).
+     `test` is optional: add it when the language can run on a GitHub runner. `group` is `base` (tools preinstalled
+     on Ubuntu), `apt` (with an `"apt": ["package"]` list), `extra` (tools set up in the workflow), `macos` or
+     `windows`. `needs` lists the commands that must exist (defaults to the first word of `run`).
 3. The program should print (or display) `Hello World` and be the idiomatic, minimal version for that language.
 4. Run `python3 scripts/hello.py readme` and `python3 scripts/hello.py check`, then open a pull request.
 

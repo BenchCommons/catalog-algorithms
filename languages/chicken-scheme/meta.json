@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.scm"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "apt",
+    "run": "csi -s HelloWorld.scm",
+    "apt": [
+      "chicken-bin"
+    ]
+  }
 }

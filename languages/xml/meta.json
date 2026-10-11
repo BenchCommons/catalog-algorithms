@@ -3,5 +3,15 @@
   "files": [
     "HelloWorld.xml"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "apt",
+    "run": "xmllint --xpath 'string(/message)' HelloWorld.xml",
+    "apt": [
+      "libxml2-utils"
+    ],
+    "needs": [
+      "xmllint"
+    ]
+  }
 }

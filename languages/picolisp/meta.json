@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.l"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "apt",
+    "run": "pil HelloWorld.l",
+    "apt": [
+      "picolisp"
+    ]
+  }
 }

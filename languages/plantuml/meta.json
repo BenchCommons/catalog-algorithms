@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.puml"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "apt",
+    "run": "plantuml -tutxt -pipe < HelloWorld.puml",
+    "apt": [
+      "plantuml"
+    ]
+  }
 }

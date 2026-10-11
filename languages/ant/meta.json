@@ -3,5 +3,12 @@
   "files": [
     "build.xml"
   ],
-  "section": "config"
+  "section": "config",
+  "test": {
+    "group": "apt",
+    "run": "ant -q",
+    "apt": [
+      "ant"
+    ]
+  }
 }

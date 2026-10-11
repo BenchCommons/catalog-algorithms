@@ -3,5 +3,9 @@
   "files": [
     "build.gradle.kts"
   ],
-  "section": "config"
+  "section": "config",
+  "test": {
+    "group": "base",
+    "run": "gradle -q --no-daemon hello"
+  }
 }

@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.sql"
   ],
-  "section": "query"
+  "section": "query",
+  "test": {
+    "group": "extra",
+    "run": "sudo -u postgres psql -q < HelloWorld.sql",
+    "needs": [
+      "psql"
+    ]
+  }
 }

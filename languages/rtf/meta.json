@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.rtf"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "apt",
+    "run": "unrtf --text HelloWorld.rtf",
+    "apt": [
+      "unrtf"
+    ]
+  }
 }

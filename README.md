@@ -4,7 +4,7 @@
 
 [![CI](https://github.com/matbrgz/Hello-World/actions/workflows/hello-world.yml/badge.svg)](https://github.com/matbrgz/Hello-World/actions/workflows/hello-world.yml)
 ![Languages](https://img.shields.io/badge/languages-452-blue)
-![Tested in CI](https://img.shields.io/badge/tested%20in%20CI-96-brightgreen)
+![Tested in CI](https://img.shields.io/badge/tested%20in%20CI-158-brightgreen)
 ![TIOBE coverage](https://img.shields.io/badge/TIOBE%20top%20100-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -14,7 +14,7 @@ the first program almost everyone writes in a new language. This repository coll
 the languages that shaped computing history, the new languages people are talking about, Brazilian languages,
 and a long tail of assembly, shell, scientific, hardware, markup and esoteric languages.
 
-**96 programs are compiled or run on every push** by GitHub Actions (marked ✅ below), and the output is checked
+**158 programs are compiled or run on every push** by GitHub Actions (marked ✅ below), and the output is checked
 to contain "Hello World".
 
 ## Contents
@@ -62,7 +62,7 @@ Ranking from the TIOBE Index of **September 2026**. Rankings change every month;
 | 16 | **Assembly language** | [`HelloWorld.asm`](languages/assembly-x86-dos/HelloWorld.asm) |  | MASM/TASM, DOS `int 21h` |
 | 17 | **Ada** | [`helloworld.adb`](languages/ada/helloworld.adb) | ✅ |  |
 | 18 | **Swift** | [`HelloWorld.swift`](languages/swift/HelloWorld.swift) | ✅ |  |
-| 19 | **Objective-C** | [`HelloWorld.m`](languages/objective-c/HelloWorld.m) |  |  |
+| 19 | **Objective-C** | [`HelloWorld.m`](languages/objective-c/HelloWorld.m) | ✅ |  |
 | 20 | **COBOL** | [`HelloWorld.cob`](languages/cobol/HelloWorld.cob) | ✅ |  |
 | 21 | **Julia** | [`HelloWorld.jl`](languages/julia/HelloWorld.jl) | ✅ |  |
 | 22 | **Ruby** | [`HelloWorld.rb`](languages/ruby/HelloWorld.rb) | ✅ |  |
@@ -80,7 +80,7 @@ Ranking from the TIOBE Index of **September 2026**. Rankings change every month;
 | 34 | **PL/SQL** | [`HelloWorld.pls`](languages/pl-sql/HelloWorld.pls) |  |  |
 | 35 | **ABAP** | [`HelloWorld.abap`](languages/abap/HelloWorld.abap) |  |  |
 | 36 | **Transact-SQL** | [`HelloWorld.sql`](languages/transact-sql/HelloWorld.sql) |  |  |
-| 37 | **VBScript** | [`HelloWorld.vbs`](languages/vbscript/HelloWorld.vbs) |  |  |
+| 37 | **VBScript** | [`HelloWorld.vbs`](languages/vbscript/HelloWorld.vbs) | ✅ |  |
 | 38 | **OCaml** | [`HelloWorld.ml`](languages/ocaml/HelloWorld.ml) | ✅ |  |
 | 39 | **TypeScript** | [`HelloWorld.ts`](languages/typescript/HelloWorld.ts) | ✅ |  |
 | 40 | **Zig** | [`HelloWorld.zig`](languages/zig/HelloWorld.zig) | ✅ |  |
@@ -125,10 +125,10 @@ TIOBE publishes positions 51–100 unranked, in alphabetical order.
 | **Io** | [`HelloWorld.io`](languages/io/HelloWorld.io) |  |  |
 | **J** | [`HelloWorld.ijs`](languages/j/HelloWorld.ijs) |  |  |
 | **J#** | [`HelloWorld.jsl`](languages/j-sharp/HelloWorld.jsl) |  |  |
-| **JScript** | [`HelloWorld.js`](languages/jscript/HelloWorld.js) |  | Windows Script Host |
+| **JScript** | [`HelloWorld.js`](languages/jscript/HelloWorld.js) | ✅ | Windows Script Host |
 | **Logo** | [`HelloWorld.logo`](languages/logo/HelloWorld.logo) |  |  |
 | **ML** | [`HelloWorld.sml`](languages/standard-ml/HelloWorld.sml) | ✅ |  |
-| **MS-DOS batch** | [`HelloWorld.bat`](languages/batch/HelloWorld.bat) |  |  |
+| **MS-DOS batch** | [`HelloWorld.bat`](languages/batch/HelloWorld.bat) | ✅ |  |
 | **NetLogo** | [`HelloWorld.nls`](languages/netlogo/HelloWorld.nls) |  |  |
 | **Nim** | [`HelloWorld.nim`](languages/nim/HelloWorld.nim) | ✅ |  |
 | **OpenCL** | [`HelloWorld.cl`](languages/opencl/HelloWorld.cl) |  |  |
@@ -145,7 +145,7 @@ TIOBE publishes positions 51–100 unranked, in alphabetical order.
 | **Tcl** | [`HelloWorld.tcl`](languages/tcl/HelloWorld.tcl) | ✅ |  |
 | **tcsh** | [`HelloWorld.tcsh`](languages/tcsh/HelloWorld.tcsh) | ✅ |  |
 | **thinBasic** | [`HelloWorld.tbasic`](languages/thinbasic/HelloWorld.tbasic) |  |  |
-| **V** | [`HelloWorld.v`](languages/v/HelloWorld.v) |  |  |
+| **V** | [`HelloWorld.v`](languages/v/HelloWorld.v) | ✅ |  |
 | **Xbase++** | [`HelloWorld.prg`](languages/xbase-plus-plus/HelloWorld.prg) |  |  |
 | **XC** | [`HelloWorld.xc`](languages/xc/HelloWorld.xc) | ✅ |  |
 | **Xojo** | [`HelloWorld.xojo_code`](languages/xojo/HelloWorld.xojo_code) |  |  |
@@ -179,13 +179,13 @@ Languages that shaped programming, ordered by the year they first appeared.
 | **COMAL** | 1973 | [`HelloWorld.lst`](languages/comal/HelloWorld.lst) |  |  |
 | **Ratfor** | 1974 | [`HelloWorld.r`](languages/ratfor/HelloWorld.r) |  |  |
 | **CLU** | 1975 | [`HelloWorld.clu`](languages/clu/HelloWorld.clu) |  |  |
-| **Commodore BASIC** | 1977 | [`HelloWorld.bas`](languages/commodore-basic/HelloWorld.bas) |  |  |
-| **Icon** | 1977 | [`HelloWorld.icn`](languages/icon/HelloWorld.icn) |  |  |
+| **Commodore BASIC** | 1977 | [`HelloWorld.bas`](languages/commodore-basic/HelloWorld.bas) | ✅ |  |
+| **Icon** | 1977 | [`HelloWorld.icn`](languages/icon/HelloWorld.icn) | ✅ |  |
 | **Hope** | 1978 | [`HelloWorld.hop`](languages/hope/HelloWorld.hop) |  |  |
-| **Modula-2** | 1978 | [`HelloWorld.mod`](languages/modula-2/HelloWorld.mod) |  |  |
+| **Modula-2** | 1978 | [`HelloWorld.mod`](languages/modula-2/HelloWorld.mod) | ✅ |  |
 | **dBase** | 1979 | [`HelloWorld.prg`](languages/dbase/HelloWorld.prg) |  |  |
 | **REXX** | 1979 | [`HelloWorld.rexx`](languages/rexx/HelloWorld.rexx) | ✅ |  |
-| **BBC BASIC** | 1981 | [`HelloWorld.bbc`](languages/bbc-basic/HelloWorld.bbc) |  |  |
+| **BBC BASIC** | 1981 | [`HelloWorld.bbc`](languages/bbc-basic/HelloWorld.bbc) | ✅ |  |
 | **PostScript** | 1982 | [`HelloWorld.ps`](languages/postscript/HelloWorld.ps) | ✅ |  |
 | **Turing** | 1982 | [`HelloWorld.t`](languages/turing/HelloWorld.t) |  |  |
 | **occam** | 1983 | [`HelloWorld.occ`](languages/occam/HelloWorld.occ) |  |  |
@@ -221,7 +221,7 @@ New or fast-growing languages that are not (yet) in the TIOBE top 100.
 | **Chapel** | [`HelloWorld.chpl`](languages/chapel/HelloWorld.chpl) |  |  |
 | **Crystal** | [`HelloWorld.cr`](languages/crystal/HelloWorld.cr) | ✅ |  |
 | **Elm** | [`Main.elm`](languages/elm/Main.elm) |  |  |
-| **Gleam** | [`HelloWorld.gleam`](languages/gleam/HelloWorld.gleam) |  |  |
+| **Gleam** | [`HelloWorld.gleam`](languages/gleam/HelloWorld.gleam) | ✅ |  |
 | **Grain** | [`HelloWorld.gr`](languages/grain/HelloWorld.gr) |  |  |
 | **Hare** | [`HelloWorld.ha`](languages/hare/HelloWorld.ha) |  |  |
 | **Haxe** | [`HelloWorld.hx`](languages/haxe/HelloWorld.hx) | ✅ |  |
@@ -235,7 +235,7 @@ New or fast-growing languages that are not (yet) in the TIOBE top 100.
 | **Pony** | [`HelloWorld.pony`](languages/pony/HelloWorld.pony) |  |  |
 | **Q#** | [`HelloWorld.qs`](languages/q-sharp/HelloWorld.qs) |  |  |
 | **Racket** | [`HelloWorld.rkt`](languages/racket/HelloWorld.rkt) | ✅ |  |
-| **Raku (Perl 6)** | [`HelloWorld.raku`](languages/raku/HelloWorld.raku) |  |  |
+| **Raku (Perl 6)** | [`HelloWorld.raku`](languages/raku/HelloWorld.raku) | ✅ |  |
 | **ReScript** | [`HelloWorld.res`](languages/rescript/HelloWorld.res) |  |  |
 | **Roc** | [`HelloWorld.roc`](languages/roc/HelloWorld.roc) |  |  |
 | **Unison** | [`HelloWorld.u`](languages/unison/HelloWorld.u) |  |  |
@@ -252,7 +252,7 @@ Functional, logic, object-oriented and scripting languages outside the TIOBE top
 | **Alice ML** | [`HelloWorld.aml`](languages/alice-ml/HelloWorld.aml) |  |  |
 | **Arc** | [`HelloWorld.arc`](languages/arc/HelloWorld.arc) |  |  |
 | **AssemblyScript** | [`HelloWorld.ts`](languages/assemblyscript/HelloWorld.ts) |  |  |
-| **ATS** | [`HelloWorld.dats`](languages/ats/HelloWorld.dats) |  |  |
+| **ATS** | [`HelloWorld.dats`](languages/ats/HelloWorld.dats) | ✅ |  |
 | **Austral** | [`HelloWorld.aum`](languages/austral/HelloWorld.aum) |  |  |
 | **AutoLISP** | [`HelloWorld.lsp`](languages/autolisp/HelloWorld.lsp) |  |  |
 | **Babashka** | [`HelloWorld.bb`](languages/babashka/HelloWorld.bb) |  |  |
@@ -261,7 +261,7 @@ Functional, logic, object-oriented and scripting languages outside the TIOBE top
 | **Boo** | [`HelloWorld.boo`](languages/boo/HelloWorld.boo) |  |  |
 | **Carp** | [`HelloWorld.carp`](languages/carp/HelloWorld.carp) |  |  |
 | **Ceylon** | [`run.ceylon`](languages/ceylon/run.ceylon) |  |  |
-| **CHICKEN Scheme** | [`HelloWorld.scm`](languages/chicken-scheme/HelloWorld.scm) |  |  |
+| **CHICKEN Scheme** | [`HelloWorld.scm`](languages/chicken-scheme/HelloWorld.scm) | ✅ |  |
 | **Civet** | [`HelloWorld.civet`](languages/civet/HelloWorld.civet) |  |  |
 | **Clean** | [`HelloWorld.icl`](languages/clean/HelloWorld.icl) |  |  |
 | **ClojureScript** | [`HelloWorld.cljs`](languages/clojurescript/HelloWorld.cljs) |  |  |
@@ -287,7 +287,7 @@ Functional, logic, object-oriented and scripting languages outside the TIOBE top
 | **Gosu** | [`HelloWorld.gsp`](languages/gosu/HelloWorld.gsp) |  |  |
 | **Hack** | [`HelloWorld.hack`](languages/hack/HelloWorld.hack) |  |  |
 | **HolyC** | [`HelloWorld.HC`](languages/holyc/HelloWorld.HC) |  |  |
-| **Hy** | [`HelloWorld.hy`](languages/hy/HelloWorld.hy) |  |  |
+| **Hy** | [`HelloWorld.hy`](languages/hy/HelloWorld.hy) | ✅ |  |
 | **Hylo** | [`HelloWorld.hylo`](languages/hylo/HelloWorld.hylo) |  |  |
 | **Idris** | [`HelloWorld.idr`](languages/idris/HelloWorld.idr) |  |  |
 | **Imba** | [`HelloWorld.imba`](languages/imba/HelloWorld.imba) |  |  |
@@ -295,7 +295,7 @@ Functional, logic, object-oriented and scripting languages outside the TIOBE top
 | **Janet** | [`HelloWorld.janet`](languages/janet/HelloWorld.janet) |  |  |
 | **Joy** | [`HelloWorld.joy`](languages/joy/HelloWorld.joy) |  |  |
 | **Juliar** | [`HelloWorld.jrl`](languages/juliar/HelloWorld.jrl) |  |  |
-| **Kotlin Script** | [`HelloWorld.main.kts`](languages/kotlin-script/HelloWorld.main.kts) |  |  |
+| **Kotlin Script** | [`HelloWorld.main.kts`](languages/kotlin-script/HelloWorld.main.kts) | ✅ |  |
 | **LFE** | [`HelloWorld.lfe`](languages/lfe/HelloWorld.lfe) |  |  |
 | **LiveScript** | [`HelloWorld.ls`](languages/livescript/HelloWorld.ls) | ✅ |  |
 | **Lobster** | [`HelloWorld.lobster`](languages/lobster/HelloWorld.lobster) |  |  |
@@ -305,14 +305,14 @@ Functional, logic, object-oriented and scripting languages outside the TIOBE top
 | **Nelua** | [`HelloWorld.nelua`](languages/nelua/HelloWorld.nelua) |  |  |
 | **Nemerle** | [`HelloWorld.n`](languages/nemerle/HelloWorld.n) |  |  |
 | **NetRexx** | [`HelloWorld.nrx`](languages/netrexx/HelloWorld.nrx) |  |  |
-| **newLISP** | [`HelloWorld.lsp`](languages/newlisp/HelloWorld.lsp) |  |  |
+| **newLISP** | [`HelloWorld.lsp`](languages/newlisp/HelloWorld.lsp) | ✅ |  |
 | **Objective-J** | [`HelloWorld.j`](languages/objective-j/HelloWorld.j) |  |  |
 | **Oxygene** | [`HelloWorld.pas`](languages/oxygene/HelloWorld.pas) |  |  |
 | **Oz** | [`HelloWorld.oz`](languages/oz/HelloWorld.oz) |  |  |
 | **Pawn** | [`HelloWorld.pwn`](languages/pawn/HelloWorld.pwn) |  |  |
 | **Picat** | [`hello_world.pi`](languages/picat/hello_world.pi) |  |  |
-| **PicoLisp** | [`HelloWorld.l`](languages/picolisp/HelloWorld.l) |  |  |
-| **Pike** | [`HelloWorld.pike`](languages/pike/HelloWorld.pike) |  |  |
+| **PicoLisp** | [`HelloWorld.l`](languages/picolisp/HelloWorld.l) | ✅ |  |
+| **Pike** | [`HelloWorld.pike`](languages/pike/HelloWorld.pike) | ✅ |  |
 | **Portugol (VisuAlg)** | [`HelloWorld.alg`](languages/visualg/HelloWorld.alg) |  | pseudocode used to teach programming in Brazil |
 | **Portugol Studio** | [`HelloWorld.por`](languages/portugol-studio/HelloWorld.por) |  | UNIVALI |
 | **Potigol** | [`HelloWorld.poti`](languages/potigol/HelloWorld.poti) |  | IFRN, functional language in Portuguese |
@@ -320,7 +320,7 @@ Functional, logic, object-oriented and scripting languages outside the TIOBE top
 | **PureScript** | [`Main.purs`](languages/purescript/Main.purs) |  |  |
 | **ReasonML** | [`HelloWorld.re`](languages/reasonml/HelloWorld.re) |  |  |
 | **Red** | [`HelloWorld.red`](languages/red/HelloWorld.red) |  |  |
-| **Rocq (Coq)** | [`HelloWorld.v`](languages/coq/HelloWorld.v) |  |  |
+| **Rocq (Coq)** | [`HelloWorld.v`](languages/coq/HelloWorld.v) | ✅ |  |
 | **Seed7** | [`HelloWorld.sd7`](languages/seed7/HelloWorld.sd7) |  |  |
 | **Shen** | [`HelloWorld.shen`](languages/shen/HelloWorld.shen) |  |  |
 | **Small Basic** | [`HelloWorld.sb`](languages/small-basic/HelloWorld.sb) |  |  |
@@ -342,15 +342,15 @@ Machine-level languages for specific architectures and virtual machines.
 | Language | File | CI | Notes |
 |---|---|---|---|
 | **Assembly (6502, Commodore 64)** | [`HelloWorld.asm`](languages/assembly-6502/HelloWorld.asm) |  | 64tass syntax; `SYS 49152` to run |
-| **Assembly (ARM64, Linux)** | [`HelloWorld.s`](languages/assembly-arm64-linux/HelloWorld.s) |  |  |
-| **Assembly (ARM64, macOS)** | [`HelloWorld.s`](languages/assembly-arm64-macos/HelloWorld.s) |  |  |
-| **Assembly (MIPS, SPIM/MARS)** | [`HelloWorld.asm`](languages/assembly-mips/HelloWorld.asm) |  |  |
-| **Assembly (RISC-V, Linux)** | [`HelloWorld.s`](languages/assembly-risc-v/HelloWorld.s) |  |  |
+| **Assembly (ARM64, Linux)** | [`HelloWorld.s`](languages/assembly-arm64-linux/HelloWorld.s) | ✅ |  |
+| **Assembly (ARM64, macOS)** | [`HelloWorld.s`](languages/assembly-arm64-macos/HelloWorld.s) | ✅ |  |
+| **Assembly (MIPS, SPIM/MARS)** | [`HelloWorld.asm`](languages/assembly-mips/HelloWorld.asm) | ✅ |  |
+| **Assembly (RISC-V, Linux)** | [`HelloWorld.s`](languages/assembly-risc-v/HelloWorld.s) | ✅ |  |
 | **Assembly (x86-64, Linux, NASM)** | [`HelloWorld.asm`](languages/assembly-x86-64-linux/HelloWorld.asm) | ✅ |  |
 | **Assembly (Z80, CP/M)** | [`HELLO.ASM`](languages/assembly-z80/HELLO.ASM) |  |  |
 | **C--** | [`HelloWorld.cmm`](languages/c-minus-minus/HelloWorld.cmm) |  |  |
-| **CIL (.NET IL)** | [`HelloWorld.il`](languages/cil/HelloWorld.il) |  |  |
-| **JVM bytecode (Jasmin)** | [`HelloWorld.j`](languages/jasmin/HelloWorld.j) |  |  |
+| **CIL (.NET IL)** | [`HelloWorld.il`](languages/cil/HelloWorld.il) | ✅ |  |
+| **JVM bytecode (Jasmin)** | [`HelloWorld.j`](languages/jasmin/HelloWorld.j) | ✅ |  |
 | **LLVM IR** | [`HelloWorld.ll`](languages/llvm-ir/HelloWorld.ll) | ✅ |  |
 | **MMIX** | [`HelloWorld.mms`](languages/mmix/HelloWorld.mms) |  | Donald Knuth's architecture from *The Art of Computer Programming* |
 
@@ -380,8 +380,8 @@ Command shells, OS scripting and desktop automation.
 | **sed** | [`HelloWorld.sed`](languages/sed/HelloWorld.sed) | ✅ |  |
 | **VBA** | [`HelloWorld.bas`](languages/vba/HelloWorld.bas) |  | Microsoft Office macros |
 | **Vim script** | [`HelloWorld.vim`](languages/vim-script/HelloWorld.vim) | ✅ |  |
-| **Windows CMD (NT batch)** | [`HelloWorld.cmd`](languages/cmd/HelloWorld.cmd) |  |  |
-| **Xonsh** | [`HelloWorld.xsh`](languages/xonsh/HelloWorld.xsh) |  |  |
+| **Windows CMD (NT batch)** | [`HelloWorld.cmd`](languages/cmd/HelloWorld.cmd) | ✅ |  |
+| **Xonsh** | [`HelloWorld.xsh`](languages/xonsh/HelloWorld.xsh) | ✅ |  |
 | **YSH (Oils)** | [`HelloWorld.ysh`](languages/ysh/HelloWorld.ysh) |  |  |
 
 ## Scientific, math & statistics
@@ -390,9 +390,9 @@ Numerical computing, computer algebra and statistics.
 
 | Language | File | CI | Notes |
 |---|---|---|---|
-| **AMPL** | [`HelloWorld.run`](languages/ampl/HelloWorld.run) |  |  |
+| **AMPL** | [`HelloWorld.run`](languages/ampl/HelloWorld.run) | ✅ |  |
 | **BQN** | [`HelloWorld.bqn`](languages/bqn/HelloWorld.bqn) |  |  |
-| **GAP** | [`HelloWorld.g`](languages/gap/HelloWorld.g) |  |  |
+| **GAP** | [`HelloWorld.g`](languages/gap/HelloWorld.g) | ✅ |  |
 | **GAUSS** | [`HelloWorld.gss`](languages/gauss/HelloWorld.gss) |  |  |
 | **GNU Octave** | [`HelloWorld.m`](languages/gnu-octave/HelloWorld.m) | ✅ |  |
 | **gnuplot** | [`HelloWorld.gp`](languages/gnuplot/HelloWorld.gp) | ✅ |  |
@@ -402,7 +402,7 @@ Numerical computing, computer algebra and statistics.
 | **Magma** | [`HelloWorld.m`](languages/magma/HelloWorld.m) |  |  |
 | **Maple** | [`HelloWorld.mpl`](languages/maple/HelloWorld.mpl) |  |  |
 | **Maxima** | [`HelloWorld.mac`](languages/maxima/HelloWorld.mac) | ✅ |  |
-| **MiniZinc** | [`HelloWorld.mzn`](languages/minizinc/HelloWorld.mzn) |  |  |
+| **MiniZinc** | [`HelloWorld.mzn`](languages/minizinc/HelloWorld.mzn) | ✅ |  |
 | **Modelica** | [`HelloWorld.mo`](languages/modelica/HelloWorld.mo) |  |  |
 | **Nial** | [`HelloWorld.ndf`](languages/nial/HelloWorld.ndf) |  |  |
 | **PARI/GP** | [`HelloWorld.gp`](languages/pari-gp/HelloWorld.gp) | ✅ |  |
@@ -429,7 +429,7 @@ Databases, graphs and data querying.
 | **KQL (Kusto)** | [`HelloWorld.kql`](languages/kql/HelloWorld.kql) |  |  |
 | **Natural** | [`HELLO.nsp`](languages/natural/HELLO.nsp) |  |  |
 | **OpenEdge ABL (Progress 4GL)** | [`HelloWorld.p`](languages/openedge-abl/HelloWorld.p) |  |  |
-| **PL/pgSQL** | [`HelloWorld.sql`](languages/pl-pgsql/HelloWorld.sql) |  |  |
+| **PL/pgSQL** | [`HelloWorld.sql`](languages/pl-pgsql/HelloWorld.sql) | ✅ |  |
 | **Power Query M** | [`HelloWorld.pq`](languages/power-query-m/HelloWorld.pq) |  |  |
 | **SPARQL** | [`HelloWorld.rq`](languages/sparql/HelloWorld.rq) |  |  |
 | **Splunk SPL** | [`HelloWorld.spl`](languages/splunk-spl/HelloWorld.spl) |  |  |
@@ -450,7 +450,7 @@ Hardware description, GPU kernels and quantum programs.
 | **HLSL** | [`HelloWorld.hlsl`](languages/hlsl/HelloWorld.hlsl) |  |  |
 | **Metal Shading Language** | [`HelloWorld.metal`](languages/metal/HelloWorld.metal) |  |  |
 | **OpenQASM** | [`HelloWorld.qasm`](languages/openqasm/HelloWorld.qasm) |  | quantum circuit; no text output |
-| **SystemC** | [`HelloWorld.cpp`](languages/systemc/HelloWorld.cpp) |  |  |
+| **SystemC** | [`HelloWorld.cpp`](languages/systemc/HelloWorld.cpp) | ✅ |  |
 | **WGSL** | [`HelloWorld.wgsl`](languages/wgsl/HelloWorld.wgsl) |  | no text output; renders a solid color |
 
 ## Smart contracts
@@ -484,7 +484,7 @@ Languages embedded in game engines and applications.
 | **Inform 7** | [`story.ni`](languages/inform-7/story.ni) |  |  |
 | **LSL (Second Life)** | [`HelloWorld.lsl`](languages/lsl/HelloWorld.lsl) |  |  |
 | **Luau (Roblox)** | [`HelloWorld.luau`](languages/luau/HelloWorld.luau) |  |  |
-| **MicroPython** | [`main.py`](languages/micropython/main.py) |  |  |
+| **MicroPython** | [`main.py`](languages/micropython/main.py) | ✅ |  |
 | **Minecraft function** | [`hello.mcfunction`](languages/mcfunction/hello.mcfunction) |  |  |
 | **Papyrus (Skyrim)** | [`HelloWorld.psc`](languages/papyrus/HelloWorld.psc) |  |  |
 | **PICO-8 Lua** | [`hello.p8.lua`](languages/pico-8/hello.p8.lua) |  |  |
@@ -502,43 +502,43 @@ Documents, stylesheets and templates. They render or produce "Hello World" inste
 
 | Language | File | CI | Notes |
 |---|---|---|---|
-| **AsciiDoc** | [`HelloWorld.adoc`](languages/asciidoc/HelloWorld.adoc) |  |  |
+| **AsciiDoc** | [`HelloWorld.adoc`](languages/asciidoc/HelloWorld.adoc) | ✅ |  |
 | **Astro** | [`HelloWorld.astro`](languages/astro/HelloWorld.astro) |  |  |
 | **Blade (Laravel)** | [`hello.blade.php`](languages/blade/hello.blade.php) |  |  |
 | **Classic ASP** | [`HelloWorld.asp`](languages/asp-classic/HelloWorld.asp) |  |  |
 | **CSS** | [`HelloWorld.css`](languages/css/HelloWorld.css) |  |  |
-| **EJS** | [`HelloWorld.ejs`](languages/ejs/HelloWorld.ejs) |  |  |
+| **EJS** | [`HelloWorld.ejs`](languages/ejs/HelloWorld.ejs) | ✅ |  |
 | **Encapsulated PostScript** | [`HelloWorld.eps`](languages/postscript-eps/HelloWorld.eps) |  |  |
 | **ERB (Embedded Ruby)** | [`HelloWorld.erb`](languages/erb/HelloWorld.erb) | ✅ |  |
 | **Graphviz DOT** | [`HelloWorld.dot`](languages/graphviz-dot/HelloWorld.dot) |  |  |
-| **Haml** | [`HelloWorld.haml`](languages/haml/HelloWorld.haml) |  |  |
+| **Haml** | [`HelloWorld.haml`](languages/haml/HelloWorld.haml) | ✅ |  |
 | **Handlebars** | [`HelloWorld.hbs`](languages/handlebars/HelloWorld.hbs) |  |  |
-| **HTML** | [`HelloWorld.html`](languages/html/HelloWorld.html) |  |  |
-| **Jinja** | [`HelloWorld.jinja`](languages/jinja/HelloWorld.jinja) |  |  |
+| **HTML** | [`HelloWorld.html`](languages/html/HelloWorld.html) | ✅ |  |
+| **Jinja** | [`HelloWorld.jinja`](languages/jinja/HelloWorld.jinja) | ✅ |  |
 | **JSP** | [`HelloWorld.jsp`](languages/jsp/HelloWorld.jsp) |  |  |
 | **JSX (React)** | [`HelloWorld.jsx`](languages/jsx/HelloWorld.jsx) |  |  |
-| **LaTeX** | [`HelloWorld.tex`](languages/latex/HelloWorld.tex) |  |  |
+| **LaTeX** | [`HelloWorld.tex`](languages/latex/HelloWorld.tex) | ✅ |  |
 | **Liquid** | [`HelloWorld.liquid`](languages/liquid/HelloWorld.liquid) |  |  |
-| **Markdown** | [`HelloWorld.md`](languages/markdown/HelloWorld.md) |  |  |
+| **Markdown** | [`HelloWorld.md`](languages/markdown/HelloWorld.md) | ✅ |  |
 | **MDX** | [`HelloWorld.mdx`](languages/mdx/HelloWorld.mdx) |  |  |
 | **Mermaid** | [`HelloWorld.mmd`](languages/mermaid/HelloWorld.mmd) |  |  |
 | **Mustache** | [`HelloWorld.mustache`](languages/mustache/HelloWorld.mustache) |  |  |
-| **Org mode** | [`HelloWorld.org`](languages/org-mode/HelloWorld.org) |  |  |
-| **PlantUML** | [`HelloWorld.puml`](languages/plantuml/HelloWorld.puml) |  |  |
+| **Org mode** | [`HelloWorld.org`](languages/org-mode/HelloWorld.org) | ✅ |  |
+| **PlantUML** | [`HelloWorld.puml`](languages/plantuml/HelloWorld.puml) | ✅ |  |
 | **Pug** | [`HelloWorld.pug`](languages/pug/HelloWorld.pug) | ✅ |  |
 | **Razor (ASP.NET)** | [`HelloWorld.cshtml`](languages/razor/HelloWorld.cshtml) |  |  |
-| **reStructuredText** | [`HelloWorld.rst`](languages/restructuredtext/HelloWorld.rst) |  |  |
-| **RTF** | [`HelloWorld.rtf`](languages/rtf/HelloWorld.rtf) |  |  |
+| **reStructuredText** | [`HelloWorld.rst`](languages/restructuredtext/HelloWorld.rst) | ✅ |  |
+| **RTF** | [`HelloWorld.rtf`](languages/rtf/HelloWorld.rtf) | ✅ |  |
 | **Slim** | [`HelloWorld.slim`](languages/slim/HelloWorld.slim) |  |  |
 | **Svelte** | [`HelloWorld.svelte`](languages/svelte/HelloWorld.svelte) |  |  |
-| **SVG** | [`HelloWorld.svg`](languages/svg/HelloWorld.svg) |  |  |
+| **SVG** | [`HelloWorld.svg`](languages/svg/HelloWorld.svg) | ✅ |  |
 | **TeX (plain)** | [`HelloWorld.tex`](languages/tex/HelloWorld.tex) |  |  |
 | **troff / groff** | [`HelloWorld.ms`](languages/troff/HelloWorld.ms) | ✅ |  |
 | **Twig** | [`HelloWorld.twig`](languages/twig/HelloWorld.twig) |  |  |
-| **Typst** | [`HelloWorld.typ`](languages/typst/HelloWorld.typ) |  |  |
+| **Typst** | [`HelloWorld.typ`](languages/typst/HelloWorld.typ) | ✅ |  |
 | **VRML** | [`HelloWorld.wrl`](languages/vrml/HelloWorld.wrl) |  |  |
 | **Vue (SFC)** | [`HelloWorld.vue`](languages/vue/HelloWorld.vue) |  |  |
-| **XML** | [`HelloWorld.xml`](languages/xml/HelloWorld.xml) |  |  |
+| **XML** | [`HelloWorld.xml`](languages/xml/HelloWorld.xml) | ✅ |  |
 
 ## Configuration, build & infrastructure
 
@@ -546,30 +546,30 @@ Build systems, configuration languages and infrastructure as code.
 
 | Language | File | CI | Notes |
 |---|---|---|---|
-| **Ansible** | [`hello-world.yml`](languages/ansible/hello-world.yml) |  |  |
-| **Apache Ant** | [`build.xml`](languages/ant/build.xml) |  |  |
+| **Ansible** | [`hello-world.yml`](languages/ansible/hello-world.yml) | ✅ |  |
+| **Apache Ant** | [`build.xml`](languages/ant/build.xml) | ✅ |  |
 | **Bicep** | [`main.bicep`](languages/bicep/main.bicep) |  |  |
 | **CMake** | [`HelloWorld.cmake`](languages/cmake/HelloWorld.cmake) | ✅ |  |
 | **CUE** | [`HelloWorld.cue`](languages/cue/HelloWorld.cue) |  |  |
-| **Dhall** | [`HelloWorld.dhall`](languages/dhall/HelloWorld.dhall) |  |  |
-| **Dockerfile** | [`Dockerfile`](languages/dockerfile/Dockerfile) |  |  |
+| **Dhall** | [`HelloWorld.dhall`](languages/dhall/HelloWorld.dhall) | ✅ |  |
+| **Dockerfile** | [`Dockerfile`](languages/dockerfile/Dockerfile) | ✅ |  |
 | **GitHub Actions** | [`hello-world.yml`](languages/github-actions/hello-world.yml) |  |  |
-| **Gradle Kotlin DSL** | [`build.gradle.kts`](languages/gradle-kotlin-dsl/build.gradle.kts) |  |  |
+| **Gradle Kotlin DSL** | [`build.gradle.kts`](languages/gradle-kotlin-dsl/build.gradle.kts) | ✅ |  |
 | **HCL (Terraform)** | [`main.tf`](languages/hcl/main.tf) |  |  |
-| **JSON** | [`hello.json`](languages/json/hello.json) |  |  |
+| **JSON** | [`hello.json`](languages/json/hello.json) | ✅ |  |
 | **Jsonnet** | [`HelloWorld.jsonnet`](languages/jsonnet/HelloWorld.jsonnet) | ✅ |  |
-| **just** | [`justfile`](languages/just/justfile) |  |  |
+| **just** | [`justfile`](languages/just/justfile) | ✅ |  |
 | **KCL** | [`HelloWorld.k`](languages/kcl/HelloWorld.k) |  |  |
 | **Make** | [`Makefile`](languages/make/Makefile) | ✅ |  |
-| **Meson** | [`meson.build`](languages/meson/meson.build) |  |  |
+| **Meson** | [`meson.build`](languages/meson/meson.build) | ✅ |  |
 | **Nickel** | [`HelloWorld.ncl`](languages/nickel/HelloWorld.ncl) |  |  |
 | **Nix** | [`HelloWorld.nix`](languages/nix/HelloWorld.nix) |  |  |
 | **Pkl** | [`HelloWorld.pkl`](languages/pkl/HelloWorld.pkl) |  |  |
 | **Puppet** | [`hello_world.pp`](languages/puppet/hello_world.pp) |  |  |
 | **Rego (Open Policy Agent)** | [`hello.rego`](languages/rego/hello.rego) |  |  |
 | **Starlark (Bazel)** | [`BUILD.bazel`](languages/bazel-starlark/BUILD.bazel) |  |  |
-| **TOML** | [`hello.toml`](languages/toml/hello.toml) |  |  |
-| **YAML** | [`hello.yaml`](languages/yaml/hello.yaml) |  |  |
+| **TOML** | [`hello.toml`](languages/toml/hello.toml) | ✅ |  |
+| **YAML** | [`hello.yaml`](languages/yaml/hello.yaml) | ✅ |  |
 
 ## Brazilian languages 🇧🇷
 
@@ -593,7 +593,7 @@ Languages designed as jokes, puzzles or experiments.
 | Language | File | CI | Notes |
 |---|---|---|---|
 | **ArnoldC** | [`HelloWorld.arnoldc`](languages/arnoldc/HelloWorld.arnoldc) |  |  |
-| **Befunge** | [`HelloWorld.bf93`](languages/befunge/HelloWorld.bf93) |  |  |
+| **Befunge** | [`HelloWorld.bf93`](languages/befunge/HelloWorld.bf93) | ✅ |  |
 | **BIRL** | [`HelloWorld.birl`](languages/birl/HelloWorld.birl) |  | keywords from bodybuilder Bambam's catchphrases |
 | **Brainfuck** | [`HelloWorld.bf`](languages/brainfuck/HelloWorld.bf) | ✅ |  |
 | **Chef** | [`HelloWorld.chef`](languages/chef/HelloWorld.chef) |  |  |
@@ -601,15 +601,15 @@ Languages designed as jokes, puzzles or experiments.
 | **Emojicode** | [`HelloWorld.emojic`](languages/emojicode/HelloWorld.emojic) |  |  |
 | **FALSE** | [`HelloWorld.f`](languages/false/HelloWorld.f) |  |  |
 | **GolfScript** | [`HelloWorld.gs`](languages/golfscript/HelloWorld.gs) |  |  |
-| **HQ9+** | [`HelloWorld.hq9`](languages/hq9-plus/HelloWorld.hq9) |  | `H` prints "Hello, world!" |
+| **HQ9+** | [`HelloWorld.hq9`](languages/hq9-plus/HelloWorld.hq9) | ✅ | `H` prints "Hello, world!" |
 | **LOLCODE** | [`HelloWorld.lol`](languages/lolcode/HelloWorld.lol) |  |  |
 | **Ook!** | [`HelloWorld.ook`](languages/ook/HelloWorld.ook) | ✅ | generated from the Brainfuck program |
 | **Piet** | [`HelloWorld.txt`](languages/piet/HelloWorld.txt) |  | image-based; link to the canonical program |
 | **Pyth** | [`HelloWorld.pyth`](languages/pyth/HelloWorld.pyth) |  |  |
 | **Rockstar** | [`HelloWorld.rock`](languages/rockstar/HelloWorld.rock) |  |  |
-| **Shakespeare** | [`HelloWorld.spl`](languages/shakespeare/HelloWorld.spl) |  |  |
-| **Unlambda** | [`HelloWorld.unl`](languages/unlambda/HelloWorld.unl) |  |  |
-| **Whitespace** | [`HelloWorld.ws`](languages/whitespace/HelloWorld.ws) |  |  |
+| **Shakespeare** | [`HelloWorld.spl`](languages/shakespeare/HelloWorld.spl) | ✅ |  |
+| **Unlambda** | [`HelloWorld.unl`](languages/unlambda/HelloWorld.unl) | ✅ |  |
+| **Whitespace** | [`HelloWorld.ws`](languages/whitespace/HelloWorld.ws) | ✅ |  |
 
 ## Running the tests
 
@@ -636,8 +636,9 @@ python3 scripts/hello.py readme             # regenerate this README from langua
      }
      ```
      `section` is one of: `historical`, `modern`, `general`, `assembly`, `shells`, `scientific`, `query`, `hardware`, `blockchain`, `game`, `markup`, `config`, `esoteric`.
-     `test` is optional: add it when the language can run on Ubuntu (`group` `base` for tools preinstalled on the
-     GitHub runner, `apt` with an `"apt": ["package"]` list, or `extra` for tools set up in the workflow).
+     `test` is optional: add it when the language can run on a GitHub runner. `group` is `base` (tools preinstalled
+     on Ubuntu), `apt` (with an `"apt": ["package"]` list), `extra` (tools set up in the workflow), `macos` or
+     `windows`. `needs` lists the commands that must exist (defaults to the first word of `run`).
 3. The program should print (or display) `Hello World` and be the idiomatic, minimal version for that language.
 4. Run `python3 scripts/hello.py readme` and `python3 scripts/hello.py check`, then open a pull request.
 

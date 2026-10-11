@@ -3,5 +3,9 @@
   "files": [
     "Dockerfile"
   ],
-  "section": "config"
+  "section": "config",
+  "test": {
+    "group": "base",
+    "run": "docker build -q -t hello-world-test . >/dev/null && docker run --rm hello-world-test"
+  }
 }

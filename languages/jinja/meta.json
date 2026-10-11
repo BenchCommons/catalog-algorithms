@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.jinja"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "base",
+    "run": "pipx run --spec jinja2-cli jinja2 HelloWorld.jinja",
+    "needs": [
+      "pipx"
+    ]
+  }
 }

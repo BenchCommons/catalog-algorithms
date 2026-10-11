@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.mzn"
   ],
-  "section": "scientific"
+  "section": "scientific",
+  "test": {
+    "group": "apt",
+    "run": "minizinc HelloWorld.mzn",
+    "apt": [
+      "minizinc"
+    ]
+  }
 }

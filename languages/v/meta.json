@@ -5,5 +5,9 @@
   ],
   "tiobe": {
     "group": "51-100"
+  },
+  "test": {
+    "group": "extra",
+    "run": "v run HelloWorld.v"
   }
 }

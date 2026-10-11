@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.haml"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "apt",
+    "run": "haml render HelloWorld.haml",
+    "apt": [
+      "ruby-haml"
+    ]
+  }
 }

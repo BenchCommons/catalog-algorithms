@@ -4,5 +4,9 @@
     "HelloWorld.hq9"
   ],
   "section": "esoteric",
-  "notes": "`H` prints \"Hello, world!\""
+  "notes": "`H` prints \"Hello, world!\"",
+  "test": {
+    "group": "base",
+    "run": "python3 \"$HELLO_ROOT/scripts/esolang.py\" hq9 HelloWorld.hq9"
+  }
 }

@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.cmd"
   ],
-  "section": "shells"
+  "section": "shells",
+  "test": {
+    "group": "windows",
+    "run": "cmd //c HelloWorld.cmd",
+    "needs": [
+      "cmd"
+    ]
+  }
 }

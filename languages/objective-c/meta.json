@@ -5,5 +5,12 @@
   ],
   "tiobe": {
     "rank": 19
+  },
+  "test": {
+    "group": "macos",
+    "run": "clang -framework Foundation -o hello HelloWorld.m && ./hello",
+    "needs": [
+      "clang"
+    ]
   }
 }
