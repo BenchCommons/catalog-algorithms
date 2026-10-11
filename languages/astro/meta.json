@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.astro"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "mkdir -p /tmp/site/src/pages && cp HelloWorld.astro /tmp/site/src/pages/index.astro && cd /tmp/site && echo {} > package.json && npm i -s astro@7.3.8 >/dev/null && npx astro build --silent >/dev/null && cat dist/index.html"
+  }
 }

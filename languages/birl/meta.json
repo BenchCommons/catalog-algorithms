@@ -7,5 +7,10 @@
   "tags": [
     "brazilian"
   ],
-  "notes": "keywords from bodybuilder Bambam's catchphrases"
+  "notes": "keywords from bodybuilder Bambam's catchphrases",
+  "test": {
+    "group": "docker",
+    "image": "node:22.12.0",
+    "run": "curl -sSLO https://raw.githubusercontent.com/birl-language/birl-server/15929e2299ac57075a1e0907dd30b7b2e6651eb8/birlToC.js && node -e 'const fs=require(\"fs\");fs.writeFileSync(\"hello.c\",require(\"./birlToC.js\")(fs.readFileSync(\"HelloWorld.birl\",\"utf8\")))' >/dev/null && gcc hello.c -o hello -lm && ./hello"
+  }
 }

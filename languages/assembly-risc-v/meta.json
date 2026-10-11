@@ -3,5 +3,17 @@
   "files": [
     "HelloWorld.s"
   ],
-  "section": "assembly"
+  "section": "assembly",
+  "test": {
+    "group": "apt",
+    "run": "riscv64-linux-gnu-as HelloWorld.s -o hello.o && riscv64-linux-gnu-ld hello.o -o hello && qemu-riscv64 ./hello",
+    "apt": [
+      "binutils-riscv64-linux-gnu",
+      "qemu-user"
+    ],
+    "needs": [
+      "riscv64-linux-gnu-as",
+      "qemu-riscv64"
+    ]
+  }
 }

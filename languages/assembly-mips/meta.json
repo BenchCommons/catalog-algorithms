@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.asm"
   ],
-  "section": "assembly"
+  "section": "assembly",
+  "test": {
+    "group": "apt",
+    "run": "spim -file HelloWorld.asm",
+    "apt": [
+      "spim"
+    ]
+  }
 }

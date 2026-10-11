@@ -5,5 +5,12 @@
   ],
   "tiobe": {
     "group": "51-100"
+  },
+  "test": {
+    "group": "windows",
+    "run": "cmd //c HelloWorld.bat",
+    "needs": [
+      "cmd"
+    ]
   }
 }

@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.xtend"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "maven:3.9.9-eclipse-temurin-17",
+    "run": "mkdir -p /tmp/hello/src/main/java && cp HelloWorld.xtend /tmp/hello/src/main/java/ && cd /tmp/hello && echo '<project><modelVersion>4.0.0</modelVersion><groupId>hello</groupId><artifactId>hello</artifactId><version>1</version><properties><maven.compiler.release>17</maven.compiler.release></properties><dependencies><dependency><groupId>org.eclipse.xtend</groupId><artifactId>org.eclipse.xtend.lib</artifactId><version>2.38.0</version></dependency></dependencies><build><plugins><plugin><groupId>org.eclipse.xtend</groupId><artifactId>xtend-maven-plugin</artifactId><version>2.38.0</version><executions><execution><goals><goal>compile</goal></goals></execution></executions></plugin></plugins></build></project>' > pom.xml && mvn -q -B compile org.codehaus.mojo:exec-maven-plugin:3.5.0:java -Dexec.mainClass=HelloWorld"
+  }
 }

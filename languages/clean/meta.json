@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.icl"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "wget -qO- https://ftp.cs.ru.nl/Clean/Clean31/linux/clean3.1_64.tar.gz | tar xz -C /opt && ln -sf /usr/local/bin/gcc /usr/bin/gcc && (make -s -C /opt/clean >/dev/null 2>&1; true) && /opt/clean/bin/clm -nt HelloWorld -o hello && ./hello"
+  }
 }

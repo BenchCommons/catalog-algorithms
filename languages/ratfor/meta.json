@@ -4,5 +4,17 @@
     "HelloWorld.r"
   ],
   "section": "historical",
-  "year": 1974
+  "year": 1974,
+  "test": {
+    "group": "apt",
+    "run": "ratfor HelloWorld.r > hello.f && gfortran hello.f -o hello && ./hello",
+    "apt": [
+      "ratfor",
+      "gfortran"
+    ],
+    "needs": [
+      "ratfor",
+      "gfortran"
+    ]
+  }
 }

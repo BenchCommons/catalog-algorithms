@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.org"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "apt",
+    "run": "pandoc -f org -t plain HelloWorld.org",
+    "apt": [
+      "pandoc"
+    ]
+  }
 }

@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.j"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "node:22.11.0-slim",
+    "run": "npm i -s --no-audit --no-fund @objj/runtime@1.2.4 @objj/jake@1.1.6 @objj/cappuccino@1.3.1 && cp HelloWorld.j main.j && npx objj main.j"
+  }
 }

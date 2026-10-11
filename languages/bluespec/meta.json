@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.bsv"
   ],
-  "section": "hardware"
+  "section": "hardware",
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates curl g++ make libgmp10 tcl8.6 >/dev/null && mkdir /opt/bsc && curl -fsSL https://github.com/B-Lang-org/bsc/releases/download/2026.01/bsc-2026.01-ubuntu-24.04.tar.gz | tar xz --strip-components=1 -C /opt/bsc && export PATH=/opt/bsc/bin:$PATH && bsc -sim -g mkHelloWorld -u HelloWorld.bsv && bsc -sim -e mkHelloWorld -o hello && ./hello"
+  }
 }

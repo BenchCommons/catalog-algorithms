@@ -3,5 +3,15 @@
   "files": [
     "HelloWorld.cpp"
   ],
-  "section": "hardware"
+  "section": "hardware",
+  "test": {
+    "group": "apt",
+    "run": "g++ HelloWorld.cpp -lsystemc -o hello && ./hello",
+    "apt": [
+      "libsystemc-dev"
+    ],
+    "needs": [
+      "g++"
+    ]
+  }
 }

@@ -3,5 +3,11 @@
   "files": [
     "hello_world.move"
   ],
-  "section": "blockchain"
+  "section": "blockchain",
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "ubuntu:24.04",
+    "run": "apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends curl ca-certificates unzip git >/dev/null && curl -fsSLo /tmp/a.zip https://github.com/aptos-labs/aptos-core/releases/download/aptos-cli-v9.6.0/aptos-cli-9.6.0-Ubuntu-24.04-x86_64.zip && unzip -q /tmp/a.zip -d /tmp && mkdir -p /tmp/p/sources && cp hello_world.move /tmp/p/sources/ && printf '[package]\\nname = \"hello\"\\nversion = \"1.0.0\"\\n\\n[addresses]\\nhello = \"0x42\"\\n\\n[dependencies]\\nMoveStdlib = { git = \"https://github.com/aptos-labs/aptos-framework.git\", rev = \"4f0d278f806da6d7006f98f43a66f774f07e4d37\", subdir = \"move-stdlib\" }\\n' > /tmp/p/Move.toml && /tmp/aptos move compile --package-dir /tmp/p"
+  }
 }

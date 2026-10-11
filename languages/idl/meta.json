@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.pro"
   ],
-  "section": "scientific"
+  "section": "scientific",
+  "test": {
+    "group": "apt",
+    "run": "gdl -quiet HelloWorld.pro",
+    "apt": [
+      "gnudatalanguage"
+    ]
+  }
 }

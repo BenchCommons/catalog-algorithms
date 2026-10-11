@@ -48,4 +48,40 @@ jobs:
       - uses: dart-lang/setup-dart@v1
       - uses: crystal-lang/install-crystal@v1
       - uses: VirtusLab/scala-cli-setup@v1
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: '27'
+          gleam-version: '1.14.0'
+      - name: Start PostgreSQL
+        run: sudo systemctl start postgresql.service
       - run: python3 scripts/hello.py test --group extra --strict
+
+  docker:
+    name: Run (Docker ${{ matrix.shard }}/4)
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/hello.py test --group docker --strict --shard ${{ matrix.shard }}/4 --timeout 600
+        env:
+          HELLO_DOCKER_MIRROR: mirror.gcr.io
+
+  macos:
+    name: Run (macOS)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/hello.py test --group macos --strict
+
+  windows:
+    name: Run (Windows)
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/hello.py test --group windows --strict

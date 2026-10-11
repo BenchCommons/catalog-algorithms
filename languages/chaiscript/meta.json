@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.chai"
   ],
-  "section": "game"
+  "section": "game",
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:bookworm",
+    "run": "curl -sSL https://github.com/ChaiScript/ChaiScript/archive/refs/tags/v6.1.0.tar.gz | tar xz && g++ -std=c++17 -O0 -w -IChaiScript-6.1.0/include ChaiScript-6.1.0/src/main.cpp ChaiScript-6.1.0/static_libs/chaiscript_parser.cpp ChaiScript-6.1.0/static_libs/chaiscript_stdlib.cpp -o chai -ldl -lpthread && ./chai HelloWorld.chai"
+  }
 }

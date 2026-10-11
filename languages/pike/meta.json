@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.pike"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "apt",
+    "run": "pike HelloWorld.pike",
+    "apt": [
+      "pike8.0"
+    ]
+  }
 }

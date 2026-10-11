@@ -4,5 +4,10 @@
     "HelloWorld.carbon"
   ],
   "section": "modern",
-  "notes": "experimental"
+  "notes": "experimental",
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates curl libc6-dev libgcc-13-dev libstdc++-13-dev >/dev/null && curl -fsSL https://github.com/carbon-language/carbon-lang/releases/download/v0.0.0-0.nightly.2026.09.20/carbon_toolchain-0.0.0-0.nightly.2026.09.20.tar.gz | tar xz -C /opt && T=/opt/carbon_toolchain-0.0.0-0.nightly.2026.09.20 && $T/bin/carbon compile --output=io.o $T/lib/carbon/core/io.impl.carbon && $T/bin/carbon compile --output=hello.o HelloWorld.carbon && $T/bin/carbon link --output=hello hello.o io.o && ./hello"
+  }
 }

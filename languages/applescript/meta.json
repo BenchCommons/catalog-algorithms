@@ -5,5 +5,9 @@
   ],
   "tiobe": {
     "group": "51-100"
+  },
+  "test": {
+    "group": "macos",
+    "run": "osascript HelloWorld.applescript"
   }
 }

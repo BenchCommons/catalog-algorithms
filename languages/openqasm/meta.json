@@ -4,5 +4,11 @@
     "HelloWorld.qasm"
   ],
   "section": "hardware",
-  "notes": "quantum circuit; no text output"
+  "notes": "quantum circuit; no text output",
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "python:3.12.8-slim",
+    "run": "pip install -q --root-user-action=ignore --disable-pip-version-check \"openqasm3[parser]==1.0.0\" && python -c 'import openqasm3; openqasm3.parse(open(\"HelloWorld.qasm\").read())'"
+  }
 }

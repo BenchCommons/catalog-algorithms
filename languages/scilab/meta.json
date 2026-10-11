@@ -3,5 +3,13 @@
   "files": [
     "HelloWorld.sce"
   ],
-  "section": "scientific"
+  "section": "scientific",
+  "test": {
+    "group": "apt",
+    "run": "scilab-cli -nb -quit -f HelloWorld.sce",
+    "apt": [
+      "scilab-cli",
+      "dpkg-dev"
+    ]
+  }
 }

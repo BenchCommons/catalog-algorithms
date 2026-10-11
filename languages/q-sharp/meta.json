@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.qs"
   ],
-  "section": "modern"
+  "section": "modern",
+  "test": {
+    "group": "docker",
+    "image": "python:3.12.8-slim",
+    "run": "pip install -q --root-user-action=ignore --disable-pip-version-check qsharp==1.11.1 && python -c 'import qsharp; qsharp.eval(open(\"HelloWorld.qs\").read()); qsharp.eval(\"HelloWorld.Main()\")'"
+  }
 }

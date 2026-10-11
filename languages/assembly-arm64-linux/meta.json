@@ -3,5 +3,17 @@
   "files": [
     "HelloWorld.s"
   ],
-  "section": "assembly"
+  "section": "assembly",
+  "test": {
+    "group": "apt",
+    "run": "aarch64-linux-gnu-as HelloWorld.s -o hello.o && aarch64-linux-gnu-ld hello.o -o hello && qemu-aarch64 ./hello",
+    "apt": [
+      "binutils-aarch64-linux-gnu",
+      "qemu-user"
+    ],
+    "needs": [
+      "aarch64-linux-gnu-as",
+      "qemu-aarch64"
+    ]
+  }
 }

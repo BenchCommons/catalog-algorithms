@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.ysh"
   ],
-  "section": "shells"
+  "section": "shells",
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:bookworm",
+    "run": "curl -sSL https://oils.pub/download/oils-for-unix-0.37.0.tar.gz | tar xz && cd oils-for-unix-0.37.0 && ./configure >/dev/null && _build/oils.sh >/dev/null 2>&1 && cd .. && oils-for-unix-0.37.0/_bin/cxx-opt-sh/ysh HelloWorld.ysh"
+  }
 }

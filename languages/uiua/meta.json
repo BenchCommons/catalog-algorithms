@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.ua"
   ],
-  "section": "scientific"
+  "section": "scientific",
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq && apt-get install -y -qq --no-install-recommends ca-certificates wget unzip >/dev/null && wget -qO /tmp/u.zip https://github.com/uiua-lang/uiua/releases/download/0.19.1/uiua-bin-x86_64-unknown-linux-gnu-no-audio.zip && unzip -q /tmp/u.zip -d /tmp/u && /tmp/u/uiua run HelloWorld.ua"
+  }
 }

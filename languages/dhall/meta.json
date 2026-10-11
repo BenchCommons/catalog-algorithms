@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.dhall"
   ],
-  "section": "config"
+  "section": "config",
+  "test": {
+    "group": "apt",
+    "run": "dhall text --file HelloWorld.dhall",
+    "apt": [
+      "dhall"
+    ]
+  }
 }

@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.wl"
   ],
-  "section": "scientific"
+  "section": "scientific",
+  "test": {
+    "group": "docker",
+    "image": "python:3.12.11-slim",
+    "run": "pip install -q --root-user-action=ignore Mathics3==10.0.1 packaging 2>/dev/null && mathics -q --file HelloWorld.wl"
+  }
 }

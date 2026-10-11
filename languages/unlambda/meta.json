@@ -3,5 +3,9 @@
   "files": [
     "HelloWorld.unl"
   ],
-  "section": "esoteric"
+  "section": "esoteric",
+  "test": {
+    "group": "base",
+    "run": "python3 \"$HELLO_ROOT/scripts/esolang.py\" unlambda HelloWorld.unl"
+  }
 }

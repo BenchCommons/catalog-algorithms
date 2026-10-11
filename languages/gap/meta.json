@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.g"
   ],
-  "section": "scientific"
+  "section": "scientific",
+  "test": {
+    "group": "apt",
+    "run": "gap -q HelloWorld.g",
+    "apt": [
+      "gap"
+    ]
+  }
 }

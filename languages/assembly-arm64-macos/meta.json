@@ -3,5 +3,14 @@
   "files": [
     "HelloWorld.s"
   ],
-  "section": "assembly"
+  "section": "assembly",
+  "test": {
+    "group": "macos",
+    "run": "as HelloWorld.s -o hello.o && ld hello.o -o hello -lSystem -syslibroot \"$(xcrun --show-sdk-path)\" -e _main -arch arm64 && ./hello",
+    "needs": [
+      "as",
+      "ld",
+      "xcrun"
+    ]
+  }
 }

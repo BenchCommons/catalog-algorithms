@@ -4,5 +4,11 @@
     "HelloWorld.mms"
   ],
   "section": "assembly",
-  "notes": "Donald Knuth's architecture from *The Art of Computer Programming*"
+  "notes": "Donald Knuth's architecture from *The Art of Computer Programming*",
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:24.04",
+    "run": "apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends gcc make libc6-dev curl ca-certificates texlive-binaries >/dev/null && curl -fsSL https://github.com/ascherer/mmix/archive/refs/tags/2025-06-20.tar.gz | tar xz -C /tmp && CWEBINPUTS=. make -s -C /tmp/mmix-2025-06-20 mmixal mmix >/dev/null 2>&1 && /tmp/mmix-2025-06-20/mmixal HelloWorld.mms && /tmp/mmix-2025-06-20/mmix HelloWorld.mmo",
+    "allow_nonzero": true
+  }
 }

@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.main.kts"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "base",
+    "run": "kotlinc -script HelloWorld.main.kts",
+    "needs": [
+      "kotlinc"
+    ]
+  }
 }

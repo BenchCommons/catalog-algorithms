@@ -3,5 +3,11 @@
   "files": [
     "main.sw"
   ],
-  "section": "blockchain"
+  "section": "blockchain",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL https://github.com/FuelLabs/sway/releases/download/v0.72.1/forc-binaries-linux_amd64.tar.gz | tar xz -C /tmp && export PATH=/tmp/forc-binaries:$PATH && forc new --script /tmp/hello >/dev/null && cp main.sw /tmp/hello/src/main.sw && forc build -p /tmp/hello",
+    "kind": "compile"
+  }
 }

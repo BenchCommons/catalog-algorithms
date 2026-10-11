@@ -3,5 +3,11 @@
   "files": [
     "HelloWorld.ino"
   ],
-  "section": "game"
+  "section": "game",
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates curl >/dev/null && curl -fsSL https://github.com/arduino/arduino-cli/releases/download/v1.5.1/arduino-cli_1.5.1_Linux_64bit.tar.gz | tar xz -C /usr/local/bin arduino-cli && arduino-cli core install arduino:avr@1.8.6 >/dev/null && mkdir HelloWorld && cp HelloWorld.ino HelloWorld/ && arduino-cli compile -b arduino:avr:uno HelloWorld"
+  }
 }

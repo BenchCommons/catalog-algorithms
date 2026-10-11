@@ -3,5 +3,16 @@
   "files": [
     "HelloWorld.liquid"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "apt",
+    "run": "ruby -rliquid -e 'print Liquid::Template.parse(File.read(\"HelloWorld.liquid\")).render'",
+    "apt": [
+      "ruby",
+      "ruby-liquid"
+    ],
+    "needs": [
+      "ruby"
+    ]
+  }
 }

@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.ejs"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "base",
+    "run": "npx --yes ejs HelloWorld.ejs",
+    "needs": [
+      "npx"
+    ]
+  }
 }

@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.ha"
   ],
-  "section": "modern"
+  "section": "modern",
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.21",
+    "run": "apk add -q hare >/dev/null && hare run HelloWorld.ha"
+  }
 }

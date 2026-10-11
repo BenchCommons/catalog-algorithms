@@ -3,5 +3,12 @@
   "files": [
     "HelloWorld.raku"
   ],
-  "section": "modern"
+  "section": "modern",
+  "test": {
+    "group": "apt",
+    "run": "raku HelloWorld.raku",
+    "apt": [
+      "rakudo"
+    ]
+  }
 }

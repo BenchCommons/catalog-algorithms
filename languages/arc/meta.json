@@ -3,5 +3,16 @@
   "files": [
     "HelloWorld.arc"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "apt",
+    "run": "wget -qO- http://arclanguage.org/arc3.2.tar | tar x && cd arc3.2 && echo \"(load \\\"../HelloWorld.arc\\\")\" | racket -f as.scm",
+    "apt": [
+      "racket"
+    ],
+    "needs": [
+      "racket",
+      "wget"
+    ]
+  }
 }

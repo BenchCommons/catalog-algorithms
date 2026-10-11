@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.hack"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "hhvm/hhvm:4.172.0",
+    "run": "hhvm HelloWorld.hack"
+  }
 }

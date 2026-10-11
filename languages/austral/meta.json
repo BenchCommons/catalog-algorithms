@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.aum"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSLo austral https://github.com/austral/austral/releases/download/v0.2.0/austral-linux && chmod +x austral && /lib64/ld-linux-x86-64.so.2 ./austral compile HelloWorld.aum --entrypoint=HelloWorld:main --output=hello && ./hello"
+  }
 }

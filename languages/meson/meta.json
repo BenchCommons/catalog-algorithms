@@ -3,5 +3,12 @@
   "files": [
     "meson.build"
   ],
-  "section": "config"
+  "section": "config",
+  "test": {
+    "group": "apt",
+    "run": "meson setup build",
+    "apt": [
+      "meson"
+    ]
+  }
 }

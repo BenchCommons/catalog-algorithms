@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.jsp"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "docker",
+    "image": "public.ecr.aws/docker/library/tomcat:10.1.46-jdk21",
+    "run": "mkdir -p $CATALINA_HOME/webapps/ROOT && cp HelloWorld.jsp $CATALINA_HOME/webapps/ROOT/ && catalina.sh start >/dev/null && for i in $(seq 90); do curl -fsS http://localhost:8080/HelloWorld.jsp 2>/dev/null && break; sleep 2; done"
+  }
 }

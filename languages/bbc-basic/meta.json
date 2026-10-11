@@ -4,5 +4,15 @@
     "HelloWorld.bbc"
   ],
   "section": "historical",
-  "year": 1981
+  "year": 1981,
+  "test": {
+    "group": "apt",
+    "run": "tbrandy -quit HelloWorld.bbc",
+    "apt": [
+      "brandy"
+    ],
+    "needs": [
+      "tbrandy"
+    ]
+  }
 }

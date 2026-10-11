@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.HC"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL -o /tmp/hcc.zip https://github.com/Jamesbarford/holyc-lang/releases/download/v0.0.15-beta/hcc-v0.0.15-beta-linux-x86_64.zip && unzip -q /tmp/hcc.zip -d /tmp && sh /tmp/hcc-v0.0.15-beta-linux-x86_64/install.sh >/dev/null && hcc HelloWorld.HC -o /tmp/hello && /tmp/hello"
+  }
 }

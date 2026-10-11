@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.bal"
   ],
-  "section": "modern"
+  "section": "modern",
+  "test": {
+    "group": "docker",
+    "image": "ballerina/ballerina:2201.13.7",
+    "run": "bal run HelloWorld.bal"
+  }
 }

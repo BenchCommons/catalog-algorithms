@@ -3,5 +3,12 @@
   "files": [
     "justfile"
   ],
-  "section": "config"
+  "section": "config",
+  "test": {
+    "group": "apt",
+    "run": "just",
+    "apt": [
+      "just"
+    ]
+  }
 }

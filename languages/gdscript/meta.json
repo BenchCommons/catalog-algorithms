@@ -3,5 +3,10 @@
   "files": [
     "hello_world.gd"
   ],
-  "section": "game"
+  "section": "game",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSLo g.zip https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip && unzip -q g.zip && printf '[gd_scene format=3]\\n[ext_resource type=\"Script\" path=\"res://hello_world.gd\" id=\"1\"]\\n[node name=\"Main\" type=\"Node\"]\\nscript = ExtResource(\"1\")\\n' > main.tscn && printf 'config_version=5\\n[application]\\nrun/main_scene=\"res://main.tscn\"\\n' > project.godot && ./Godot_v4.7.2-stable_linux.x86_64 --headless --path . --quit-after 2"
+  }
 }

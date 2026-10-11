@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.bas"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL https://downloads.sourceforge.net/project/fbc/FreeBASIC-1.10.1/Binaries-Linux/FreeBASIC-1.10.1-ubuntu-22.04-x86_64.tar.xz | tar xJ -C /tmp && /tmp/FreeBASIC-1.10.1-ubuntu-22.04-x86_64/bin/fbc HelloWorld.bas && ./HelloWorld"
+  }
 }

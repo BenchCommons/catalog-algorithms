@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.joy"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "git clone -q https://github.com/Wodan58/Joy /tmp/joy && cd /tmp/joy && git checkout -q fe9fa0fa7db714340dbe17aedaff77f926e7c78a && make -s >/dev/null && cd /src && /tmp/joy/joy HelloWorld.joy"
+  }
 }

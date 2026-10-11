@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.fnl"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.20.3",
+    "run": "apk add --no-cache -q lua5.4 && wget -qO /tmp/fennel https://fennel-lang.org/downloads/fennel-1.5.1 && lua5.4 /tmp/fennel HelloWorld.fnl"
+  }
 }
