@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.cobra"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "mono:6.12.0.182",
+    "run": "curl -sSL https://codeload.github.com/gorauskas/cobra-lang/tar.gz/cfa8fe35710dcdd33a3191f2a26fa0711a8014a1 | tar xz && cp cobra-lang-cfa8fe35710dcdd33a3191f2a26fa0711a8014a1/Source/Snapshot/Cobra.Core.dll . && MONO_ENV_OPTIONS=--interpreter mono cobra-lang-cfa8fe35710dcdd33a3191f2a26fa0711a8014a1/Source/Snapshot/cobra.exe HelloWorld.cobra"
+  }
 }

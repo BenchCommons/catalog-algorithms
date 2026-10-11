@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.cshtml"
   ],
-  "section": "markup"
+  "section": "markup",
+  "test": {
+    "group": "docker",
+    "image": "mcr.microsoft.com/dotnet/sdk:8.0.414",
+    "run": "export DOTNET_CLI_TELEMETRY_OPTOUT=1 DOTNET_NOLOGO=1 && dotnet new mvc -o /tmp/app >/dev/null && cp HelloWorld.cshtml /tmp/app/Views/Home/Index.cshtml && cd /tmp/app && dotnet build -c Release -v q >/dev/null && (dotnet bin/Release/net8.0/app.dll --urls http://127.0.0.1:5000 >/dev/null 2>&1 &) && for i in $(seq 120); do curl -sf http://127.0.0.1:5000/ && exit 0; sleep 1; done; exit 1"
+  }
 }

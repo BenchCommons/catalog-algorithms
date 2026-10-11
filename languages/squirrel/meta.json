@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.nut"
   ],
-  "section": "game"
+  "section": "game",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL https://github.com/albertodemichelis/squirrel/archive/refs/tags/v3.2.tar.gz | tar xz -C /tmp && make -s -C /tmp/squirrel-3.2 >/dev/null 2>&1 && /tmp/squirrel-3.2/bin/sq HelloWorld.nut"
+  }
 }

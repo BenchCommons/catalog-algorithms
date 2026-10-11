@@ -3,5 +3,11 @@
   "files": [
     "script.rpy"
   ],
-  "section": "game"
+  "section": "game",
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL https://www.renpy.org/dl/8.5.3/renpy-8.5.3-sdk.tar.bz2 | tar xj -C /tmp && mkdir -p /tmp/hello/game && cp script.rpy /tmp/hello/game/ && SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy /tmp/renpy-8.5.3-sdk/renpy.sh /tmp/hello compile",
+    "kind": "compile"
+  }
 }

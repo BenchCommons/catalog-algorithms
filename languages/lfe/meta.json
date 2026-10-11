@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.lfe"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "public.ecr.aws/docker/library/erlang:28.1",
+    "run": "export ERL_FLAGS='+JMsingle true' && git clone -q -c advice.detachedHead=false --depth 1 --branch v2.2.2 https://github.com/lfe/lfe.git /tmp/lfe && make -s -C /tmp/lfe >/dev/null && /tmp/lfe/bin/lfe HelloWorld.lfe"
+  }
 }

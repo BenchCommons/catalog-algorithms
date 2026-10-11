@@ -8,6 +8,7 @@
   "test": {
     "group": "docker",
     "image": "buildpack-deps:bookworm",
-    "run": "apt-get update -qq >/dev/null && apt-get install -y -qq bison flex >/dev/null && curl -sSL https://github.com/gnue/newt0/archive/refs/tags/v0.1.4.tar.gz | tar xz && cd newt0-0.1.4 && ./configure >/dev/null && make >/dev/null && ls build; cd .. && find newt0-0.1.4 -name newt -type f"
+    "run": "apt-get update -qq >/dev/null && apt-get install -y -qq bison flex >/dev/null && curl -sSL https://github.com/gnue/newt0/archive/refs/tags/v0.1.4.tar.gz | tar xz && cd newt0-0.1.4 && ./configure >/dev/null && make >/dev/null 2>&1 && cd .. && newt0-0.1.4/build/newt HelloWorld.nwt",
+    "platform": "linux/386"
   }
 }

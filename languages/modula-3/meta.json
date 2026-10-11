@@ -8,6 +8,6 @@
   "test": {
     "group": "docker",
     "image": "buildpack-deps:trixie",
-    "run": "curl -sSLO https://github.com/modula3/cm3/releases/download/d5.12.0/cm3_5.12.0_amd64.deb && dpkg -i cm3_5.12.0_amd64.deb >/dev/null && mkdir src && cp Main.m3 src/ && printf 'import(\"libm3\")\\nimplementation(\"Main\")\\nprogram(\"hello\")\\n' > src/m3makefile && export PATH=$PATH:/usr/local/cm3/bin && cm3 >/dev/null && ./*/hello"
+    "run": "curl -sSLO https://github.com/modula3/cm3/releases/download/d5.12.0/cm3_5.12.0_amd64.deb && dpkg -i cm3_5.12.0_amd64.deb >/dev/null && sed -i s/-fuse-ld=gold// /usr/local/cm3/bin/config/Linux.common && mkdir -p hello/src && cp Main.m3 hello/src/ && printf 'import(\"libm3\")\\nimplementation(\"Main\")\\nprogram(\"hello\")\\n' > hello/src/m3makefile && cd hello && export PATH=$PATH:/usr/local/cm3/bin && cm3 >/dev/null && ./AMD64_LINUX/hello"
   }
 }

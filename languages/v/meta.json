@@ -7,7 +7,8 @@
     "group": "51-100"
   },
   "test": {
-    "group": "extra",
-    "run": "v run HelloWorld.v"
+    "group": "docker",
+    "image": "buildpack-deps:bookworm",
+    "run": "curl -fsSLO https://github.com/vlang/v/releases/download/0.4.10/v_linux.zip && unzip -q v_linux.zip -d /tmp && /tmp/v/v run HelloWorld.v"
   }
 }

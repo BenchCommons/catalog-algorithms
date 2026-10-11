@@ -7,6 +7,6 @@
   "test": {
     "group": "docker",
     "image": "gcc:14.3.0",
-    "run": "apt-get update -qq && apt-get install -y -qq mono-runtime libmono-system-core4.0-cil >/dev/null && curl -fsSL -o /tmp/boo.zip https://github.com/boo-lang/boo/releases/download/unstable/boo-latest.zip && unzip -q /tmp/boo.zip -d /tmp && mono /tmp/boo-latest/booi.exe HelloWorld.boo"
+    "run": "apt-get update -qq && apt-get install -y -qq mono-runtime libmono-system-core4.0-cil libmono-compilerservices-symbolwriter4.0-cil >/dev/null && curl -fsSL -o /tmp/boo.zip https://github.com/boo-lang/boo/releases/download/unstable/boo-latest.zip && unzip -q /tmp/boo.zip -d /tmp && MONO_ENV_OPTIONS=--interpreter mono /tmp/boo-latest/booi.exe HelloWorld.boo"
   }
 }

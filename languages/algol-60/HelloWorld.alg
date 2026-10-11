@@ -1,4 +1,4 @@
-BEGIN
-    COMMENT ALGOL 60;
-    OUTSTRING(1, "Hello World");
-END
+begin
+    comment ALGOL 60;
+    outstring(1, "Hello World")
+end

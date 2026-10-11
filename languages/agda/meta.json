@@ -6,11 +6,12 @@
   "section": "general",
   "test": {
     "group": "apt",
-    "run": "agda --compile HelloWorld.agda >/dev/null && ./HelloWorld",
+    "run": "LC_ALL=C.UTF-8 agda -i /usr/share/agda-stdlib --compile HelloWorld.agda >/dev/null && ./HelloWorld",
     "apt": [
       "agda",
       "agda-stdlib",
-      "ghc"
+      "ghc",
+      "libghc-ieee754-dev"
     ],
     "needs": [
       "agda"

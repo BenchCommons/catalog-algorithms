@@ -4,5 +4,11 @@
     "HelloWorld.wgsl"
   ],
   "section": "hardware",
-  "notes": "no text output; renders a solid color"
+  "notes": "no text output; renders a solid color",
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "rust:1.88.0-slim-bookworm",
+    "run": "cargo install -q --locked naga-cli@30.0.1 && naga HelloWorld.wgsl"
+  }
 }

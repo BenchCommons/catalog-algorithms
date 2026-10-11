@@ -5,5 +5,10 @@
   ],
   "tiobe": {
     "rank": 35
+  },
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "mkdir src && cp HelloWorld.abap src/zhelloworld.prog.abap && echo '{\"input_folder\": \"src\", \"output_folder\": \"output\"}' > abap_transpile.json && npm i -s --no-audit --no-fund @abaplint/transpiler-cli@2.13.85 @abaplint/runtime@2.13.85 && npx abap_transpile abap_transpile.json >/dev/null && node output/zhelloworld.prog.mjs"
   }
 }

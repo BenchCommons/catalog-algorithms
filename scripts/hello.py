@@ -319,7 +319,11 @@ def cmd_test(args):
             for f in l["files"]:
                 shutil.copy(os.path.join(LANG_DIR, l["slug"], f), tmp)
             if test["group"] == "docker":
-                cmd = ["docker", "run", "--rm", "--platform", test.get("platform", "linux/amd64"),
+                # Containers may run as a non-root user: make the work dir readable and writable.
+                os.chmod(tmp, 0o777)
+                for f in os.listdir(tmp):
+                    os.chmod(os.path.join(tmp, f), 0o666)
+                cmd =["docker", "run", "--rm", "--platform", test.get("platform", "linux/amd64"),
                        "-v", "%s:/src" % tmp, "-w", "/src", "--entrypoint", test.get("shell", "sh"),
                        test["image"], "-c", test["run"]]
             else:

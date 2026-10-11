@@ -4,5 +4,10 @@
     "HelloWorld.prg"
   ],
   "section": "historical",
-  "year": 1979
+  "year": 1979,
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:bookworm",
+    "run": "cd /tmp && curl -sSL https://github.com/harbour/core/archive/8d94c31367104a57eb9ae6fa248cca2abb8db309.tar.gz | tar xz && make -s -j4 -C core-8d94c31367104a57eb9ae6fa248cca2abb8db309 HB_BUILD_CONTRIBS=no >/dev/null 2>&1 && cd /src && /tmp/core-8d94c31367104a57eb9ae6fa248cca2abb8db309/bin/linux/gcc/hbrun HelloWorld.prg"
+  }
 }

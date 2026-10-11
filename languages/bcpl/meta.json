@@ -6,5 +6,11 @@
   "tiobe": {
     "group": "51-100"
   },
-  "year": 1967
+  "year": 1967,
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:bookworm",
+    "platform": "linux/386",
+    "run": "cd /tmp && curl -sSL https://github.com/SergeGris/BCPL-compiler/archive/f37913935c52ed167bba95e414dc5388f69e037a.tar.gz | tar xz && cd BCPL-compiler-f37913935c52ed167bba95e414dc5388f69e037a && sh makeall >/dev/null && sh makeall install >/dev/null && cd /src && cp /usr/local/lib/bcplc/LIBHDR . && cp HelloWorld.bcpl hello.b && bcplc -o hi hello.b && ./hi"
+  }
 }

@@ -4,5 +4,10 @@
     "HelloWorld.hop"
   ],
   "section": "historical",
-  "year": 1978
+  "year": 1978,
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "git clone -q -c advice.detachedHead=false --depth 1 --branch 1.0 https://github.com/dmbaturin/hope.git /tmp/hope && cd /tmp/hope && CC='gcc -std=gnu89 -w' ./configure >/dev/null && make -s >/dev/null 2>&1 && cd /src && HOPEPATH=/tmp/hope/lib /tmp/hope/src/hope -f HelloWorld.hop"
+  }
 }
