@@ -314,6 +314,44 @@ def changed_slugs(ref):
     return slugs
 
 
+def run_once(l, test, args):
+    """Run one language test in a fresh temp dir; return (ok, output)."""
+    tmp = tempfile.mkdtemp(prefix="hello-%s-" % l["slug"])
+    try:
+        for f in l["files"]:
+            shutil.copy(os.path.join(LANG_DIR, l["slug"], f), tmp)
+        if test["group"] == "docker":
+            # Containers may run as a non-root user: make the work dir readable and writable.
+            os.chmod(tmp, 0o777)
+            for f in os.listdir(tmp):
+                os.chmod(os.path.join(tmp, f), 0o666)
+            image = test["image"]
+            mirror = os.environ.get("HELLO_DOCKER_MIRROR")
+            if mirror and "/" not in image.split(":")[0]:
+                image = "%s/library/%s" % (mirror, image)  # official images, avoids Docker Hub rate limits
+            cmd = ["docker", "run", "--rm", "--platform", test.get("platform", "linux/amd64"),
+                   "-v", "%s:/src" % tmp, "-w", "/src", "--entrypoint", test.get("shell", "sh")]
+            cmd += test.get("docker_args", []) + [image, "-c", test["run"]]
+        else:
+            cmd = ["sh", "-c", test["run"]]
+        for _ in range(3):
+            proc = subprocess.run(cmd, cwd=tmp, env=dict(os.environ, HELLO_ROOT=ROOT), stdin=subprocess.DEVNULL,
+                                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=test.get("timeout", args.timeout))
+            out = proc.stdout.decode("utf-8", "replace")
+            if "toomanyrequests" not in out:
+                break
+            time.sleep(60)  # registry rate limit: wait and retry
+        if test.get("kind") == "compile":
+            ok = proc.returncode == 0
+        else:
+            ok = "helloworld" in normalize(out) and (proc.returncode == 0 or test.get("allow_nonzero"))
+    except subprocess.TimeoutExpired:
+        out, ok = "timeout after %ds" % test.get("timeout", args.timeout), False
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    return ok, out
+
+
 def cmd_test(args):
     langs = [l for l in load_languages() if l.get("test")]
     if args.changed_since:
@@ -328,7 +366,7 @@ def cmd_test(args):
     if args.shard:
         index, total = (int(n) for n in args.shard.split("/"))
         langs = [l for i, l in enumerate(langs) if i % total == index - 1]
-    passed, failed, skipped = [], [], []
+    passed, failed, skipped, retried = [], [], [], []
     for l in langs:
         test = l["test"]
         if test["group"] == "docker":
@@ -343,42 +381,20 @@ def cmd_test(args):
             else:
                 skipped.append(l)
             continue
-        tmp = tempfile.mkdtemp(prefix="hello-%s-" % l["slug"])
-        try:
-            for f in l["files"]:
-                shutil.copy(os.path.join(LANG_DIR, l["slug"], f), tmp)
-            if test["group"] == "docker":
-                # Containers may run as a non-root user: make the work dir readable and writable.
-                os.chmod(tmp, 0o777)
-                for f in os.listdir(tmp):
-                    os.chmod(os.path.join(tmp, f), 0o666)
-                image = test["image"]
-                mirror = os.environ.get("HELLO_DOCKER_MIRROR")
-                if mirror and "/" not in image.split(":")[0]:
-                    image = "%s/library/%s" % (mirror, image)  # official images, avoids Docker Hub rate limits
-                cmd = ["docker", "run", "--rm", "--platform", test.get("platform", "linux/amd64"),
-                       "-v", "%s:/src" % tmp, "-w", "/src", "--entrypoint", test.get("shell", "sh")]
-                cmd += test.get("docker_args", []) + [image, "-c", test["run"]]
-            else:
-                cmd = ["sh", "-c", test["run"]]
-            for _ in range(3):
-                proc = subprocess.run(cmd, cwd=tmp, env=dict(os.environ, HELLO_ROOT=ROOT), stdin=subprocess.DEVNULL,
-                                      stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=test.get("timeout", args.timeout))
-                out = proc.stdout.decode("utf-8", "replace")
-                if "toomanyrequests" not in out:
-                    break
-                time.sleep(60)  # registry rate limit: wait and retry
-            if test.get("kind") == "compile":
-                ok = proc.returncode == 0
-            else:
-                ok = "helloworld" in normalize(out) and (proc.returncode == 0 or test.get("allow_nonzero"))
-        except subprocess.TimeoutExpired:
-            out, ok = "timeout after %ds" % test.get("timeout", args.timeout), False
-        finally:
-            shutil.rmtree(tmp, ignore_errors=True)
+        flaky = False
+        for attempt in range(args.retries + 1):
+            ok, out = run_once(l, test, args)
+            if ok:
+                break
+            if attempt < args.retries and not out.startswith("timeout after"):
+                flaky = True
+                print("RETRY %s (attempt %d failed)" % (l["slug"], attempt + 1), flush=True)
+                time.sleep(30)  # most failures here are transient downloads
         if ok:
             passed.append(l)
-            print("PASS %s" % l["slug"], flush=True)
+            if flaky:
+                retried.append(l)
+            print("PASS %s%s" % (l["slug"], " (after retry)" if flaky else ""), flush=True)
         else:
             failed.append((l, out))
             print("FAIL %-24s exit/output:\n%s" % (l["slug"], out[-2000:]), flush=True)
@@ -388,6 +404,8 @@ def cmd_test(args):
         with open(summary, "a", encoding="utf-8") as fh:
             fh.write("### Hello World tests%s\n\n" % (" — group `%s`" % args.group if args.group else ""))
             fh.write("%d passed, %d failed, %d skipped\n\n" % (len(passed), len(failed), len(skipped)))
+            for l in retried:
+                fh.write("- 🔁 `%s` passed after a retry\n" % l["slug"])
             for l, _ in failed:
                 fh.write("- ❌ `%s`\n" % l["slug"])
     return 1 if failed else 0
@@ -416,6 +434,7 @@ def main():
     t.add_argument("--strict", action="store_true", help="fail when a toolchain is missing")
     t.add_argument("--timeout", type=int, default=180)
     t.add_argument("--shard", help="run only shard I of N, as I/N")
+    t.add_argument("--retries", type=int, default=2, help="re-run a failing test this many times (network flakes)")
     t.add_argument("--changed-since", default=os.environ.get("HELLO_CHANGED_SINCE") or None,
                    help="only languages changed since this git ref (all when scripts/ or workflows change)")
     a = sub.add_parser("apt-packages")
