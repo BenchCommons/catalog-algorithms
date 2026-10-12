@@ -10,3 +10,4 @@
 | [006 — Ampliar a cobertura de testes](006-more-tests/spec.md) | concluída | 004 |
 | [007 — Cobertura de 80%](007-coverage-80/spec.md) | concluída | 006 |
 | [008 — CI seletivo nos PRs](008-selective-ci/spec.md) | concluída | 004 |
+| [009 — Arrumação pós-mudança](009-post-move/spec.md) | concluída | 003 |

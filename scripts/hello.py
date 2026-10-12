@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hello World library tooling.
+"""catalog-algorithms tooling (Hello World library).
 
 Usage:
   python3 scripts/hello.py readme                 # regenerate README.md
@@ -21,7 +21,7 @@ from urllib.parse import quote
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANG_DIR = os.path.join(ROOT, "languages")
 README = os.path.join(ROOT, "README.md")
-REPO = "matbrgz/Hello-World"
+REPO = "BenchCommons/catalog-algorithms"
 TIOBE_MONTH = "September 2026"
 TEST_GROUPS = ("base", "apt", "extra", "docker", "macos", "windows")
 
@@ -103,9 +103,10 @@ def render_readme(langs):
     brazilian = sorted((l for l in langs if "brazilian" in l.get("tags", [])), key=name_key)
 
     parts = []
-    parts.append("""# Hello World 🌍
+    parts.append("""# catalog-algorithms
 
-> "Hello World" in every programming language we can get our hands on.
+> Classic algorithm implementations across programming languages, measured by the
+> [BenchCommons](https://github.com/BenchCommons) toolset. It starts with Hello World in {count} languages.
 
 [![CI](https://github.com/{repo}/actions/workflows/hello-world.yml/badge.svg)](https://github.com/{repo}/actions/workflows/hello-world.yml)
 ![Languages](https://img.shields.io/badge/languages-{count}-blue)
@@ -113,11 +114,19 @@ def render_readme(langs):
 ![TIOBE coverage](https://img.shields.io/badge/TIOBE%20top%20100-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-Since 1974, when Brian Kernighan used it in *Programming in C: A Tutorial*, printing **Hello World** has been
-the first program almost everyone writes in a new language. This repository collects that program in
-**{count} languages**: every language in the [TIOBE Index](https://www.tiobe.com/tiobe-index/) top 100,
-the languages that shaped computing history, the new languages people are talking about, Brazilian languages,
-and a long tail of assembly, shell, scientific, hardware, markup and esoteric languages.
+This repository is the BenchCommons catalog of **classic algorithm implementations across languages**:
+n-body, fannkuch-redux, spectral-norm, binary-trees, mandelbrot, sorting, searching, hashing and others.
+Every implementation uses a pinned toolchain and has its output checked against a canonical expected output
+before it is measured for time, memory and energy with [perfratio](https://github.com/BenchCommons/perfratio)
+through [benchmark-tool](https://github.com/BenchCommons/benchmark-tool). The roadmap is tracked in
+[issue #11](https://github.com/{repo}/issues/11) and in [`docs/specs/`](docs/specs/ROADMAP.md).
+
+It starts from **Hello World**, the first program almost everyone writes in a new language since Brian Kernighan
+used it in 1974. Hello World does almost no work, so it is the **startup-cost baseline** for each language:
+the time and memory a toolchain needs before any algorithm runs. The catalog has it in **{count} languages**:
+every language in the [TIOBE Index](https://www.tiobe.com/tiobe-index/) top 100, the languages that shaped
+computing history, the new languages people are talking about, Brazilian languages, and a long tail of assembly,
+shell, scientific, hardware, markup and esoteric languages.
 
 **{tested} of {count} programs ({pct}%) are checked on every push** by GitHub Actions on Linux, macOS and Windows:
 

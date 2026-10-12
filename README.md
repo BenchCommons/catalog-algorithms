@@ -1,18 +1,27 @@
-# Hello World 🌍
+# catalog-algorithms
 
-> "Hello World" in every programming language we can get our hands on.
+> Classic algorithm implementations across programming languages, measured by the
+> [BenchCommons](https://github.com/BenchCommons) toolset. It starts with Hello World in 452 languages.
 
-[![CI](https://github.com/matbrgz/Hello-World/actions/workflows/hello-world.yml/badge.svg)](https://github.com/matbrgz/Hello-World/actions/workflows/hello-world.yml)
+[![CI](https://github.com/BenchCommons/catalog-algorithms/actions/workflows/hello-world.yml/badge.svg)](https://github.com/BenchCommons/catalog-algorithms/actions/workflows/hello-world.yml)
 ![Languages](https://img.shields.io/badge/languages-452-blue)
 ![Tested in CI](https://img.shields.io/badge/tested%20in%20CI-377%20(83%25)-brightgreen)
 ![TIOBE coverage](https://img.shields.io/badge/TIOBE%20top%20100-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-Since 1974, when Brian Kernighan used it in *Programming in C: A Tutorial*, printing **Hello World** has been
-the first program almost everyone writes in a new language. This repository collects that program in
-**452 languages**: every language in the [TIOBE Index](https://www.tiobe.com/tiobe-index/) top 100,
-the languages that shaped computing history, the new languages people are talking about, Brazilian languages,
-and a long tail of assembly, shell, scientific, hardware, markup and esoteric languages.
+This repository is the BenchCommons catalog of **classic algorithm implementations across languages**:
+n-body, fannkuch-redux, spectral-norm, binary-trees, mandelbrot, sorting, searching, hashing and others.
+Every implementation uses a pinned toolchain and has its output checked against a canonical expected output
+before it is measured for time, memory and energy with [perfratio](https://github.com/BenchCommons/perfratio)
+through [benchmark-tool](https://github.com/BenchCommons/benchmark-tool). The roadmap is tracked in
+[issue #11](https://github.com/BenchCommons/catalog-algorithms/issues/11) and in [`docs/specs/`](docs/specs/ROADMAP.md).
+
+It starts from **Hello World**, the first program almost everyone writes in a new language since Brian Kernighan
+used it in 1974. Hello World does almost no work, so it is the **startup-cost baseline** for each language:
+the time and memory a toolchain needs before any algorithm runs. The catalog has it in **452 languages**:
+every language in the [TIOBE Index](https://www.tiobe.com/tiobe-index/) top 100, the languages that shaped
+computing history, the new languages people are talking about, Brazilian languages, and a long tail of assembly,
+shell, scientific, hardware, markup and esoteric languages.
 
 **377 of 452 programs (83%) are checked on every push** by GitHub Actions on Linux, macOS and Windows:
 
@@ -654,7 +663,7 @@ Maintained by [@matbrgz](https://github.com/matbrgz).
 
 [![matbrgz](https://github.com/matbrgz.png?size=64)](https://github.com/matbrgz)
 
-[![Contributors](https://contrib.rocks/image?repo=matbrgz/Hello-World)](https://github.com/matbrgz/Hello-World/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=BenchCommons/catalog-algorithms)](https://github.com/BenchCommons/catalog-algorithms/graphs/contributors)
 
 ## License
 
