@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.twig"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.21",
+    "run": "apk add -q composer >/dev/null && composer require -q twig/twig:3.14.0 && php -r 'require \"vendor/autoload.php\"; echo (new Twig\\Environment(new Twig\\Loader\\FilesystemLoader(\".\")))->render(\"HelloWorld.twig\");'"
+  }
+}

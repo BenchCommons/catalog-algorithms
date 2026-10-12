@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.scala"
+  ],
+  "test": {
+    "group": "extra",
+    "run": "scala-cli run --server=false HelloWorld.scala"
+  }
+}

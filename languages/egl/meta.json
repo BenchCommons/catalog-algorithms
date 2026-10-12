@@ -1,9 +1,0 @@
-{
-  "name": "EGL",
-  "files": [
-    "HelloWorld.egl"
-  ],
-  "tiobe": {
-    "group": "51-100"
-  }
-}

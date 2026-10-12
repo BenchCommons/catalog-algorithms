@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.hq9"
+  ],
+  "test": {
+    "group": "base",
+    "run": "python3 \"$HELLO_ROOT/scripts/esolang.py\" hq9 HelloWorld.hq9"
+  }
+}

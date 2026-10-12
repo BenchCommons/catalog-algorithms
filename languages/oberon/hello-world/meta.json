@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.Mod"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.2.0",
+    "run": "apt-get update -qq >/dev/null && apt-get install -y -qq libgc-dev >/dev/null && curl -fsSL --retry 5 --retry-all-errors -o obnc.tar.gz https://miasap.se/obnc/downloads/obnc_0.17.2.tar.gz && tar xzf obnc.tar.gz && (cd obnc-0.17.2 && ./build && ./install) >/dev/null 2>&1 && cp HelloWorld.Mod HelloWorld.obn && obnc HelloWorld.obn && ./HelloWorld"
+  }
+}

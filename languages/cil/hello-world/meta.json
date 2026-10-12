@@ -1,0 +1,16 @@
+{
+  "files": [
+    "HelloWorld.il"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "ilasm HelloWorld.il >/dev/null && mono HelloWorld.exe",
+    "apt": [
+      "mono-devel"
+    ],
+    "needs": [
+      "ilasm",
+      "mono"
+    ]
+  }
+}

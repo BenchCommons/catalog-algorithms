@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.fs"
+  ],
+  "test": {
+    "group": "base",
+    "run": "cp HelloWorld.fs hello.fsx && dotnet fsi hello.fsx",
+    "needs": [
+      "dotnet"
+    ]
+  }
+}

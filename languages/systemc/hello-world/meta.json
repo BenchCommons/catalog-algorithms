@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.cpp"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "g++ HelloWorld.cpp -lsystemc -o hello && ./hello",
+    "apt": [
+      "libsystemc-dev"
+    ],
+    "needs": [
+      "g++"
+    ]
+  }
+}

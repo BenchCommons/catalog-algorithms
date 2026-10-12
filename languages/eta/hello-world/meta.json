@@ -1,0 +1,10 @@
+{
+  "files": [
+    "Main.hs"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "typelead/eta:c3d2cb6",
+    "run": "eta Main.hs && java -jar RunMain.jar"
+  }
+}

@@ -110,7 +110,7 @@ Ficam com o contrato: o layout de cada implementação, o esquema de metadados, 
 - A spec não define layout de pastas, runner, marcadores nem formato de arquivo de entrada.
 
 ## Fora de escopo
-- O layout `algorithms/<algo>/<lang>/` e os metadados por implementação (spec 011).
+- O layout `languages/<lang>/<algoritmo>/` e os metadados por implementação (spec 011).
 - O harness da verificação de correção (spec 012).
 - Medição, publicação de resultados e o uso do perfratio (spec 013).
 - As implementações em si (spec 014).

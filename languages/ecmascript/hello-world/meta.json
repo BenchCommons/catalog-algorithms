@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.mjs"
+  ],
+  "test": {
+    "group": "base",
+    "run": "node HelloWorld.mjs"
+  }
+}

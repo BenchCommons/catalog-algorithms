@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.jinja"
+  ],
+  "test": {
+    "group": "base",
+    "run": "pipx run --spec jinja2-cli jinja2 HelloWorld.jinja",
+    "needs": [
+      "pipx"
+    ]
+  }
+}

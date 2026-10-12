@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.ll"
+  ],
+  "test": {
+    "group": "base",
+    "run": "clang -Wno-override-module -o hello HelloWorld.ll && ./hello",
+    "needs": [
+      "clang"
+    ]
+  }
+}

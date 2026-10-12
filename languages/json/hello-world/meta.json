@@ -1,0 +1,9 @@
+{
+  "files": [
+    "hello.json"
+  ],
+  "test": {
+    "group": "base",
+    "run": "jq -r .message hello.json"
+  }
+}

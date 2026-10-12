@@ -1,0 +1,5 @@
+{
+  "name": "GraphQL",
+  "section": "query",
+  "notes": "schema plus query; the resolver returns \"Hello World\""
+}

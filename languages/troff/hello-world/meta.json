@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.ms"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "groff -ms -T utf8 HelloWorld.ms",
+    "apt": [
+      "groff"
+    ],
+    "needs": [
+      "groff"
+    ]
+  }
+}

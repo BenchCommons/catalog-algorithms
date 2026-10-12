@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.mac"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "maxima --very-quiet --batch=HelloWorld.mac",
+    "apt": [
+      "maxima"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.css"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "npx -y csstree-validator@4.0.1 HelloWorld.css",
+    "kind": "compile"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.exs"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "elixir HelloWorld.exs",
+    "apt": [
+      "elixir"
+    ]
+  }
+}

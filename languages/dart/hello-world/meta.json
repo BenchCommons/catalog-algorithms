@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.dart"
+  ],
+  "test": {
+    "group": "extra",
+    "run": "dart run HelloWorld.dart"
+  }
+}

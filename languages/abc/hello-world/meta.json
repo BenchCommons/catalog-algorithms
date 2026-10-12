@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.abc"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.20.3",
+    "run": "wget -qO- https://homepages.cwi.nl/~steven/abc/implementations/v6/abc-linux-x86_64-static.tar.gz | tar xz -C /tmp && /tmp/ABC/abc HelloWorld.abc"
+  }
+}

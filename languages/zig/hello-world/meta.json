@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.zig"
+  ],
+  "test": {
+    "group": "extra",
+    "run": "zig run HelloWorld.zig"
+  }
+}

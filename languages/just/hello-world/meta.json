@@ -1,0 +1,12 @@
+{
+  "files": [
+    "justfile"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "just",
+    "apt": [
+      "just"
+    ]
+  }
+}

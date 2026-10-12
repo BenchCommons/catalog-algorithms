@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.swift"
+  ],
+  "test": {
+    "group": "base",
+    "run": "swift HelloWorld.swift"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.elv"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "elvish HelloWorld.elv",
+    "apt": [
+      "elvish"
+    ]
+  }
+}

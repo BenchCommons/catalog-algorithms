@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.rexx"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "regina HelloWorld.rexx",
+    "apt": [
+      "regina-rexx"
+    ]
+  }
+}

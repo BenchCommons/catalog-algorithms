@@ -1,0 +1,13 @@
+{
+  "files": [
+    "HelloWorld.icn"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "icont -s HelloWorld.icn -x",
+    "apt": [
+      "icont",
+      "iconx"
+    ]
+  }
+}

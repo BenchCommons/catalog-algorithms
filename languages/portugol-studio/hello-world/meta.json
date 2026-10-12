@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.por"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "node:22.12.0-slim",
+    "run": "npm i -s --no-save delegua@1.12.10 >/dev/null 2>&1 && npx delegua --dialeto portugol-studio HelloWorld.por"
+  }
+}

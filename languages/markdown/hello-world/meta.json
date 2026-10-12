@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.md"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "pandoc -t plain HelloWorld.md",
+    "apt": [
+      "pandoc"
+    ]
+  }
+}

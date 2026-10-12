@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.v"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "coqc HelloWorld.v",
+    "apt": [
+      "coq"
+    ],
+    "needs": [
+      "coqc"
+    ]
+  }
+}

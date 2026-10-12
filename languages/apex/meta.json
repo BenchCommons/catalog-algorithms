@@ -1,9 +1,0 @@
-{
-  "name": "Apex",
-  "files": [
-    "HelloWorld.cls"
-  ],
-  "tiobe": {
-    "group": "51-100"
-  }
-}

@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.ndf"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq && apt-get install -y -qq --no-install-recommends ca-certificates wget unzip >/dev/null && wget -qO /tmp/nial.zip https://github.com/niallang/Nial_Development/releases/download/Originals/Linux64.zip && unzip -q /tmp/nial.zip -d /tmp && chmod +x /tmp/Linux/nial64 && /tmp/Linux/nial64 -defs HelloWorld.ndf"
+  }
+}

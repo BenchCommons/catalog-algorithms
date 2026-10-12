@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.xq"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "basex HelloWorld.xq",
+    "apt": [
+      "basex"
+    ]
+  }
+}

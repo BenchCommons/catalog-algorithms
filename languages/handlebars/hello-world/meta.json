@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.hbs"
+  ],
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "node:22.12.0-slim",
+    "run": "npm i -s --no-save handlebars@4.7.8 >/dev/null 2>&1 && npx handlebars HelloWorld.hbs -f hello.js"
+  }
+}

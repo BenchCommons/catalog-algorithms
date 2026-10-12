@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.d"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "ldc2 -run HelloWorld.d",
+    "apt": [
+      "ldc"
+    ]
+  }
+}

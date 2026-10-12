@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.gpt"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "gpt -i HelloWorld.gpt",
+    "apt": [
+      "gpt"
+    ]
+  }
+}

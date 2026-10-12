@@ -1,0 +1,9 @@
+{
+  "files": [
+    "hello.yaml"
+  ],
+  "test": {
+    "group": "base",
+    "run": "yq '.message' hello.yaml"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.jsonnet"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "jsonnet HelloWorld.jsonnet",
+    "apt": [
+      "jsonnet"
+    ]
+  }
+}

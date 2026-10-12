@@ -1,9 +1,0 @@
-{
-  "name": "thinBasic",
-  "files": [
-    "HelloWorld.tbasic"
-  ],
-  "tiobe": {
-    "group": "51-100"
-  }
-}

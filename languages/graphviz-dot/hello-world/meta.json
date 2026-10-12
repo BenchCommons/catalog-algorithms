@@ -1,0 +1,16 @@
+{
+  "files": [
+    "HelloWorld.dot"
+  ],
+  "test": {
+    "group": "apt",
+    "kind": "compile",
+    "run": "dot -Tsvg HelloWorld.dot -o hello.svg",
+    "apt": [
+      "graphviz"
+    ],
+    "needs": [
+      "dot"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.wgsl"
+  ],
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "rust:1.88.0-slim-bookworm",
+    "run": "cargo install -q --locked naga-cli@30.0.1 && naga HelloWorld.wgsl",
+    "timeout": 1800
+  }
+}

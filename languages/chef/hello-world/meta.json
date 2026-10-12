@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.chef"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL https://cpan.metacpan.org/authors/id/W/WE/WERNERMP/Acme-Chef-1.03.tar.gz | tar xz -C /opt && perl -I/opt/Acme-Chef-1.03/lib /opt/Acme-Chef-1.03/script/chef HelloWorld.chef"
+  }
+}

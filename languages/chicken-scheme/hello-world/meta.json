@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.scm"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "csi -s HelloWorld.scm",
+    "apt": [
+      "chicken-bin"
+    ]
+  }
+}

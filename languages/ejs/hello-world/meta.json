@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.ejs"
+  ],
+  "test": {
+    "group": "base",
+    "run": "npx --yes ejs HelloWorld.ejs",
+    "needs": [
+      "npx"
+    ]
+  }
+}

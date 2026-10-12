@@ -1,7 +1,0 @@
-{
-  "name": "KQL (Kusto)",
-  "files": [
-    "HelloWorld.kql"
-  ],
-  "section": "query"
-}

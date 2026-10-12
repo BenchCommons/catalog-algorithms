@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.graphql"
+  ],
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "node:22.20.0-slim",
+    "run": "cd /tmp && npm install -s graphql@16.9.0 && node -e 'const g=require(\"graphql\");const d=g.parse(require(\"fs\").readFileSync(\"/src/HelloWorld.graphql\",\"utf8\"));const ex=d.definitions.filter(g.isExecutableDefinitionNode);const s=g.buildASTSchema({kind:\"Document\",definitions:d.definitions.filter(x=>!ex.includes(x))});const e=g.validate(s,{kind:\"Document\",definitions:ex});if(e.length){console.error(e.join(\"\\n\"));process.exit(1)}'"
+  }
+}

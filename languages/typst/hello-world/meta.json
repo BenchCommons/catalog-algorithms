@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.typ"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "pandoc -f typst -t plain HelloWorld.typ",
+    "apt": [
+      "pandoc"
+    ]
+  }
+}

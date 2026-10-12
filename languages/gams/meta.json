@@ -1,9 +1,0 @@
-{
-  "name": "GAMS",
-  "files": [
-    "HelloWorld.gms"
-  ],
-  "tiobe": {
-    "group": "51-100"
-  }
-}

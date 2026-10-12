@@ -1,0 +1,16 @@
+{
+  "files": [
+    "HelloWorld.comp"
+  ],
+  "test": {
+    "kind": "compile",
+    "group": "apt",
+    "run": "glslangValidator -V --target-env vulkan1.3 HelloWorld.comp -o hello.spv",
+    "apt": [
+      "glslang-tools"
+    ],
+    "needs": [
+      "glslangValidator"
+    ]
+  }
+}

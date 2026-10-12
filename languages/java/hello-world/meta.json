@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.java"
+  ],
+  "test": {
+    "group": "base",
+    "run": "java HelloWorld.java"
+  }
+}

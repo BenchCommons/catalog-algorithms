@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.slim"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.21",
+    "run": "apk add -q ruby >/dev/null && gem install -q --silent --no-document slim -v 5.2.1 >/dev/null && slimrb HelloWorld.slim"
+  }
+}

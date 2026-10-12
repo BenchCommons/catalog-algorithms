@@ -1,0 +1,11 @@
+{
+  "files": [
+    "main.bicep"
+  ],
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSLo bicep https://github.com/Azure/bicep/releases/download/v0.48.1/bicep-linux-x64 && chmod +x bicep && DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 ./bicep build main.bicep && cat main.json"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.asm"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:bookworm",
+    "run": "curl -sSL https://github.com/Baron-von-Riedesel/JWasm/archive/refs/tags/v2.20.tar.gz | tar xz && make -s -C JWasm-2.20 -f GccUnix.mak >/dev/null 2>&1 && curl -sSL https://github.com/dmsc/emu2/archive/refs/tags/v2021.01.tar.gz | tar xz && make -s -C emu2-2021.01 >/dev/null 2>&1 && JWasm-2.20/build/GccUnixR/jwasm -q -mz -Fo=hello.exe HelloWorld.asm >/dev/null 2>&1 && emu2-2021.01/emu2 hello.exe"
+  }
+}

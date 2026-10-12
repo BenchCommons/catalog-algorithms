@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.st"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:jammy-20260217",
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends gnu-smalltalk >/dev/null && gst HelloWorld.st"
+  }
+}

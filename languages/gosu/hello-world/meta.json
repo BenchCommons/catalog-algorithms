@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.gsp"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "eclipse-temurin:17.0.13_11-jdk",
+    "run": "curl -sSLO https://repo1.maven.org/maven2/org/gosu-lang/gosu/gosu/1.18.12/gosu-1.18.12-full.zip && jar xf gosu-1.18.12-full.zip && sh gosu-1.18.12/bin/gosu HelloWorld.gsp"
+  }
+}

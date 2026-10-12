@@ -12,3 +12,4 @@
 | [008 — CI seletivo nos PRs](008-selective-ci/spec.md) | concluída | 004 |
 | [009 — Arrumação pós-mudança](009-post-move/spec.md) | concluída | 003 |
 | [010 — Conjunto de algoritmos e E/S canônica](010-algorithm-set/spec.md) | proposta | — |
+| [011 — Layout por linguagem](011-lang-layout/spec.md) | concluída | 010 |

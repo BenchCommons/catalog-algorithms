@@ -1,0 +1,10 @@
+{
+  "files": [
+    "helloworld.kk"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.2.0",
+    "run": "curl -sSL https://github.com/koka-lang/koka/releases/download/v3.2.9/koka-v3.2.9-linux-x64.tar.gz | tar xz -C /usr/local && koka -e helloworld.kk"
+  }
+}

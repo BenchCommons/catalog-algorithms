@@ -1,0 +1,15 @@
+{
+  "files": [
+    "helloworld.erl"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "erlc helloworld.erl && erl -noshell -s helloworld start -s init stop",
+    "apt": [
+      "erlang-nox"
+    ],
+    "needs": [
+      "erlc"
+    ]
+  }
+}

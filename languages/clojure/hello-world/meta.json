@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.clj"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "clojure HelloWorld.clj",
+    "apt": [
+      "clojure"
+    ]
+  }
+}

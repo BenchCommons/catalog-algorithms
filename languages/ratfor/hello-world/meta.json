@@ -1,0 +1,17 @@
+{
+  "files": [
+    "HelloWorld.r"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "ratfor HelloWorld.r > hello.f && gfortran hello.f -o hello && ./hello",
+    "apt": [
+      "ratfor",
+      "gfortran"
+    ],
+    "needs": [
+      "ratfor",
+      "gfortran"
+    ]
+  }
+}

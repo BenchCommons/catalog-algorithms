@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.jsx"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "node:22.12.0-slim",
+    "run": "npm i -s --no-save esbuild@0.24.2 react@18.3.1 react-dom@18.3.1 >/dev/null 2>&1 && npx esbuild HelloWorld.jsx --bundle --format=cjs --platform=node --jsx=automatic --outfile=h.cjs --log-level=warning && node -e 'const R=require(\"react\");console.log(require(\"react-dom/server\").renderToStaticMarkup(R.createElement(require(\"./h.cjs\").default)))'"
+  }
+}

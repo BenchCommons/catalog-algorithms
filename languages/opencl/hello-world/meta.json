@@ -1,0 +1,16 @@
+{
+  "files": [
+    "HelloWorld.cl"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "clang -x cl -cl-std=CL1.2 -Xclang -finclude-default-header -fsyntax-only HelloWorld.cl",
+    "apt": [
+      "clang"
+    ],
+    "needs": [
+      "clang"
+    ],
+    "kind": "compile"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "files": [
+    "HelloWorld.asm"
+  ],
+  "test": {
+    "group": "apt",
+    "kind": "compile",
+    "run": "64tass -q -o hello.prg HelloWorld.asm",
+    "apt": [
+      "64tass"
+    ]
+  }
+}

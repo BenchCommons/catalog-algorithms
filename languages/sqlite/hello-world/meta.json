@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.sql"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "sqlite3 < HelloWorld.sql",
+    "apt": [
+      "sqlite3"
+    ]
+  }
+}

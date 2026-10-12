@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.bbc"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "tbrandy -quit HelloWorld.bbc",
+    "apt": [
+      "brandy"
+    ],
+    "needs": [
+      "tbrandy"
+    ]
+  }
+}

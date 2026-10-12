@@ -1,0 +1,10 @@
+{
+  "files": [
+    "hello_world.e"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "eiffel/eiffel:25.12",
+    "run": "ec -batch -c_compile hello_world.e >/dev/null 2>&1; sed -i '/precompile/d' hello_world.ecf && ec -batch -config hello_world.ecf -c_compile >/dev/null && ./EIFGENs/hello_world/W_code/hello_world"
+  }
+}

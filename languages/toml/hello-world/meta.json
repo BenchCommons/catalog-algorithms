@@ -1,0 +1,9 @@
+{
+  "files": [
+    "hello.toml"
+  ],
+  "test": {
+    "group": "base",
+    "run": "python3 -c 'import tomllib; print(tomllib.load(open(\"hello.toml\", \"rb\"))[\"message\"])'"
+  }
+}

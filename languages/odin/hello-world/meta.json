@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.odin"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates curl clang >/dev/null && mkdir /opt/odin && curl -fsSL https://github.com/odin-lang/Odin/releases/download/dev-2026-09/odin-linux-amd64-dev-2026-09.tar.gz | tar xz --strip-components=1 -C /opt/odin && /opt/odin/odin run HelloWorld.odin -file"
+  }
+}

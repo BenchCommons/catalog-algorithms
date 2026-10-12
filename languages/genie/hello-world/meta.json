@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.gs"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "valac -o hello HelloWorld.gs && ./hello",
+    "apt": [
+      "valac"
+    ]
+  }
+}

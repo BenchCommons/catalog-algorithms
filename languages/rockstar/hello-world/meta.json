@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.rock"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "debian:12.7-slim",
+    "run": "apt-get update -qq && apt-get install -y -qq --no-install-recommends ca-certificates wget libicu72 >/dev/null && wget -qO- https://github.com/RockstarLang/rockstar/releases/download/v2.0.31/rockstar-v2.0.31-linux-x64.tar.gz | tar xz -C /tmp && /tmp/rockstar-linux-x64-binary/rockstar HelloWorld.rock"
+  }
+}

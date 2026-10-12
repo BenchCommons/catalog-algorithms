@@ -1,0 +1,15 @@
+{
+  "files": [
+    "helloworld.adb"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "gnatmake -q helloworld.adb -o hello && ./hello",
+    "apt": [
+      "gnat"
+    ],
+    "needs": [
+      "gnatmake"
+    ]
+  }
+}

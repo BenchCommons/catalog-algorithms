@@ -1,0 +1,11 @@
+{
+  "files": [
+    "lib.rs"
+  ],
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "rust:1.85.0",
+    "run": "printf '[package]\\nname = \"hello_world\"\\nversion = \"0.1.0\"\\nedition = \"2021\"\\n\\n[lib]\\npath = \"lib.rs\"\\n\\n[dependencies]\\nink = { version = \"=5.1.1\", default-features = false }\\n\\n[features]\\ndefault = [\"std\"]\\nstd = [\"ink/std\"]\\nink-as-dependency = []\\n' > Cargo.toml && cargo check -q"
+  }
+}

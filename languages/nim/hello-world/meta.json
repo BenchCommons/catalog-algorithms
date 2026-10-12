@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.nim"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "nim r --hints:off HelloWorld.nim",
+    "apt": [
+      "nim"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "files": [
+    "HelloWorld.liquid"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "ruby -rliquid -e 'print Liquid::Template.parse(File.read(\"HelloWorld.liquid\")).render'",
+    "apt": [
+      "ruby",
+      "ruby-liquid"
+    ],
+    "needs": [
+      "ruby"
+    ]
+  }
+}

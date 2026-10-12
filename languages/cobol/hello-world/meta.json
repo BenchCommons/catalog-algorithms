@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.cob"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "cobc -x -o hello HelloWorld.cob && ./hello",
+    "apt": [
+      "gnucobol"
+    ],
+    "needs": [
+      "cobc"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.f90"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "gfortran -o hello HelloWorld.f90 && ./hello",
+    "apt": [
+      "gfortran"
+    ]
+  }
+}

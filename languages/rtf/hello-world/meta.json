@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.rtf"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "unrtf --text HelloWorld.rtf",
+    "apt": [
+      "unrtf"
+    ]
+  }
+}

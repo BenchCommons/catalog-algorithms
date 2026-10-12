@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.fth"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "gforth HelloWorld.fth -e bye",
+    "apt": [
+      "gforth"
+    ]
+  }
+}

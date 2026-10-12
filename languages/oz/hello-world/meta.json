@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.oz"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates wget tk8.6 >/dev/null && wget -qO /tmp/mozart2.deb https://github.com/mozart/mozart2/releases/download/v2.0.1/mozart2-2.0.1-x86_64-linux.deb && dpkg --force-depends -i /tmp/mozart2.deb >/dev/null && ozc -c HelloWorld.oz -o /tmp/HelloWorld.ozf && ozengine /tmp/HelloWorld.ozf"
+  }
+}

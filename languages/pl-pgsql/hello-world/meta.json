@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.sql"
+  ],
+  "test": {
+    "group": "extra",
+    "run": "sudo -u postgres psql -q < HelloWorld.sql",
+    "needs": [
+      "psql"
+    ]
+  }
+}

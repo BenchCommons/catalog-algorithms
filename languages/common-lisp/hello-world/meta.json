@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.lisp"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "sbcl --script HelloWorld.lisp",
+    "apt": [
+      "sbcl"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.mdx"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "cd /tmp && echo {} > package.json && npm i -s @mdx-js/mdx@3.1.1 react@19.2.0 react-dom@19.2.0 >/dev/null && node --input-type=module -e \"import {evaluate} from '@mdx-js/mdx'; import * as runtime from 'react/jsx-runtime'; import {createElement} from 'react'; import {renderToStaticMarkup} from 'react-dom/server'; import {readFileSync} from 'fs'; const {default: Content} = await evaluate(readFileSync('/src/HelloWorld.mdx', 'utf8'), runtime); console.log(renderToStaticMarkup(createElement(Content)));\""
+  }
+}

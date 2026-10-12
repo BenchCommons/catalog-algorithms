@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.nu"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "ghcr.io/nushell/nushell:0.116.1-bookworm",
+    "run": "nu HelloWorld.nu"
+  }
+}

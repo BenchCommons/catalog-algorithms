@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.lol"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:bookworm",
+    "run": "curl -sSL https://github.com/justinmeza/lci/archive/refs/tags/v0.11.2.tar.gz | tar xz && cc -w -o lci lci-0.11.2/*.c -lm -lreadline && ./lci HelloWorld.lol"
+  }
+}

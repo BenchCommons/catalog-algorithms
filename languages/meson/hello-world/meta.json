@@ -1,0 +1,12 @@
+{
+  "files": [
+    "meson.build"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "meson setup build",
+    "apt": [
+      "meson"
+    ]
+  }
+}

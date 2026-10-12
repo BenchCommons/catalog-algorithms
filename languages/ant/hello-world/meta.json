@@ -1,0 +1,12 @@
+{
+  "files": [
+    "build.xml"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "ant -q",
+    "apt": [
+      "ant"
+    ]
+  }
+}

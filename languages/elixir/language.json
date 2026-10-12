@@ -1,0 +1,10 @@
+{
+  "name": "Elixir",
+  "tiobe": {
+    "group": "51-100"
+  },
+  "tags": [
+    "brazilian"
+  ],
+  "brazilian_notes": "created by José Valim, 2012"
+}

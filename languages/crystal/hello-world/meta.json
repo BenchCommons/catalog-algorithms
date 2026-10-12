@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.cr"
+  ],
+  "test": {
+    "group": "extra",
+    "run": "crystal run HelloWorld.cr"
+  }
+}

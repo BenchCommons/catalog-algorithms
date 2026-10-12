@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.b"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "git clone -q https://github.com/Spydr06/BCause /opt/bcause && git -C /opt/bcause checkout -q c9669f24e71401e7e5a2659426d6dacd3f29de26 && make -s -C /opt/bcause >/dev/null 2>&1 && /opt/bcause/bcause -L/opt/bcause HelloWorld.b -o hello && ./hello"
+  }
+}

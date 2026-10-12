@@ -1,0 +1,10 @@
+{
+  "files": [
+    "main.tf"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "hashicorp/terraform:1.9.8",
+    "run": "terraform init -input=false >/dev/null && terraform apply -auto-approve -input=false"
+  }
+}

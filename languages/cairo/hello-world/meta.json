@@ -1,0 +1,10 @@
+{
+  "files": [
+    "hello_world.cairo"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.20.3",
+    "run": "wget -qO- https://github.com/starkware-libs/cairo/releases/download/v2.20.0/release-x86_64-unknown-linux-musl.tar.gz | tar xz -C /tmp && /tmp/cairo/bin/cairo-run --single-file hello_world.cairo"
+  }
+}

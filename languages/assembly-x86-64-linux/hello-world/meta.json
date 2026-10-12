@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.asm"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "nasm -f elf64 HelloWorld.asm -o hello.o && ld hello.o -o hello && ./hello",
+    "apt": [
+      "nasm"
+    ]
+  }
+}

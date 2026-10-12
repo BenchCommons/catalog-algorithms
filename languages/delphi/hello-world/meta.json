@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.dpr"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "fpc -Mdelphi -ohello HelloWorld.dpr >/dev/null && ./hello",
+    "apt": [
+      "fp-compiler"
+    ]
+  }
+}

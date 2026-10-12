@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.sv"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "iverilog -g2012 -o hello HelloWorld.sv && vvp hello",
+    "apt": [
+      "iverilog"
+    ]
+  }
+}

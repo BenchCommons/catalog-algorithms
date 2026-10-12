@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.pro"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "swipl HelloWorld.pro",
+    "apt": [
+      "swi-prolog-nox"
+    ]
+  }
+}

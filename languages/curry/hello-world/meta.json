@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.curry"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "currylang/pakcs:3.9.0",
+    "run": "pakcs :load HelloWorld :eval main :quit"
+  }
+}

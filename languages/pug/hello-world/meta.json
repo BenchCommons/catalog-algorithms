@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.pug"
+  ],
+  "test": {
+    "group": "base",
+    "run": "npx --yes pug-cli < HelloWorld.pug",
+    "needs": [
+      "npx"
+    ]
+  }
+}

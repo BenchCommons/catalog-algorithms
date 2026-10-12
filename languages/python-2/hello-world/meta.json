@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.py"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "python:2.7.18-slim",
+    "run": "python HelloWorld.py"
+  }
+}

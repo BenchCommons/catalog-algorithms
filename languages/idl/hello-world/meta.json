@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.pro"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "gdl -quiet HelloWorld.pro",
+    "apt": [
+      "gnudatalanguage"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.lsl"
+  ],
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates curl unzip >/dev/null && curl -fsSLO https://github.com/Makopo/lslint/releases/download/nightly_build_20230410045235/lslint_nightly_build_20230410045235_linux64.zip && unzip -q lslint_nightly_build_20230410045235_linux64.zip -d /opt/lslint && /opt/lslint/lslint HelloWorld.lsl"
+  }
+}

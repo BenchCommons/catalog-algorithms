@@ -1,0 +1,11 @@
+{
+  "files": [
+    "hello-world.yml"
+  ],
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "alpine:3.21.3",
+    "run": "wget -qO- https://github.com/rhysd/actionlint/releases/download/v1.7.7/actionlint_1.7.7_linux_amd64.tar.gz | tar xz actionlint && ./actionlint hello-world.yml"
+  }
+}

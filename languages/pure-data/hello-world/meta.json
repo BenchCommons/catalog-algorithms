@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.pd"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "pd -nogui -noaudio -nomidi -stderr -open HelloWorld.pd -send \"pd quit\"",
+    "apt": [
+      "puredata-core"
+    ],
+    "needs": [
+      "pd"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.unl"
+  ],
+  "test": {
+    "group": "base",
+    "run": "python3 \"$HELLO_ROOT/scripts/esolang.py\" unlambda HelloWorld.unl"
+  }
+}

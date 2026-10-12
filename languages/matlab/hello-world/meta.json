@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.m"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "octave-cli --no-gui HelloWorld.m",
+    "apt": [
+      "octave"
+    ],
+    "needs": [
+      "octave-cli"
+    ]
+  }
+}

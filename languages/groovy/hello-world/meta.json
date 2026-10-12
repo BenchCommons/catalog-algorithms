@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.groovy"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "groovy HelloWorld.groovy",
+    "apt": [
+      "groovy"
+    ]
+  }
+}

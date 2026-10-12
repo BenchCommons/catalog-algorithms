@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.rs"
+  ],
+  "test": {
+    "group": "base",
+    "run": "rustc -o hello HelloWorld.rs && ./hello"
+  }
+}

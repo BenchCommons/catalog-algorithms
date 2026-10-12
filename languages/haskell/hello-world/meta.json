@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.hs"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "runghc HelloWorld.hs",
+    "apt": [
+      "ghc"
+    ]
+  }
+}

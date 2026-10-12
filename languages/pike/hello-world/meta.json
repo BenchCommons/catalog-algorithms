@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.pike"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "pike HelloWorld.pike",
+    "apt": [
+      "pike8.0"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "files": [
+    "HelloWorld.sce"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "scilab-cli -nb -quit -f HelloWorld.sce",
+    "apt": [
+      "scilab-cli",
+      "dpkg-dev"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.go"
+  ],
+  "test": {
+    "group": "base",
+    "run": "go run HelloWorld.go"
+  }
+}

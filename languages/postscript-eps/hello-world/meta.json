@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.eps"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "gs -q -dNOPAUSE -dBATCH -dSAFER -sDEVICE=txtwrite -sOutputFile=- HelloWorld.eps",
+    "apt": [
+      "ghostscript"
+    ],
+    "needs": [
+      "gs"
+    ]
+  }
+}

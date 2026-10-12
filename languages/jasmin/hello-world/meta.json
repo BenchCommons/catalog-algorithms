@@ -1,0 +1,16 @@
+{
+  "files": [
+    "HelloWorld.j"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "jasmin HelloWorld.j >/dev/null && java HelloWorld",
+    "apt": [
+      "jasmin-sable"
+    ],
+    "needs": [
+      "jasmin",
+      "java"
+    ]
+  }
+}

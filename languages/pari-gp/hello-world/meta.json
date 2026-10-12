@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.gp"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "gp -q HelloWorld.gp",
+    "apt": [
+      "pari-gp"
+    ],
+    "needs": [
+      "gp"
+    ]
+  }
+}

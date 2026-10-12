@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.i"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "ick -b HelloWorld.i && ./HelloWorld",
+    "apt": [
+      "intercal"
+    ],
+    "needs": [
+      "ick"
+    ]
+  }
+}
