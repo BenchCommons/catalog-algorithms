@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.bb"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "babashka/babashka:1.12.208",
+    "run": "bb HelloWorld.bb"
+  }
+}

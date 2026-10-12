@@ -1,7 +1,0 @@
-{
-  "name": "Splunk SPL",
-  "files": [
-    "HelloWorld.spl"
-  ],
-  "section": "query"
-}

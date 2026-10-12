@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.exp"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "expect HelloWorld.exp",
+    "apt": [
+      "expect"
+    ]
+  }
+}

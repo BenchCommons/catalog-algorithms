@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.a68"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "a68g HelloWorld.a68",
+    "apt": [
+      "algol68g"
+    ]
+  }
+}

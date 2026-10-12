@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HELLO.ASM"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "apt-get update -qq && apt-get install -y -qq --no-install-recommends z80asm libncurses-dev >/dev/null && wget -qO- https://github.com/SvenMb/gbrein_tnylpo/archive/cbed834e621a3882c12cb9c59f406a2163998125.tar.gz | tar xz -C /tmp && make -s -C /tmp/gbrein_tnylpo-cbed834e621a3882c12cb9c59f406a2163998125 >/dev/null && z80asm HELLO.ASM -o /tmp/hello.com && cd /tmp && su nobody -s /bin/sh -c \"/tmp/gbrein_tnylpo-cbed834e621a3882c12cb9c59f406a2163998125/tnylpo hello\""
+  }
+}

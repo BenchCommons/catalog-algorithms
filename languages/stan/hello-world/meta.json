@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.stan"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "python:3.12.8",
+    "run": "pip install -q --root-user-action=ignore --disable-pip-version-check pystan==3.10.0 setuptools==75.6.0 && python -c 'import stan; stan.build(open(\"HelloWorld.stan\").read()).sample(num_chains=1, num_samples=1, num_warmup=0)'",
+    "allow_nonzero": true
+  }
+}

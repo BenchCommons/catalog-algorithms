@@ -1,9 +1,0 @@
-{
-  "name": "XPL",
-  "files": [
-    "HelloWorld.xpl"
-  ],
-  "tiobe": {
-    "group": "51-100"
-  }
-}

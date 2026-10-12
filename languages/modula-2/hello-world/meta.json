@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.mod"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "gm2 -fpim HelloWorld.mod -o hello && ./hello",
+    "apt": [
+      "gm2"
+    ]
+  }
+}

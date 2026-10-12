@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.gravity"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "git clone -q --depth 1 -b 0.9.9 https://github.com/marcobambini/gravity /tmp/gravity && make -s -C /tmp/gravity >/dev/null && /tmp/gravity/gravity HelloWorld.gravity"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.gleam"
+  ],
+  "test": {
+    "group": "extra",
+    "run": "gleam new app >/dev/null && cp HelloWorld.gleam app/src/app.gleam && cd app && gleam run"
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "name": "Xojo",
-  "files": [
-    "HelloWorld.xojo_code"
-  ],
-  "tiobe": {
-    "group": "51-100"
-  }
-}

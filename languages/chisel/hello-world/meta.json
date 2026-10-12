@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.scala"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "eclipse-temurin:21.0.8_9-jdk",
+    "run": "curl -fsSL https://github.com/VirtusLab/scala-cli/releases/download/v1.9.1/scala-cli-x86_64-pc-linux.gz | gunzip > /tmp/scala-cli && chmod +x /tmp/scala-cli && /tmp/scala-cli compile --server=false --scala 2.13.16 --dep org.chipsalliance::chisel:7.0.0 --compiler-plugin org.chipsalliance:::chisel-plugin:7.0.0 HelloWorld.scala",
+    "kind": "compile"
+  }
+}

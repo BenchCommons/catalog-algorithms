@@ -1,0 +1,16 @@
+{
+  "files": [
+    "hello_world.lgt"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "curl -sSL https://github.com/LogtalkDotOrg/logtalk3/archive/refs/tags/lgt31010stable.tar.gz | tar xz && export LOGTALKHOME=\"$PWD/logtalk3-lgt31010stable\" LOGTALKUSER=\"$PWD/logtalk3-lgt31010stable\" && swipl -q -s \"$LOGTALKHOME/integration/logtalk_swi.pl\" -g \"logtalk_load(hello_world), halt\"",
+    "apt": [
+      "swi-prolog-nox"
+    ],
+    "needs": [
+      "swipl",
+      "curl"
+    ]
+  }
+}

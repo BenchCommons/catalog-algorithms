@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.el"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "emacs --batch -l HelloWorld.el",
+    "apt": [
+      "emacs-nox"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.haml"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "haml render HelloWorld.haml",
+    "apt": [
+      "ruby-haml"
+    ]
+  }
+}

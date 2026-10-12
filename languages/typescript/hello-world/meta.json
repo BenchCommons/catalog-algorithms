@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.ts"
+  ],
+  "test": {
+    "group": "base",
+    "run": "npx --yes tsx HelloWorld.ts",
+    "needs": [
+      "npx"
+    ]
+  }
+}

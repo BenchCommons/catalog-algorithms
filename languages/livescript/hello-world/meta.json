@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.ls"
+  ],
+  "test": {
+    "group": "base",
+    "run": "npx --yes -p livescript lsc HelloWorld.ls",
+    "needs": [
+      "npx"
+    ]
+  }
+}

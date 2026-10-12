@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.xc"
+  ],
+  "test": {
+    "group": "base",
+    "run": "cc -x c -o hello HelloWorld.xc && ./hello",
+    "needs": [
+      "cc"
+    ]
+  }
+}

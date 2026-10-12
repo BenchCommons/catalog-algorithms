@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.k"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "kcllang/kcl:v0.11.2",
+    "run": "kcl run HelloWorld.k"
+  }
+}

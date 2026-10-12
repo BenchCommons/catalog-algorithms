@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.ml"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "ocaml HelloWorld.ml",
+    "apt": [
+      "ocaml-nox"
+    ]
+  }
+}

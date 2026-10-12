@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.js"
+  ],
+  "test": {
+    "group": "macos",
+    "run": "osascript -l JavaScript HelloWorld.js"
+  }
+}

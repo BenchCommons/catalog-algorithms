@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.csh"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "csh HelloWorld.csh",
+    "apt": [
+      "csh"
+    ]
+  }
+}

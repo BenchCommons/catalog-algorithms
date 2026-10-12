@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.alg"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "npm i -g -s @designliquido/delegua-node@1.25.0 >/dev/null 2>&1 && delegua --dialeto visualg HelloWorld.alg"
+  }
+}

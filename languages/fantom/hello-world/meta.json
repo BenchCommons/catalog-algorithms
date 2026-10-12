@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.fan"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.21",
+    "run": "apk add -q openjdk21-jre-headless >/dev/null && wget -q https://github.com/fantom-lang/fantom/releases/download/v1.0.82/fantom-1.0.82.zip && unzip -q fantom-1.0.82.zip && java -cp fantom-1.0.82/lib/java/sys.jar -Dfan.home=fantom-1.0.82 fanx.tools.Fan HelloWorld.fan"
+  }
+}

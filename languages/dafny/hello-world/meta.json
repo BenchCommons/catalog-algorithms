@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.dfy"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "mcr.microsoft.com/dotnet/sdk:8.0.404",
+    "run": "dotnet tool install --tool-path /tmp/dafny dafny --version 4.11.0 && /tmp/dafny/dafny run --no-verify HelloWorld.dfy"
+  }
+}

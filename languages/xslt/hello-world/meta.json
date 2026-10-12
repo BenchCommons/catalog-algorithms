@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.xsl"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "xsltproc HelloWorld.xsl HelloWorld.xsl",
+    "apt": [
+      "xsltproc"
+    ]
+  }
+}

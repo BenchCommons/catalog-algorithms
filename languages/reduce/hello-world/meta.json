@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.red"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates wget bzip2 libxrandr2 libxcursor1 libxext6 libx11-6 libxft2 libfontconfig1 >/dev/null && wget -qO- https://downloads.sourceforge.net/project/reduce-algebra/snapshot_2026-03-08/linux64/reduce-freestanding_2026-03-08_x86_64.tar.bz2 | tar xj -C /tmp && /tmp/reduce-snapshot_2026-03-14_x86_64/csl/reduce -w HelloWorld.red"
+  }
+}

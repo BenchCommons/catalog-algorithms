@@ -1,0 +1,10 @@
+{
+  "files": [
+    "hello_world.pi"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL https://picat-lang.org/download/picat39_12_linux64.tar.gz | tar xz && ./Picat/picat hello_world.pi"
+  }
+}

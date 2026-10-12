@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.cue"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.21",
+    "run": "wget -qO- https://github.com/cue-lang/cue/releases/download/v0.11.1/cue_v0.11.1_linux_amd64.tar.gz | tar xz cue && ./cue export HelloWorld.cue"
+  }
+}

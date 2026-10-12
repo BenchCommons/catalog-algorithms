@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.bas"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "bwbasic HelloWorld.bas",
+    "apt": [
+      "bwbasic"
+    ]
+  }
+}

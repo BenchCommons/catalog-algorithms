@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.vim"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "vim -Es -N -u NONE -c 'redir! > out.txt' -c 'source HelloWorld.vim' -c 'redir END' -c 'qa!'; cat out.txt",
+    "apt": [
+      "vim"
+    ],
+    "needs": [
+      "vim"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.red"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "i386/buildpack-deps:bookworm",
+    "platform": "linux/386",
+    "run": "curl -sSL http://www.rebol.com/downloads/v278/rebol-core-278-4-3.tar.gz | tar xz && curl -sSL https://github.com/red/red/archive/refs/tags/v0.6.6.tar.gz | tar xz && cd red-0.6.6 && ../releases/rebol-core/rebol -qws red.r -r -o /src/hi /src/HelloWorld.red >/dev/null && /src/hi",
+    "allow_nonzero": true
+  }
+}

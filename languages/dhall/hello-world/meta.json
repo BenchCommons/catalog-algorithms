@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.dhall"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "dhall text --file HelloWorld.dhall",
+    "apt": [
+      "dhall"
+    ]
+  }
+}

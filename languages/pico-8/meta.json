@@ -1,7 +1,0 @@
-{
-  "name": "PICO-8 Lua",
-  "files": [
-    "hello.p8.lua"
-  ],
-  "section": "game"
-}

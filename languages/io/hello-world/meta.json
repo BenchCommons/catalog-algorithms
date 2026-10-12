@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.io"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates git cmake make g++ >/dev/null && git clone -q -c advice.detachedHead=false --depth 1 --recursive --shallow-submodules -b 2026.04.20-native-final https://github.com/IoLanguage/io /tmp/io && cd /tmp/io && cmake -S . -B build -DCMAKE_BUILD_TYPE=release >/dev/null && make -s -C build -j4 io_static >/dev/null 2>&1 && cd /src && /tmp/io/build/_build/binaries/io_static HelloWorld.io",
+    "timeout": 1800
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.roc"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:bookworm-curl",
+    "run": "mkdir roc && curl -sSL https://github.com/roc-lang/nightlies/releases/download/nightly-2026-09-26-d6267b4/roc_nightly-linux_x86_64-2026-09-26-d6267b4.tar.gz | tar xz -C roc --strip-components=1 && ./roc/roc HelloWorld.roc"
+  }
+}

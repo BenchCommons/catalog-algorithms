@@ -1,0 +1,10 @@
+{
+  "files": [
+    "run.ceylon"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "ceylon/ceylon:1.3.3-jre8-debian",
+    "run": "ceylon compile --src=. run.ceylon && ceylon run default"
+  }
+}

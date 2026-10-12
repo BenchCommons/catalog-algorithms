@@ -1,0 +1,5 @@
+{
+  "name": "OpenQASM",
+  "section": "hardware",
+  "notes": "quantum circuit; no text output"
+}

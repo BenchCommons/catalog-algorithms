@@ -1,0 +1,12 @@
+{
+  "files": [
+    "hello_world.pp"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "puppet apply hello_world.pp",
+    "apt": [
+      "puppet"
+    ]
+  }
+}

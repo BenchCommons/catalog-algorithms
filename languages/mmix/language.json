@@ -1,0 +1,5 @@
+{
+  "name": "MMIX",
+  "section": "assembly",
+  "notes": "Donald Knuth's architecture from *The Art of Computer Programming*"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "GLSL",
+  "section": "hardware",
+  "notes": "Vulkan compute shader with `debugPrintfEXT`"
+}

@@ -1,0 +1,9 @@
+{
+  "files": [
+    "Makefile"
+  ],
+  "test": {
+    "group": "base",
+    "run": "make -s"
+  }
+}

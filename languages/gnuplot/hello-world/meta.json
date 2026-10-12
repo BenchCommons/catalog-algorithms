@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.gp"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "gnuplot HelloWorld.gp",
+    "apt": [
+      "gnuplot-nox"
+    ],
+    "needs": [
+      "gnuplot"
+    ]
+  }
+}

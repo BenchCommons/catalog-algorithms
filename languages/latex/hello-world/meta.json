@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.tex"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "pandoc -f latex -t plain HelloWorld.tex",
+    "apt": [
+      "pandoc"
+    ]
+  }
+}

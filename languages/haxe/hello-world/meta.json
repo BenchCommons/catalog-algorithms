@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.hx"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "haxe --main HelloWorld --interp",
+    "apt": [
+      "haxe"
+    ]
+  }
+}

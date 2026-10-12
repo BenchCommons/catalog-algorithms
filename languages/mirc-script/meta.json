@@ -1,7 +1,0 @@
-{
-  "name": "mIRC scripting",
-  "files": [
-    "HelloWorld.mrc"
-  ],
-  "section": "shells"
-}

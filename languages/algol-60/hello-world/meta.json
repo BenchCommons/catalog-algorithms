@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.alg"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.2.0",
+    "run": "curl -sSL https://ftp.gnu.org/gnu/marst/marst-2.7.tar.gz | tar xz && (cd marst-2.7 && ./configure -q && make -s && make -s install) >/dev/null 2>&1 && ldconfig && marst HelloWorld.alg -o hello.c && gcc hello.c -lalgol -lm -o hello && ./hello"
+  }
+}

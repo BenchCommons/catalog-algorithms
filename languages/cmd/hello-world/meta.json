@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.cmd"
+  ],
+  "test": {
+    "group": "windows",
+    "run": "cmd //c HelloWorld.cmd",
+    "needs": [
+      "cmd"
+    ]
+  }
+}

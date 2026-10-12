@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.ps"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "gs -q -dNODISPLAY -dBATCH -dNOPAUSE HelloWorld.ps",
+    "apt": [
+      "ghostscript"
+    ],
+    "needs": [
+      "gs"
+    ]
+  }
+}

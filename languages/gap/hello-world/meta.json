@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.g"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "gap -q HelloWorld.g",
+    "apt": [
+      "gap"
+    ]
+  }
+}

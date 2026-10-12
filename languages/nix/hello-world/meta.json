@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.nix"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "nixos/nix:2.31.2",
+    "run": "nix-instantiate --eval HelloWorld.nix"
+  }
+}

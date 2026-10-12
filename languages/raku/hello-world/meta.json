@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.raku"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "raku HelloWorld.raku",
+    "apt": [
+      "rakudo"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.erb"
+  ],
+  "test": {
+    "group": "base",
+    "run": "erb HelloWorld.erb"
+  }
+}

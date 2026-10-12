@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.st"
+  ],
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "ubuntu:noble-20260810",
+    "run": "apt-get update -qq && apt-get install -y -qq --no-install-recommends ca-certificates wget >/dev/null && wget -qO /tmp/plc https://github.com/PLC-lang/rusty/releases/download/v1.0.5/plc-linux-x86_64 && chmod +x /tmp/plc && /tmp/plc -c HelloWorld.st -o /tmp/HelloWorld.o"
+  }
+}

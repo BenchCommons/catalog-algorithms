@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.awk"
+  ],
+  "test": {
+    "group": "base",
+    "run": "awk -f HelloWorld.awk"
+  }
+}

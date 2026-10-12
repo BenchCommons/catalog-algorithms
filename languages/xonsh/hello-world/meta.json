@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.xsh"
+  ],
+  "test": {
+    "group": "base",
+    "run": "pipx run xonsh HelloWorld.xsh",
+    "needs": [
+      "pipx"
+    ]
+  }
+}

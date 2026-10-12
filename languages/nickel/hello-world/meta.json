@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.ncl"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.20.3",
+    "run": "wget -q -O /usr/local/bin/nickel https://github.com/tweag/nickel/releases/download/1.17.0/nickel-x86_64-linux && chmod +x /usr/local/bin/nickel && nickel export HelloWorld.ncl"
+  }
+}

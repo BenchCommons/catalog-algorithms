@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.foc"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq flex bison >/dev/null && git clone -q https://github.com/maurymarkowitz/RetroFOCAL /opt/rf && git -C /opt/rf checkout -q c2998ce7ab04e504e9e9128226b95e34aa4dae83 && make -s -C /opt/rf >/dev/null 2>&1 && /opt/rf/retrofocal HelloWorld.foc"
+  }
+}

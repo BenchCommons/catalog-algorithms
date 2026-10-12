@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.prg"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "mkdir /tmp/hb && wget -qO- https://github.com/harbour/core/releases/download/v3.2.0/harbour-3.2.0.src.tar.gz | tar xz -C /tmp/hb && HB_BUILD_CONTRIBS=no make -s -C /tmp/hb -j4 >/dev/null 2>&1 && /tmp/hb/bin/linux/gcc/hbmk2 -q -gtcgi HelloWorld.prg && ./HelloWorld",
+    "timeout": 1800
+  }
+}

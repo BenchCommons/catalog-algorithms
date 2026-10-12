@@ -1,0 +1,7 @@
+{
+  "name": "JScript",
+  "tiobe": {
+    "group": "51-100"
+  },
+  "notes": "Windows Script Host"
+}

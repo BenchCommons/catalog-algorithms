@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.chpl"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "chapel/chapel:2.2.0",
+    "run": "chpl HelloWorld.chpl -o hello && ./hello"
+  }
+}

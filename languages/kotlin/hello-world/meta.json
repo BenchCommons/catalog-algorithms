@@ -1,0 +1,13 @@
+{
+  "files": [
+    "HelloWorld.kt"
+  ],
+  "test": {
+    "group": "base",
+    "run": "kotlinc HelloWorld.kt -include-runtime -d hello.jar 2>/dev/null && java -jar hello.jar",
+    "needs": [
+      "kotlinc",
+      "java"
+    ]
+  }
+}

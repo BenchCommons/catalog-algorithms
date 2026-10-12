@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.rc"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "rc HelloWorld.rc",
+    "apt": [
+      "rc"
+    ]
+  }
+}

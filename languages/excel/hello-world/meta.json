@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.xlsx.txt"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "cp HelloWorld.xlsx.txt hello.csv && soffice --headless --convert-to csv --outdir out hello.csv >/dev/null 2>&1 && cat out/hello.csv",
+    "apt": [
+      "libreoffice-calc-nogui"
+    ],
+    "needs": [
+      "soffice"
+    ]
+  }
+}

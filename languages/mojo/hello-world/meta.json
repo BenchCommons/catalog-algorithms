@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.mojo"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "python:3.12.8-slim",
+    "run": "pip install -q --root-user-action=ignore mojo==1.0.0 && mojo run HelloWorld.mojo"
+  }
+}

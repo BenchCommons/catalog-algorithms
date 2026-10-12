@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.lsp"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "newlisp HelloWorld.lsp",
+    "apt": [
+      "newlisp"
+    ]
+  }
+}

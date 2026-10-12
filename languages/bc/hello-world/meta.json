@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.bc"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "bc -q HelloWorld.bc",
+    "apt": [
+      "bc"
+    ]
+  }
+}

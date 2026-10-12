@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.sno"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL https://ftp.regressive.org/snobol4/snobol4-2.3.3.tar.gz | tar xz -C /tmp && cd /tmp/snobol4-2.3.3 && ./configure >/dev/null && make -s >/dev/null 2>&1 && ./snobol4 /src/HelloWorld.sno"
+  }
+}

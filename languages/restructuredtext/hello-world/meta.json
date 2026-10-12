@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.rst"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "pandoc -f rst -t plain HelloWorld.rst",
+    "apt": [
+      "pandoc"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.t"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.2.0",
+    "run": "curl -sSL https://github.com/terralang/terra/releases/download/release-1.2.2/terra-Linux-x86_64-bb02b25.tar.xz | tar xJ && terra-Linux-x86_64-bb02b25/bin/terra HelloWorld.t"
+  }
+}

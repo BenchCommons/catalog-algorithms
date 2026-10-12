@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.asm"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "spim -file HelloWorld.asm",
+    "apt": [
+      "spim"
+    ]
+  }
+}

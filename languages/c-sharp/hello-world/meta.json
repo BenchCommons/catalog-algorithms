@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.cs"
+  ],
+  "test": {
+    "group": "base",
+    "run": "dotnet new console -o app --force >/dev/null && cp HelloWorld.cs app/Program.cs && dotnet run --project app",
+    "needs": [
+      "dotnet"
+    ]
+  }
+}

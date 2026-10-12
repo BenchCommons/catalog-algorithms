@@ -1,0 +1,5 @@
+{
+  "name": "WGSL",
+  "section": "hardware",
+  "notes": "no text output; renders a solid color"
+}

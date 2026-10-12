@@ -1,0 +1,10 @@
+{
+  "files": [
+    "hello_world.py"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "python:3.12.8-slim",
+    "run": "pip install -q --root-user-action=ignore amaranth==0.5.4 && python hello_world.py"
+  }
+}

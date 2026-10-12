@@ -1,0 +1,16 @@
+{
+  "files": [
+    "HelloWorld.run"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "glpsol -m HelloWorld.run",
+    "apt": [
+      "glpk-utils"
+    ],
+    "needs": [
+      "glpsol"
+    ],
+    "allow_nonzero": true
+  }
+}

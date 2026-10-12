@@ -1,0 +1,10 @@
+{
+  "files": [
+    "Main.purs"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ca-certificates git >/dev/null && npm i -g --silent --no-audit --no-fund purescript@0.15.15 spago@0.93.44 && mkdir app && cd app && spago init --name hello >/dev/null && cp ../Main.purs src/Main.purs && spago run"
+  }
+}

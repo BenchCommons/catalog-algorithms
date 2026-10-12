@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.svg"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "xmllint --xpath 'string(//*[local-name()=\"text\"])' HelloWorld.svg",
+    "apt": [
+      "libxml2-utils"
+    ],
+    "needs": [
+      "xmllint"
+    ]
+  }
+}

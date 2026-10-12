@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.pas"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "fpc -ohello HelloWorld.pas >/dev/null && ./hello",
+    "apt": [
+      "fp-compiler"
+    ]
+  }
+}

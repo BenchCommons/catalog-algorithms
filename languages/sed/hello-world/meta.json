@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.sed"
+  ],
+  "test": {
+    "group": "base",
+    "run": "echo | sed -f HelloWorld.sed"
+  }
+}

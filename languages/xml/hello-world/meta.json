@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.xml"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "xmllint --xpath 'string(/message)' HelloWorld.xml",
+    "apt": [
+      "libxml2-utils"
+    ],
+    "needs": [
+      "xmllint"
+    ]
+  }
+}

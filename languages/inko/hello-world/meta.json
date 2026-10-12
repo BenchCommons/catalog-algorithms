@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.inko"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "ghcr.io/inko-lang/inko:0.18.1",
+    "run": "inko run HelloWorld.inko"
+  }
+}

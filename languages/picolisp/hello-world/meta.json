@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.l"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "pil HelloWorld.l",
+    "apt": [
+      "picolisp"
+    ]
+  }
+}

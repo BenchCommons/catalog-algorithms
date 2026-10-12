@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.bat"
+  ],
+  "test": {
+    "group": "windows",
+    "run": "cmd //c HelloWorld.bat",
+    "needs": [
+      "cmd"
+    ]
+  }
+}

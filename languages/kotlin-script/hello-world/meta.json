@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.main.kts"
+  ],
+  "test": {
+    "group": "base",
+    "run": "kotlinc -script HelloWorld.main.kts",
+    "needs": [
+      "kotlinc"
+    ]
+  }
+}

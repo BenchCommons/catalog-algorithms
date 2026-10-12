@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.ksh"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "ksh HelloWorld.ksh",
+    "apt": [
+      "ksh"
+    ]
+  }
+}

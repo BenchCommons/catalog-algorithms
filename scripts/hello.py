@@ -51,23 +51,40 @@ SECTION_IDS = {s[0] for s in SECTIONS}
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 
 
-def load_languages():
-    langs = []
+BASELINE = "hello-world"
+LANGUAGE_FILE = "language.json"
+
+
+def load_implementations():
+    """One entry per languages/<lang>/<algorithm>/, merging language.json with the algorithm's meta.json."""
+    impls = []
     for slug in sorted(os.listdir(LANG_DIR)):
         path = os.path.join(LANG_DIR, slug)
         if not os.path.isdir(path):
             continue
-        meta_path = os.path.join(path, "meta.json")
-        with open(meta_path, encoding="utf-8") as fh:
-            meta = json.load(fh)
-        meta["slug"] = slug
-        langs.append(meta)
-    return langs
+        with open(os.path.join(path, LANGUAGE_FILE), encoding="utf-8") as fh:
+            language = json.load(fh)
+        for algorithm in sorted(os.listdir(path)):
+            adir = os.path.join(path, algorithm)
+            if not os.path.isdir(adir):
+                continue
+            with open(os.path.join(adir, "meta.json"), encoding="utf-8") as fh:
+                meta = json.load(fh)
+            impl = dict(language)
+            impl.update(meta)
+            impl.update(slug=slug, algorithm=algorithm, id="%s/%s" % (slug, algorithm), dir=adir)
+            impls.append(impl)
+    return impls
+
+
+def load_languages():
+    """The Hello World baseline of every language: one entry per language, used by the README."""
+    return [i for i in load_implementations() if i["algorithm"] == BASELINE]
 
 
 def link(lang, label=None):
     f = lang["files"][0]
-    url = "languages/%s/%s" % (lang["slug"], quote(f))
+    url = "languages/%s/%s/%s" % (lang["slug"], lang["algorithm"], quote(f))
     return "[`%s`](%s)" % (label or f, url)
 
 
@@ -181,32 +198,39 @@ python3 scripts/hello.py check              # metadata, files and README are con
 python3 scripts/hello.py test               # run every language whose toolchain is installed locally
 python3 scripts/hello.py test --lang python --lang rust
 python3 scripts/hello.py test --changed-since origin/master   # only languages changed on this branch
-python3 scripts/hello.py readme             # regenerate this README from languages/*/meta.json
+python3 scripts/hello.py readme             # regenerate this README from languages/*/language.json and */meta.json
 ```
 
 ## Contributing
 
+The catalog is organized **by language, with one folder per algorithm inside it**:
+
+```
+languages/<lang>/
+├── language.json          # the language: name, section or TIOBE position, year, notes
+├── hello-world/           # the startup-cost baseline every language has
+│   ├── meta.json          # files and test of this implementation
+│   └── HelloWorld.<ext>
+└── <algorithm>/           # more classic algorithms (see docs/specs/010-algorithm-set)
+```
+
 1. Check the tables above: is the language already covered?
-2. Create a folder `languages/<slug>/` (lowercase, hyphens) with:
-   - the program, usually named `HelloWorld.<extension>`;
-   - a `meta.json`, for example:
-     ```json
-     {
-       "name": "Python",
-       "files": ["HelloWorld.py"],
-       "section": "general",
-       "notes": "",
-       "test": {"group": "base", "run": "python3 HelloWorld.py"}
-     }
-     ```
-     `section` is one of: %s.
-     `test` is optional: add it when the language can run on a GitHub runner. `group` is `base` (tools preinstalled
-     on Ubuntu), `apt` (with an `"apt": ["package"]` list), `extra` (tools set up in the workflow), `macos` or
-     `windows`, or `docker` (with a pinned `"image"`; `run` executes inside it). `needs` lists the commands that must
-     exist (defaults to the first word of `run`). Set `"kind": "compile"` when the program cannot print and the test
-     only checks that the official tool accepts it.
-3. The program should print (or display) `Hello World` and be the idiomatic, minimal version for that language.
-4. Run `python3 scripts/hello.py readme` and `python3 scripts/hello.py check`, then open a pull request.
+2. For a new language, create `languages/<lang>/` (lowercase, hyphens) with a `language.json`:
+   ```json
+   {"name": "Python", "section": "general", "notes": ""}
+   ```
+   `section` is one of: %s.
+3. Add the implementation in `languages/<lang>/<algorithm>/` (`hello-world` first) with the program and a `meta.json`:
+   ```json
+   {"files": ["HelloWorld.py"], "test": {"group": "base", "run": "python3 HelloWorld.py"}}
+   ```
+   `test` is optional: add it when the language can run on a GitHub runner. `group` is `base` (tools preinstalled
+   on Ubuntu), `apt` (with an `"apt": ["package"]` list), `extra` (tools set up in the workflow), `macos` or
+   `windows`, or `docker` (with a pinned `"image"`; `run` executes inside it). `needs` lists the commands that must
+   exist (defaults to the first word of `run`). Set `"kind": "compile"` when the program cannot print and the test
+   only checks that the official tool accepts it.
+4. The program should be the idiomatic, minimal version for that language; Hello World prints (or displays) `Hello World`.
+5. Run `python3 scripts/hello.py readme` and `python3 scripts/hello.py check`, then open a pull request.
 
 ## Contributors
 
@@ -238,13 +262,30 @@ def cmd_readme(_args):
 def cmd_check(_args):
     errors = []
     langs = load_languages()
+    impls = load_implementations()
+    ALGO_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
+    for slug in sorted(os.listdir(LANG_DIR)):
+        path = os.path.join(LANG_DIR, slug)
+        if not os.path.isdir(path):
+            continue
+        entries = set(os.listdir(path))
+        if LANGUAGE_FILE not in entries:
+            errors.append("languages/%s: missing %s" % (slug, LANGUAGE_FILE))
+        if BASELINE not in entries:
+            errors.append("languages/%s: missing the %s baseline" % (slug, BASELINE))
+        stray = sorted(e for e in entries - {LANGUAGE_FILE} if not os.path.isdir(os.path.join(path, e)))
+        if stray:
+            errors.append("languages/%s: files outside an algorithm folder: %s" % (slug, stray))
+        for e in entries:
+            if os.path.isdir(os.path.join(path, e)) and not ALGO_RE.match(e):
+                errors.append("languages/%s/%s: algorithm ids must be kebab-case" % (slug, e))
     names = {}
     ranks = {}
     for l in langs:
         where = "languages/%s" % l["slug"]
         if not SLUG_RE.match(l["slug"]):
             errors.append("%s: invalid slug" % where)
-        for key in ("name", "files"):
+        for key in ("name",):
             if key not in l:
                 errors.append("%s: missing '%s'" % (where, key))
         if l.get("name", "").lower() in names:
@@ -259,10 +300,14 @@ def cmd_check(_args):
             if rank in ranks:
                 errors.append("%s: TIOBE rank %d also used by %s" % (where, rank, ranks[rank]))
             ranks[rank] = where
+    for l in impls:
+        where = "languages/%s" % l["id"]
+        if "files" not in l:
+            errors.append("%s: missing 'files'" % where)
         for f in l.get("files", []):
-            if not os.path.isfile(os.path.join(LANG_DIR, l["slug"], f)):
+            if not os.path.isfile(os.path.join(l["dir"], f)):
                 errors.append("%s: file '%s' not found" % (where, f))
-        present = set(os.listdir(os.path.join(LANG_DIR, l["slug"]))) - {"meta.json"}
+        present = set(os.listdir(l["dir"])) - {"meta.json"}
         extra = present - set(l.get("files", []))
         if extra:
             errors.append("%s: files not listed in meta.json: %s" % (where, sorted(extra)))
@@ -281,7 +326,7 @@ def cmd_check(_args):
             if test.get("kind", "run") not in ("run", "compile"):
                 errors.append("%s: test.kind must be 'run' or 'compile'" % where)
     platforms = {}
-    for l in langs:
+    for l in impls:
         t = l.get("test") or {}
         if t.get("group") == "docker":
             platforms.setdefault(t["image"], set()).add(t.get("platform", "linux/amd64"))
@@ -325,10 +370,10 @@ def changed_slugs(ref):
 
 def run_once(l, test, args):
     """Run one language test in a fresh temp dir; return (ok, output)."""
-    tmp = tempfile.mkdtemp(prefix="hello-%s-" % l["slug"])
+    tmp = tempfile.mkdtemp(prefix="hello-%s-%s-" % (l["slug"], l["algorithm"]))
     try:
         for f in l["files"]:
-            shutil.copy(os.path.join(LANG_DIR, l["slug"], f), tmp)
+            shutil.copy(os.path.join(l["dir"], f), tmp)
         if test["group"] == "docker":
             # Containers may run as a non-root user: make the work dir readable and writable.
             os.chmod(tmp, 0o777)
@@ -362,7 +407,7 @@ def run_once(l, test, args):
 
 
 def cmd_test(args):
-    langs = [l for l in load_languages() if l.get("test")]
+    langs = [l for l in load_implementations() if l.get("test")]
     if args.changed_since:
         slugs = changed_slugs(args.changed_since)
         if slugs is not None:
@@ -371,7 +416,7 @@ def cmd_test(args):
     if args.group:
         langs = [l for l in langs if l["test"]["group"] == args.group]
     if args.lang:
-        langs = [l for l in langs if l["slug"] in args.lang]
+        langs = [l for l in langs if l["slug"] in args.lang or l["id"] in args.lang]
     if args.shard:
         index, total = (int(n) for n in args.shard.split("/"))
         langs = [l for i, l in enumerate(langs) if i % total == index - 1]
@@ -386,7 +431,7 @@ def cmd_test(args):
         if missing:
             if args.strict:
                 failed.append((l, "missing tool: %s" % ", ".join(missing)))
-                print("FAIL %-24s missing tool: %s" % (l["slug"], ", ".join(missing)), flush=True)
+                print("FAIL %-24s missing tool: %s" % (l["id"], ", ".join(missing)), flush=True)
             else:
                 skipped.append(l)
             continue
@@ -397,16 +442,16 @@ def cmd_test(args):
                 break
             if attempt < args.retries and not out.startswith("timeout after"):
                 flaky = True
-                print("RETRY %s (attempt %d failed)" % (l["slug"], attempt + 1), flush=True)
+                print("RETRY %s (attempt %d failed)" % (l["id"], attempt + 1), flush=True)
                 time.sleep(30)  # most failures here are transient downloads
         if ok:
             passed.append(l)
             if flaky:
                 retried.append(l)
-            print("PASS %s%s" % (l["slug"], " (after retry)" if flaky else ""), flush=True)
+            print("PASS %s%s" % (l["id"], " (after retry)" if flaky else ""), flush=True)
         else:
             failed.append((l, out))
-            print("FAIL %-24s exit/output:\n%s" % (l["slug"], out[-2000:]), flush=True)
+            print("FAIL %-24s exit/output:\n%s" % (l["id"], out[-2000:]), flush=True)
     print("\n%d passed, %d failed, %d skipped (toolchain not installed)" % (len(passed), len(failed), len(skipped)))
     summary = os.environ.get("GITHUB_STEP_SUMMARY")
     if summary:
@@ -414,16 +459,16 @@ def cmd_test(args):
             fh.write("### Hello World tests%s\n\n" % (" — group `%s`" % args.group if args.group else ""))
             fh.write("%d passed, %d failed, %d skipped\n\n" % (len(passed), len(failed), len(skipped)))
             for l in retried:
-                fh.write("- 🔁 `%s` passed after a retry\n" % l["slug"])
+                fh.write("- 🔁 `%s` passed after a retry\n" % l["id"])
             for l, _ in failed:
-                fh.write("- ❌ `%s`\n" % l["slug"])
+                fh.write("- ❌ `%s`\n" % l["id"])
     return 1 if failed else 0
 
 
 def cmd_apt(args):
     pkgs = set()
     slugs = changed_slugs(args.changed_since) if args.changed_since else None
-    for l in load_languages():
+    for l in load_implementations():
         if slugs is not None and l["slug"] not in slugs:
             continue
         t = l.get("test")

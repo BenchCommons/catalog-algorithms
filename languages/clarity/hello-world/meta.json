@@ -1,0 +1,11 @@
+{
+  "files": [
+    "hello-world.clar"
+  ],
+  "test": {
+    "kind": "compile",
+    "group": "docker",
+    "image": "buildpack-deps:bookworm-curl",
+    "run": "curl -sSL https://github.com/hirosystems/clarinet/releases/download/v3.23.2/clarinet-linux-x64-glibc.tar.gz | tar xz && ./clarinet check hello-world.clar"
+  }
+}

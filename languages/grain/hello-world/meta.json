@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.gr"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:bookworm-curl",
+    "run": "curl -sSLo grain https://github.com/grain-lang/grain/releases/download/grain-v0.6.6/grain-linux-x64 && chmod +x grain && ./grain HelloWorld.gr"
+  }
+}

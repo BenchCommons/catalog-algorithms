@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.sml"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "poly --script HelloWorld.sml",
+    "apt": [
+      "polyml"
+    ],
+    "needs": [
+      "poly"
+    ]
+  }
+}

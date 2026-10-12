@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.lua"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "lua5.4 HelloWorld.lua",
+    "apt": [
+      "lua5.4"
+    ]
+  }
+}

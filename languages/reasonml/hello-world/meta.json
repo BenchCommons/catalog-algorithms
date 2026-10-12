@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.re"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "npm install --silent --no-save bs-platform@9.0.2 && echo '{\"name\":\"hello\",\"sources\":\".\"}' > bsconfig.json && npx bsb -make-world && node lib/js/HelloWorld.js"
+  }
+}

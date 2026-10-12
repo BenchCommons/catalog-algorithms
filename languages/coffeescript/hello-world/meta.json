@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.coffee"
+  ],
+  "test": {
+    "group": "base",
+    "run": "npx --yes -p coffeescript coffee HelloWorld.coffee",
+    "needs": [
+      "npx"
+    ]
+  }
+}

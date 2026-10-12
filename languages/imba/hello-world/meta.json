@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.imba"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "npx -y imba@2.0.0-alpha.253 HelloWorld.imba"
+  }
+}

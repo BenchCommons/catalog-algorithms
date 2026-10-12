@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.puml"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "plantuml -tutxt -pipe < HelloWorld.puml",
+    "apt": [
+      "plantuml"
+    ]
+  }
+}

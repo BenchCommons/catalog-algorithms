@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.mmd"
+  ],
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "minlag/mermaid-cli:11.4.2",
+    "run": "node /home/mermaidcli/node_modules/.bin/mmdc -p /puppeteer-config.json -i HelloWorld.mmd -o /tmp/hello.svg"
+  }
+}

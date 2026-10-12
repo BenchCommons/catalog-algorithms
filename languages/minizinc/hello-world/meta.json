@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.mzn"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "minizinc HelloWorld.mzn",
+    "apt": [
+      "minizinc"
+    ]
+  }
+}

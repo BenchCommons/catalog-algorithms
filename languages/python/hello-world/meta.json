@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.py"
+  ],
+  "test": {
+    "group": "base",
+    "run": "python3 HelloWorld.py"
+  }
+}

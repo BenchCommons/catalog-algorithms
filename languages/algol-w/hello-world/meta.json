@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.alw"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:24.04",
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq curl gcc ocaml-nox python3 python3-markdown make libgc-dev >/dev/null && curl -sSL https://github.com/glynawe/awe/archive/a0238c139c9bf0760e93264a7eb0b87453fab900.tar.gz | tar xz && cd awe-a0238c139c9bf0760e93264a7eb0b87453fab900 && make build >/dev/null 2>&1 && make install >/dev/null && cd .. && awe HelloWorld.alw -o hi && ./hi"
+  }
+}

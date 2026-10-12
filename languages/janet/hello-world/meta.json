@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.janet"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "alpine:3.21",
+    "run": "apk add -q janet >/dev/null && janet HelloWorld.janet"
+  }
+}

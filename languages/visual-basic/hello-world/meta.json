@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.vb"
+  ],
+  "test": {
+    "group": "base",
+    "run": "dotnet new console -lang VB -o app --force >/dev/null && cp HelloWorld.vb app/Program.vb && dotnet run --project app",
+    "needs": [
+      "dotnet"
+    ]
+  }
+}

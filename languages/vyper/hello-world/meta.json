@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.vy"
+  ],
+  "test": {
+    "kind": "compile",
+    "group": "docker",
+    "image": "python:3.12.7-slim",
+    "run": "pip install -q --root-user-action=ignore vyper==0.4.0 && vyper HelloWorld.vy"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.m2"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "M2 --script HelloWorld.m2",
+    "apt": [
+      "macaulay2"
+    ],
+    "needs": [
+      "M2"
+    ]
+  }
+}

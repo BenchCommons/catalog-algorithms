@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.lobster"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "apt-get update -qq && apt-get install -y -qq libopengl0 libglx0 >/dev/null && curl -fsSL -o /tmp/lobster.zip https://github.com/aardappel/lobster/releases/download/v2026.8/lobster_linux_release.zip && unzip -q /tmp/lobster.zip -d /tmp/lobster && chmod +x /tmp/lobster/bin/lobster && /tmp/lobster/bin/lobster HelloWorld.lobster"
+  }
+}

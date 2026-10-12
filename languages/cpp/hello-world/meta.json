@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.cpp"
+  ],
+  "test": {
+    "group": "base",
+    "run": "c++ -o hello HelloWorld.cpp && ./hello",
+    "needs": [
+      "c++"
+    ]
+  }
+}

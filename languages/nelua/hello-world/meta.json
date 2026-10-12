@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.nelua"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "git clone -q https://github.com/edubart/nelua-lang /opt/nelua && git -C /opt/nelua checkout -q a58450563e2d2ec49bff499865c8b5cfdf6ff81a && make -s -C /opt/nelua >/dev/null && /opt/nelua/nelua HelloWorld.nelua"
+  }
+}

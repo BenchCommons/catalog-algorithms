@@ -1,0 +1,14 @@
+{
+  "files": [
+    "progs.qc",
+    "progs.src"
+  ],
+  "test": {
+    "group": "apt",
+    "kind": "compile",
+    "run": "fteqcc",
+    "apt": [
+      "fteqcc"
+    ]
+  }
+}

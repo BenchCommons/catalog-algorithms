@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.logo"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "curl -fsSL https://github.com/jrincayc/ucblogo-code/releases/download/version_6.2.5/ucblogo-6.2.5.tar.gz | tar xz -C /tmp && cd /tmp/ucblogo-6.2.5 && ./configure --disable-docs --disable-wx >/dev/null && make -s >/dev/null 2>&1; make install >/dev/null 2>&1; cd /src && /usr/local/bin/ucblogo HelloWorld.logo"
+  }
+}

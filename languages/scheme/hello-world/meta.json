@@ -1,0 +1,15 @@
+{
+  "files": [
+    "HelloWorld.scm"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "guile --no-auto-compile HelloWorld.scm",
+    "apt": [
+      "guile-3.0"
+    ],
+    "needs": [
+      "guile"
+    ]
+  }
+}

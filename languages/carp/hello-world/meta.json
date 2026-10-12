@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.carp"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "apt-get update -qq && apt-get install -y -qq clang >/dev/null && curl -fsSL -o /tmp/carp.zip https://github.com/carp-lang/Carp/releases/download/v0.5.5/carp-v0.5.5-x86_64-linux.zip && unzip -q /tmp/carp.zip -d /tmp && ls /tmp && export CARP_DIR=$(ls -d /tmp/carp-*/) && $CARP_DIR/bin/carp -x HelloWorld.carp"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.zsh"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "zsh HelloWorld.zsh",
+    "apt": [
+      "zsh"
+    ]
+  }
+}

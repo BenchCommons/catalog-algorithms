@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.rb"
+  ],
+  "test": {
+    "group": "base",
+    "run": "ruby HelloWorld.rb"
+  }
+}

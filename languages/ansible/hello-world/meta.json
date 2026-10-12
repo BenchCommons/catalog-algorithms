@@ -1,0 +1,12 @@
+{
+  "files": [
+    "hello-world.yml"
+  ],
+  "test": {
+    "group": "base",
+    "run": "pipx run --spec ansible-core ansible-playbook -i localhost, -c local hello-world.yml",
+    "needs": [
+      "pipx"
+    ]
+  }
+}

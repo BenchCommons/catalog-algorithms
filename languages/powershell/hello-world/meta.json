@@ -1,0 +1,9 @@
+{
+  "files": [
+    "HelloWorld.ps1"
+  ],
+  "test": {
+    "group": "base",
+    "run": "pwsh -NoProfile -File HelloWorld.ps1"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.dl"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:24.04",
+    "run": "apt-get update -qq >/dev/null && apt-get install -y -qq curl >/dev/null && curl -sSLO https://github.com/souffle-lang/souffle/releases/download/2.5/x86_64-ubuntu-2404-souffle-2.5-Linux.deb && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ./x86_64-ubuntu-2404-souffle-2.5-Linux.deb >/dev/null && souffle HelloWorld.dl"
+  }
+}

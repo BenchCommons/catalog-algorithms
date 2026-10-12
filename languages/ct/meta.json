@@ -1,9 +1,0 @@
-{
-  "name": "cT",
-  "files": [
-    "HelloWorld.t"
-  ],
-  "tiobe": {
-    "group": "51-100"
-  }
-}

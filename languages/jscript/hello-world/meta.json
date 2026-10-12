@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.js"
+  ],
+  "test": {
+    "group": "windows",
+    "run": "cscript //nologo HelloWorld.js",
+    "needs": [
+      "cscript"
+    ]
+  }
+}

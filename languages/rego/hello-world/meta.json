@@ -1,0 +1,10 @@
+{
+  "files": [
+    "hello.rego"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "openpolicyagent/opa:1.21.0-debug",
+    "run": "opa eval --format raw -d hello.rego data.hello.message"
+  }
+}

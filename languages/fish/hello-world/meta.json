@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.fish"
+  ],
+  "test": {
+    "group": "apt",
+    "run": "fish HelloWorld.fish",
+    "apt": [
+      "fish"
+    ]
+  }
+}

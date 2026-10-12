@@ -1,0 +1,11 @@
+{
+  "files": [
+    "HelloWorld.sol"
+  ],
+  "test": {
+    "group": "docker",
+    "kind": "compile",
+    "image": "ghcr.io/argotorg/solc:0.8.30-alpine",
+    "run": "solc --bin HelloWorld.sol"
+  }
+}

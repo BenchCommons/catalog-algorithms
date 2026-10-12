@@ -1,0 +1,10 @@
+{
+  "files": [
+    "HelloWorld.lst"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:bookworm",
+    "run": "apt-get update -qq >/dev/null && apt-get install -y -qq bison flex >/dev/null && cd /tmp && curl -sSL https://github.com/pietsch/OpenCOMAL/archive/34ecdf3b0bb5e5ac80b98751372d4445502f5665.tar.gz | tar xz && (make -C OpenCOMAL-34ecdf3b0bb5e5ac80b98751372d4445502f5665/src || make -C OpenCOMAL-34ecdf3b0bb5e5ac80b98751372d4445502f5665/src) >/dev/null 2>&1 && cd /src && cp HelloWorld.lst p.lst && printf 'enter \"p.lst\"\\nrun\\nbye\\ny\\n' | TERM=xterm script -qec /tmp/OpenCOMAL-34ecdf3b0bb5e5ac80b98751372d4445502f5665/bin/opencomal /dev/null"
+  }
+}

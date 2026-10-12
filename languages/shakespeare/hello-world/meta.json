@@ -1,0 +1,12 @@
+{
+  "files": [
+    "HelloWorld.spl"
+  ],
+  "test": {
+    "group": "base",
+    "run": "pipx run --spec shakespearelang shakespeare run HelloWorld.spl",
+    "needs": [
+      "pipx"
+    ]
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "name": "DAX",
-  "files": [
-    "HelloWorld.dax"
-  ],
-  "section": "query"
-}

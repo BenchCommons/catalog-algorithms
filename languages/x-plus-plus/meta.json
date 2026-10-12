@@ -1,9 +1,0 @@
-{
-  "name": "X++",
-  "files": [
-    "HelloWorld.xpp"
-  ],
-  "tiobe": {
-    "rank": 42
-  }
-}
