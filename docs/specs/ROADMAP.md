@@ -11,3 +11,4 @@
 | [007 — Cobertura de 80%](007-coverage-80/spec.md) | concluída | 006 |
 | [008 — CI seletivo nos PRs](008-selective-ci/spec.md) | concluída | 004 |
 | [009 — Arrumação pós-mudança](009-post-move/spec.md) | concluída | 003 |
+| [010 — Conjunto de algoritmos e E/S canônica](010-algorithm-set/spec.md) | proposta | — |
