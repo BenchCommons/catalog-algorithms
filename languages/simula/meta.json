@@ -4,5 +4,10 @@
     "HelloWorld.sim"
   ],
   "section": "historical",
-  "year": 1967
+  "year": 1967,
+  "test": {
+    "group": "docker",
+    "image": "gcc:9.5.0",
+    "run": "mkdir -p /tmp/cim && curl -sSL https://ftp.gnu.org/gnu/cim/cim-5.1.tar.gz | tar xz -C /tmp/cim && ln -s /tmp/cim/cim-5.1/lib /tmp/lib && (cd /tmp/cim/cim-5.1 && ./configure -q && make -s && make -s install) >/dev/null 2>&1 && ldconfig && cim HelloWorld.sim && ./HelloWorld"
+  }
 }

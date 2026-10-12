@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.pde"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "ubuntu:24.04",
+    "run": "apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends curl ca-certificates unzip xvfb xauth libgl1 libgtk-3-0 libxtst6 libxrender1 libxi6 >/dev/null && curl -fsSLo /tmp/p.zip https://github.com/processing/processing4/releases/download/processing-1435-4.5.7/processing-4.5.7-linux-x64-portable.zip && unzip -q /tmp/p.zip -d /tmp/p && mkdir /tmp/HelloWorld && cp HelloWorld.pde /tmp/HelloWorld/ && (xvfb-run -a /tmp/p/Processing/bin/Processing cli --sketch=/tmp/HelloWorld --run > out.txt 2>&1 &) && for i in $(seq 300); do grep -q 'Hello World' out.txt && break; sleep 1; done; cat out.txt"
+  }
 }

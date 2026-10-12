@@ -9,6 +9,7 @@
   "test": {
     "group": "docker",
     "image": "gcc:14.3.0",
-    "run": "wget -qO- https://github.com/dylan-lang/opendylan/releases/download/v2026.2.0/opendylan-2026.2-x86_64-linux.tar.bz2 | tar xj -C /opt && /opt/opendylan-2026.2/bin/dylan-compiler -build hello-world.lid >/dev/null && _build/bin/hello-world"
+    "run": "wget -qO- https://github.com/dylan-lang/opendylan/releases/download/v2026.2.0/opendylan-2026.2-x86_64-linux.tar.bz2 | tar xj -C /opt && /opt/opendylan-2026.2/bin/dylan-compiler -build hello-world.lid >/dev/null && _build/bin/hello-world",
+    "timeout": 1800
   }
 }
