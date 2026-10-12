@@ -7,6 +7,7 @@
   "test": {
     "group": "docker",
     "image": "gcc:14.3.0",
-    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq libx11-dev libncurses-dev >/dev/null && curl -fsSL https://github.com/ThomasMertes/seed7/archive/refs/tags/Seed7_release_2025-09-30.tar.gz | tar xz -C /opt && cd /opt/seed7-Seed7_release_2025-09-30/src && make -s depend >/dev/null 2>&1 && make -s -j4 s7 >/dev/null 2>&1 && cd /src && /opt/seed7-Seed7_release_2025-09-30/bin/s7 -q HelloWorld.sd7"
+    "run": "apt-get update -qq >/dev/null && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq libx11-dev libncurses-dev >/dev/null && curl -fsSL https://github.com/ThomasMertes/seed7/archive/refs/tags/Seed7_release_2025-09-30.tar.gz | tar xz -C /opt && cd /opt/seed7-Seed7_release_2025-09-30/src && make -s depend >/dev/null 2>&1 && make -s -j4 s7 >/dev/null 2>&1 && cd /src && /opt/seed7-Seed7_release_2025-09-30/bin/s7 -q HelloWorld.sd7",
+    "timeout": 1800
   }
 }

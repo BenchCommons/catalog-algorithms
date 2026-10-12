@@ -7,5 +7,12 @@
   "tags": [
     "brazilian"
   ],
-  "notes": "open source Portugol compiler, 2005"
+  "notes": "open source Portugol compiler, 2005",
+  "test": {
+    "group": "apt",
+    "run": "gpt -i HelloWorld.gpt",
+    "apt": [
+      "gpt"
+    ]
+  }
 }

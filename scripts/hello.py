@@ -335,7 +335,7 @@ def cmd_test(args):
                 cmd = ["sh", "-c", test["run"]]
             for _ in range(3):
                 proc = subprocess.run(cmd, cwd=tmp, env=dict(os.environ, HELLO_ROOT=ROOT), stdin=subprocess.DEVNULL,
-                                      stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=args.timeout)
+                                      stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=test.get("timeout", args.timeout))
                 out = proc.stdout.decode("utf-8", "replace")
                 if "toomanyrequests" not in out:
                     break
@@ -345,7 +345,7 @@ def cmd_test(args):
             else:
                 ok = "helloworld" in normalize(out) and (proc.returncode == 0 or test.get("allow_nonzero"))
         except subprocess.TimeoutExpired:
-            out, ok = "timeout after %ds" % args.timeout, False
+            out, ok = "timeout after %ds" % test.get("timeout", args.timeout), False
         finally:
             shutil.rmtree(tmp, ignore_errors=True)
         if ok:
