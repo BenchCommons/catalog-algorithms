@@ -7,6 +7,6 @@
   "test": {
     "group": "docker",
     "image": "buildpack-deps:bookworm",
-    "run": "{ apt-get update -qq >/dev/null && apt-get install -y -qq default-jre-headless clang >/dev/null && curl -fsSL --retry 5 --retry-all-errorsO https://github.com/ValeLang/Vale/releases/download/v0.2.0/Vale-Ubuntu-0.2.0.28.zip && unzip -q Vale-Ubuntu-0.2.0.28.zip -d vale && ls vale && cd vale && ./valec build mymod=../ --output_dir ../build && ../build/main; } || { echo '--- diagnostics'; uname -m; ls -la vale 2>&1 | head -20; (command -v file >/dev/null && file vale/* 2>&1 | head -10); exit 1; }"
+    "run": "{ apt-get update -qq >/dev/null && apt-get install -y -qq default-jre-headless clang >/dev/null && curl -fsSL --retry 5 --retry-all-errors -O https://github.com/ValeLang/Vale/releases/download/v0.2.0/Vale-Ubuntu-0.2.0.28.zip && unzip -q Vale-Ubuntu-0.2.0.28.zip -d vale && ls vale && cd vale && ./valec build mymod=../ --output_dir ../build && ../build/main; } || { echo '--- diagnostics'; uname -m; ls -la vale 2>&1 | head -20; (command -v file >/dev/null && file vale/* 2>&1 | head -10); exit 1; }"
   }
 }

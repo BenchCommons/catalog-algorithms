@@ -348,8 +348,8 @@ def cmd_test(args):
                 if mirror and "/" not in image.split(":")[0]:
                     image = "%s/library/%s" % (mirror, image)  # official images, avoids Docker Hub rate limits
                 cmd = ["docker", "run", "--rm", "--platform", test.get("platform", "linux/amd64"),
-                       "-v", "%s:/src" % tmp, "-w", "/src", "--entrypoint", test.get("shell", "sh"),
-                       image, "-c", test["run"]]
+                       "-v", "%s:/src" % tmp, "-w", "/src", "--entrypoint", test.get("shell", "sh")]
+                cmd += test.get("docker_args", []) + [image, "-c", test["run"]]
             else:
                 cmd = ["sh", "-c", test["run"]]
             for _ in range(3):
