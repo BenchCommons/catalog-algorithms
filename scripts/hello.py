@@ -386,7 +386,10 @@ def cmd_test(args):
 
 def cmd_apt(args):
     pkgs = set()
+    slugs = changed_slugs(args.changed_since) if args.changed_since else None
     for l in load_languages():
+        if slugs is not None and l["slug"] not in slugs:
+            continue
         t = l.get("test")
         if t and (not args.group or t["group"] == args.group):
             pkgs.update(t.get("apt", []))
@@ -408,6 +411,7 @@ def main():
                    help="only languages changed since this git ref (all when scripts/ or workflows change)")
     a = sub.add_parser("apt-packages")
     a.add_argument("--group", choices=TEST_GROUPS)
+    a.add_argument("--changed-since", default=os.environ.get("HELLO_CHANGED_SINCE") or None)
     args = p.parse_args()
     return {"readme": cmd_readme, "check": cmd_check, "test": cmd_test, "apt-packages": cmd_apt}[args.cmd](args) or 0
 
