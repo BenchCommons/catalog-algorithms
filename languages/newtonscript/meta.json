@@ -7,8 +7,8 @@
   "year": 1993,
   "test": {
     "group": "docker",
-    "image": "buildpack-deps:bookworm",
-    "run": "{ apt-get update -qq >/dev/null && apt-get install -y -qq bison flex >/dev/null && curl -fsSL --retry 5 --retry-all-errors https://github.com/gnue/newt0/archive/refs/tags/v0.1.4.tar.gz | tar xz && cd newt0-0.1.4 && ./configure >/dev/null && make >/dev/null 2>&1 && cd .. && newt0-0.1.4/build/newt HelloWorld.nwt; } || { echo '--- diagnostics'; uname -m; ls -la /src 2>&1 | head -20; (command -v file >/dev/null && file newt0-0.1.4/* 2>&1 | head -10); exit 1; }",
+    "image": "i386/buildpack-deps:bookworm",
+    "run": "{ apt-get update -qq >/dev/null && apt-get install -y -qq bison flex >/dev/null && curl -fsSL --retry 5 --retry-all-errors https://github.com/gnue/newt0/archive/refs/tags/v0.1.4.tar.gz | tar xz && cd NEWT0-0.1.4 && ./configure >/dev/null && make >/dev/null 2>&1 && cd .. && NEWT0-0.1.4/build/newt HelloWorld.nwt; } || { echo '--- diagnostics'; uname -m; ls -la /src 2>&1 | head -20; (command -v file >/dev/null && file newt0-0.1.4/* 2>&1 | head -10); exit 1; }",
     "platform": "linux/386"
   }
 }

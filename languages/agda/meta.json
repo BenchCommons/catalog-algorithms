@@ -6,7 +6,7 @@
   "section": "general",
   "test": {
     "group": "apt",
-    "run": "LC_ALL=C.UTF-8 agda -i /usr/share/agda-stdlib --compile HelloWorld.agda && ./HelloWorld",
+    "run": "cp -r /usr/share/agda-stdlib /tmp/agda-stdlib && LC_ALL=C.UTF-8 agda -i /tmp/agda-stdlib --compile HelloWorld.agda && ./HelloWorld",
     "apt": [
       "agda",
       "agda-stdlib",
