@@ -3,5 +3,10 @@
   "files": [
     "HelloWorld.x10"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "docker",
+    "image": "buildpack-deps:bookworm",
+    "run": "{ apt-get update -qq >/dev/null && apt-get install -y -qq default-jdk-headless >/dev/null && mkdir x10 && curl -fsSL --retry 5 --retry-all-errors https://downloads.sourceforge.net/project/x10/x10/2.6.2/x10-2.6.2_linux_x86_64.tgz | tar xz -C x10 && x10/bin/x10c HelloWorld.x10 && x10/bin/x10 HelloWorld; } || { echo '--- diagnostics'; uname -m; ls -la x10/bin 2>&1 | head -20; (command -v file >/dev/null && file x10/bin/* 2>&1 | head -10); exit 1; }"
+  }
 }

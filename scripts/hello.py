@@ -271,6 +271,15 @@ def cmd_check(_args):
                     errors.append("%s: docker image must be pinned to a version tag" % where)
             if test.get("kind", "run") not in ("run", "compile"):
                 errors.append("%s: test.kind must be 'run' or 'compile'" % where)
+    platforms = {}
+    for l in langs:
+        t = l.get("test") or {}
+        if t.get("group") == "docker":
+            platforms.setdefault(t["image"], set()).add(t.get("platform", "linux/amd64"))
+    for image, plats in sorted(platforms.items()):
+        if len(plats) > 1:
+            errors.append("docker image %s is used with several platforms %s; the local tag cache would mix them "
+                          "(use a platform-specific image such as i386/...)" % (image, sorted(plats)))
     if len(ranks) != 50:
         errors.append("TIOBE top 50 has %d ranked languages, expected 50" % len(ranks))
     next50 = [l for l in langs if l.get("tiobe", {}).get("group") == "51-100"]
@@ -348,8 +357,8 @@ def cmd_test(args):
                 if mirror and "/" not in image.split(":")[0]:
                     image = "%s/library/%s" % (mirror, image)  # official images, avoids Docker Hub rate limits
                 cmd = ["docker", "run", "--rm", "--platform", test.get("platform", "linux/amd64"),
-                       "-v", "%s:/src" % tmp, "-w", "/src", "--entrypoint", test.get("shell", "sh"),
-                       image, "-c", test["run"]]
+                       "-v", "%s:/src" % tmp, "-w", "/src", "--entrypoint", test.get("shell", "sh")]
+                cmd += test.get("docker_args", []) + [image, "-c", test["run"]]
             else:
                 cmd = ["sh", "-c", test["run"]]
             for _ in range(3):

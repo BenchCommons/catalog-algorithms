@@ -7,6 +7,10 @@
   "test": {
     "group": "docker",
     "image": "gcc:14.3.0",
-    "run": "curl -fsSL https://github.com/Shen-Language/shen-cl/releases/download/v3.0.3/shen-cl-v3.0.3-linux-prebuilt.tar.gz | tar xz && ./shen script HelloWorld.shen"
+    "run": "curl -fsSL --retry 5 --retry-all-errors https://github.com/Shen-Language/shen-cl/releases/download/v3.0.3/shen-cl-v3.0.3-linux-prebuilt.tar.gz | tar xz && setarch \"$(uname -m)\" -R ./shen script HelloWorld.shen",
+    "docker_args": [
+      "--security-opt",
+      "seccomp=unconfined"
+    ]
   }
 }
