@@ -171,6 +171,7 @@ and a long tail of assembly, shell, scientific, hardware, markup and esoteric la
 python3 scripts/hello.py check              # metadata, files and README are consistent
 python3 scripts/hello.py test               # run every language whose toolchain is installed locally
 python3 scripts/hello.py test --lang python --lang rust
+python3 scripts/hello.py test --changed-since origin/master   # only languages changed on this branch
 python3 scripts/hello.py readme             # regenerate this README from languages/*/meta.json
 ```
 
@@ -291,8 +292,26 @@ def normalize(text):
     return re.sub(r"[^a-z]", "", text.lower())
 
 
+def changed_slugs(ref):
+    """Slugs changed since ref, or None when tooling changed and everything must run."""
+    out = subprocess.run(["git", "diff", "--name-only", "%s...HEAD" % ref], cwd=ROOT, check=True,
+                         stdout=subprocess.PIPE).stdout.decode()
+    slugs = set()
+    for path in out.split():
+        if path.startswith(("scripts/", ".github/workflows/")):
+            return None
+        if path.startswith("languages/"):
+            slugs.add(path.split("/")[1])
+    return slugs
+
+
 def cmd_test(args):
     langs = [l for l in load_languages() if l.get("test")]
+    if args.changed_since:
+        slugs = changed_slugs(args.changed_since)
+        if slugs is not None:
+            langs = [l for l in langs if l["slug"] in slugs]
+            print("Testing languages changed since %s: %s" % (args.changed_since, ", ".join(sorted(slugs)) or "none"))
     if args.group:
         langs = [l for l in langs if l["test"]["group"] == args.group]
     if args.lang:
@@ -385,6 +404,8 @@ def main():
     t.add_argument("--strict", action="store_true", help="fail when a toolchain is missing")
     t.add_argument("--timeout", type=int, default=180)
     t.add_argument("--shard", help="run only shard I of N, as I/N")
+    t.add_argument("--changed-since", default=os.environ.get("HELLO_CHANGED_SINCE") or None,
+                   help="only languages changed since this git ref (all when scripts/ or workflows change)")
     a = sub.add_parser("apt-packages")
     a.add_argument("--group", choices=TEST_GROUPS)
     args = p.parse_args()

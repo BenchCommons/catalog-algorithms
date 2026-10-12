@@ -620,6 +620,7 @@ Languages designed as jokes, puzzles or experiments.
 python3 scripts/hello.py check              # metadata, files and README are consistent
 python3 scripts/hello.py test               # run every language whose toolchain is installed locally
 python3 scripts/hello.py test --lang python --lang rust
+python3 scripts/hello.py test --changed-since origin/master   # only languages changed on this branch
 python3 scripts/hello.py readme             # regenerate this README from languages/*/meta.json
 ```
 
