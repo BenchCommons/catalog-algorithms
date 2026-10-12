@@ -3,5 +3,19 @@
   "files": [
     "HelloWorld.agda"
   ],
-  "section": "general"
+  "section": "general",
+  "test": {
+    "group": "apt",
+    "run": "LC_ALL=C.UTF-8 agda -i /usr/share/agda-stdlib --compile HelloWorld.agda >/dev/null && ./HelloWorld",
+    "apt": [
+      "agda",
+      "agda-stdlib",
+      "ghc",
+      "libghc-ieee754-dev"
+    ],
+    "needs": [
+      "agda"
+    ],
+    "timeout": 1800
+  }
 }
