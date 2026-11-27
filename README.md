@@ -1,7 +1,8 @@
 # catalog-algorithms
 
-> Classic algorithm implementations across programming languages, measured by the
-> [BenchCommons](https://github.com/BenchCommons) toolset. It starts with Hello World in 452 languages.
+> Classic algorithm implementations across programming languages, for the
+> [BenchCommons](https://github.com/BenchCommons) toolset. Today: Hello World in 452 languages and
+> 9 implementations of 3 classic algorithms, with output checked in CI. Nothing is measured yet.
 
 [![CI](https://github.com/BenchCommons/catalog-algorithms/actions/workflows/hello-world.yml/badge.svg)](https://github.com/BenchCommons/catalog-algorithms/actions/workflows/hello-world.yml)
 ![Languages](https://img.shields.io/badge/languages-452-blue)
@@ -9,12 +10,17 @@
 ![TIOBE coverage](https://img.shields.io/badge/TIOBE%20top%20100-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-This repository is the BenchCommons catalog of **classic algorithm implementations across languages**:
-n-body, fannkuch-redux, spectral-norm, binary-trees, mandelbrot, sorting, searching, hashing and others.
-Every implementation uses a pinned toolchain and has its output checked against a canonical expected output
-before it is measured for time, memory and energy with [perfratio](https://github.com/BenchCommons/perfratio)
-through [benchmark-tool](https://github.com/BenchCommons/benchmark-tool). The roadmap is tracked in
-[issue #11](https://github.com/BenchCommons/catalog-algorithms/issues/11) and in [`docs/specs/`](docs/specs/ROADMAP.md).
+This repository is the BenchCommons catalog of **classic algorithm implementations across languages**.
+The goal is to compare languages by running the same algorithm on the same input, with a pinned toolchain and
+output checked against a canonical expected output before anything is measured.
+
+| | Implemented today | Planned (not here yet) |
+|---|---|---|
+| Hello World (startup baseline) | 452 languages, 377 with a CI test | |
+| Algorithms, output checked in CI | `fannkuch-redux`, `n-body`, `spectral-norm`, in C, JavaScript, Python | `binary-trees`, `mandelbrot`, `merge-sort`, `binary-search`, `sha-256` |
+| Measurement of time, memory and energy | none | [perfratio](https://github.com/BenchCommons/perfratio) through [tools-benchmark](https://github.com/BenchCommons/tools-benchmark), after [#29](https://github.com/BenchCommons/tools-benchmark/issues/29) and [#30](https://github.com/BenchCommons/tools-benchmark/issues/30) |
+
+The roadmap is tracked in [issue #11](https://github.com/BenchCommons/catalog-algorithms/issues/11) and in [`docs/specs/`](docs/specs/ROADMAP.md).
 
 It starts from **Hello World**, the first program almost everyone writes in a new language since Brian Kernighan
 used it in 1974. Hello World does almost no work, so it is the **startup-cost baseline** for each language:
@@ -31,6 +37,7 @@ shell, scientific, hardware, markup and esoteric languages.
 
 ## Contents
 
+- [Algorithms](#algorithms)
 - [TIOBE Index — Top 50](#tiobe-index--top-50)
 - [TIOBE Index — 51 to 100](#tiobe-index--51-to-100)
 - [Historical languages](#historical-languages)
@@ -49,6 +56,18 @@ shell, scientific, hardware, markup and esoteric languages.
 - [Esoteric languages](#esoteric-languages)
 - [Running the tests](#running-the-tests)
 - [Contributing](#contributing)
+
+## Algorithms
+
+**9 implementations of 3 algorithms in 3 languages.** Each one is run in CI in a pinned Docker image at the *check* size, and the SHA-256 of its stdout must equal the expected one in `algorithms/<id>.json` (see [spec 012](docs/specs/012-correctness-check/spec.md)). ✅ means that check passes in CI.
+
+**Nothing is measured yet.** There are no timings, memory or energy numbers in this repository. Measuring needs the catalog contract in [tools-benchmark#29](https://github.com/BenchCommons/tools-benchmark/issues/29) and the perfratio engine in [tools-benchmark#30](https://github.com/BenchCommons/tools-benchmark/issues/30), both still open. The other algorithms planned in [spec 010](docs/specs/010-algorithm-set/spec.md) (`binary-trees`, `mandelbrot`, and the name-based `merge-sort`, `binary-search`, `sha-256`) are not implemented; the name-based ones also wait on [tools-dataset#1](https://github.com/BenchCommons/tools-dataset/issues/1).
+
+| Algorithm | Input | Check size | C | JavaScript | Python |
+|---|---|---|---|---|---|
+| [`fannkuch-redux`](algorithms/fannkuch-redux.json) | n: permutation size | `7` | [✅](languages/c/fannkuch-redux/) | [✅](languages/javascript/fannkuch-redux/) | [✅](languages/python/fannkuch-redux/) |
+| [`n-body`](algorithms/n-body.json) | n: number of steps | `1000` | [✅](languages/c/n-body/) | [✅](languages/javascript/n-body/) | [✅](languages/python/n-body/) |
+| [`spectral-norm`](algorithms/spectral-norm.json) | n: matrix order | `100` | [✅](languages/c/spectral-norm/) | [✅](languages/javascript/spectral-norm/) | [✅](languages/python/spectral-norm/) |
 
 ## TIOBE Index — Top 50
 
@@ -629,7 +648,8 @@ Languages designed as jokes, puzzles or experiments.
 python3 scripts/hello.py check              # metadata, files and README are consistent
 python3 scripts/hello.py test               # run every language whose toolchain is installed locally
 python3 scripts/hello.py test --lang python --lang rust
-python3 scripts/hello.py test --changed-since origin/master   # only languages changed on this branch
+python3 scripts/hello.py test --algorithm n-body              # only one algorithm: checks stdout against algorithms/n-body.json
+python3 scripts/hello.py test --changed-since origin/master   # only languages and algorithms changed on this branch
 python3 scripts/hello.py readme             # regenerate this README from languages/*/language.json and */meta.json
 ```
 
@@ -643,7 +663,11 @@ languages/<lang>/
 ├── hello-world/           # the startup-cost baseline every language has
 │   ├── meta.json          # files and test of this implementation
 │   └── HelloWorld.<ext>
-└── <algorithm>/           # more classic algorithms (see docs/specs/010-algorithm-set)
+└── <algorithm>/           # n-body, fannkuch-redux, spectral-norm (more in docs/specs/010-algorithm-set)
+    ├── meta.json          # files and a docker test; the run command reads $BENCH_N
+    └── <program>.<ext>
+
+algorithms/<algorithm>.json  # definition: check size and the expected SHA-256 of stdout per size
 ```
 
 1. Check the tables above: is the language already covered?
@@ -662,7 +686,11 @@ languages/<lang>/
    exist (defaults to the first word of `run`). Set `"kind": "compile"` when the program cannot print and the test
    only checks that the official tool accepts it.
 4. The program should be the idiomatic, minimal version for that language; Hello World prints (or displays) `Hello World`.
-5. Run `python3 scripts/hello.py readme` and `python3 scripts/hello.py check`, then open a pull request.
+5. An algorithm other than `hello-world` needs a definition in `algorithms/<id>.json` (spec 010 and 012). Its `test` must use
+   `group: docker` with a pinned image and pass `"$BENCH_N"` to the program; the test passes only if the SHA-256 of
+   stdout equals the expected one for the check size. Do not use the language's built-in sort, search or hash for
+   `merge-sort`, `binary-search` and `sha-256`.
+6. Run `python3 scripts/hello.py readme` and `python3 scripts/hello.py check`, then open a pull request.
 
 ## Contributors
 
