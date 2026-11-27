@@ -1,0 +1,10 @@
+{
+  "files": [
+    "fannkuchredux.js"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "node fannkuchredux.js \"$BENCH_N\""
+  }
+}

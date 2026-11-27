@@ -1,0 +1,10 @@
+{
+  "files": [
+    "nbody.py"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "python:3.12.11-slim",
+    "run": "python3 nbody.py \"$BENCH_N\""
+  }
+}

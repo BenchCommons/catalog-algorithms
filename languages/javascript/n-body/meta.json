@@ -1,0 +1,10 @@
+{
+  "files": [
+    "nbody.js"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "node nbody.js \"$BENCH_N\""
+  }
+}
