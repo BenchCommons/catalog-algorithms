@@ -57,15 +57,39 @@ BASELINE = "hello-world"
 LANGUAGE_FILE = "language.json"
 
 
-def load_algorithms():
-    """algorithms/<id>.json: definition of each algorithm and the expected output checksums (spec 010, 012)."""
+def load_algorithms(errors=None):
+    """algorithms/<id>.json: definition of each algorithm and the expected output checksums (spec 010, 012).
+
+    A file that is not valid JSON or not an object is skipped; when `errors` is a list, one message per
+    skipped file is appended (`check` reports them, other commands carry on without that algorithm).
+    """
     algos = {}
     if os.path.isdir(ALGO_DIR):
         for name in sorted(os.listdir(ALGO_DIR)):
-            if name.endswith(".json"):
+            if not name.endswith(".json"):
+                continue
+            try:
                 with open(os.path.join(ALGO_DIR, name), encoding="utf-8") as fh:
-                    algos[name[:-5]] = json.load(fh)
+                    data = json.load(fh)
+            except (ValueError, OSError, RecursionError) as exc:  # RecursionError: absurdly nested JSON
+                if errors is not None:
+                    errors.append("algorithms/%s: cannot read definition: %s" % (name, exc))
+                continue
+            if not isinstance(data, dict):
+                if errors is not None:
+                    errors.append("algorithms/%s: definition must be a JSON object" % name)
+                continue
+            algos[name[:-5]] = data
     return algos
+
+
+def usable_definition(algo):
+    """True when the definition has what the verifier needs: a positive integer check size and its checksum."""
+    if not isinstance(algo, dict) or type(algo.get("check")) is not int or algo["check"] < 1:
+        return False
+    expected = algo.get("expected")
+    entry = expected.get(str(algo["check"])) if isinstance(expected, dict) else None
+    return isinstance(entry, dict) and bool(SHA_RE.match(str(entry.get("sha256", ""))))
 
 
 def load_implementations():
@@ -126,7 +150,8 @@ def algorithm_section(impls, algos):
     """README table of the algorithms whose output is verified, per language (only what exists in the repo)."""
     by = {}
     for i in impls:
-        if i["algorithm"] != BASELINE:
+        # An implementation without a definition is an error reported by `check`, not a README row.
+        if i["algorithm"] != BASELINE and isinstance(algos.get(i["algorithm"]), dict):
             by.setdefault(i["algorithm"], {})[i["slug"]] = i
     slugs = sorted({s for v in by.values() for s in v})
     names = {i["slug"]: i["name"] for i in impls if i["slug"] in slugs}
@@ -139,7 +164,7 @@ def algorithm_section(impls, algos):
         for s in slugs:
             i = by[aid].get(s)
             cells.append("[✅](languages/%s/%s/)" % (s, aid) if i else "")
-        rows.append(["[`%s`](algorithms/%s.json)" % (aid, aid), a["input"], "`%s`" % a["check"]] + cells)
+        rows.append(["[`%s`](algorithms/%s.json)" % (aid, aid), str(a.get("input", "")), "`%s`" % a.get("check", "?")] + cells)
     return ("## Algorithms\n\n"
             "**%d implementations of %d algorithms in %d languages.** Each one is run in CI in a pinned Docker image at the "
             "*check* size, and the SHA-256 of its stdout must equal the expected one in `algorithms/<id>.json` "
@@ -156,6 +181,8 @@ def algorithm_section(impls, algos):
 def render_readme(langs, impls=None, algos=None):
     impls = load_implementations() if impls is None else impls
     algos = load_algorithms() if algos is None else algos
+    # Only implementations of a defined algorithm count; the others are errors reported by `check`.
+    algo_impls = [i for i in impls if i["algorithm"] != BASELINE and isinstance(algos.get(i["algorithm"]), dict)]
     count = len(langs)
     n_tested = sum(1 for l in langs if l.get("test"))
     n_run = sum(1 for l in langs if l.get("test") and l["test"].get("kind") != "compile")
@@ -203,10 +230,10 @@ shell, scientific, hardware, markup and esoteric languages.
 - 🔧 **{compiled} are compiled or validated** with the language's official tool, for languages that cannot print text
   (shaders, smart contracts, hardware, configuration) or have no free runtime.
 """.format(repo=REPO, count=count, tested=n_tested, pct=pct, run=n_run, compiled=n_tested - n_run,
-           n_algo_impl=sum(1 for i in impls if i["algorithm"] != BASELINE),
-           n_algo=len({i["algorithm"] for i in impls if i["algorithm"] != BASELINE}),
-           algo_list=", ".join("`%s`" % a for a in sorted({i["algorithm"] for i in impls if i["algorithm"] != BASELINE})),
-           algo_langs=", ".join(sorted({i["name"] for i in impls if i["algorithm"] != BASELINE}))))
+           n_algo_impl=len(algo_impls),
+           n_algo=len({i["algorithm"] for i in algo_impls}),
+           algo_list=", ".join("`%s`" % a for a in sorted({i["algorithm"] for i in algo_impls})),
+           algo_langs=", ".join(sorted({i["name"] for i in algo_impls}))))
 
     toc = ["- [Algorithms](#algorithms)", "- [TIOBE Index — Top 50](#tiobe-index--top-50)", "- [TIOBE Index — 51 to 100](#tiobe-index--51-to-100)"]
     sec_with_rows = [s for s in SECTIONS if any(l.get("section") == s[0] for l in langs)]
@@ -418,44 +445,98 @@ def cmd_check(_args):
     return 1 if errors else 0
 
 
-SHA_RE = re.compile(r"^[0-9a-f]{64}$")
+SHA_RE = re.compile(r"^[0-9a-f]{64}\Z")
+EMPTY_SHA = hashlib.sha256(b"").hexdigest()
+# ASCII decimal without leading zeros. str.isdigit() also accepts characters such as '²' that int() rejects.
+SIZE_RE = re.compile(r"^[1-9][0-9]*\Z")
+
+
+def uses_bench_n(run):
+    """True when the command mentions BENCH_N as a whole variable name outside shell comments."""
+    for line in run.splitlines():
+        quote, out = None, []
+        for i, ch in enumerate(line):
+            if quote:
+                if ch == quote:
+                    quote = None
+            elif ch in "'\"":
+                quote = ch
+            elif ch == "#" and (i == 0 or line[i - 1] in " \t;&|("):
+                break
+            out.append(ch)
+        if re.search(r"(?<![A-Za-z0-9_])BENCH_N(?![A-Za-z0-9_])", "".join(out)):
+            return True
+    return False
 
 
 def check_algorithms(impls):
-    """algorithms/<id>.json is consistent, and every algorithm implementation is tested against it (spec 012)."""
+    """algorithms/<id>.json is consistent, and every algorithm implementation is tested against it (spec 012).
+
+    Never raises on malformed data: every problem becomes one message.
+    """
     errors = []
-    algos = load_algorithms()
+    algos = load_algorithms(errors)
+    slugs_by_algo = {}
+    for l in impls:
+        slugs_by_algo.setdefault(l["algorithm"], set()).add(l["slug"])
     for aid, a in sorted(algos.items()):
         where = "algorithms/%s.json" % aid
         if a.get("id") != aid:
             errors.append("%s: id must be '%s'" % (where, aid))
-        if not isinstance(a.get("check"), int) or a["check"] < 1:
+        for key in ("name", "description", "source", "input"):
+            if not isinstance(a.get(key), str) or not a[key].strip():
+                errors.append("%s: missing or empty '%s'" % (where, key))
+        check = a.get("check")
+        if type(check) is not int or check < 1:
             errors.append("%s: 'check' must be a positive integer" % where)
-        expected = a.get("expected", {})
-        if str(a.get("check")) not in expected:
+        expected = a.get("expected")
+        if not isinstance(expected, dict) or not expected:
+            errors.append("%s: 'expected' must map each size to its checksum" % where)
+            expected = {}
+        if str(check) not in expected:
             errors.append("%s: no expected output for the check size" % where)
-        for n, e in expected.items():
-            if not n.isdigit():
+        for n, e in sorted(expected.items()):
+            if not SIZE_RE.match(n):
                 errors.append("%s: expected key '%s' is not a size" % (where, n))
-            if not SHA_RE.match(e.get("sha256", "")):
+            if not isinstance(e, dict):
+                errors.append("%s: size %s must be an object" % (where, n))
+                continue
+            if not SHA_RE.match(str(e.get("sha256", ""))):
                 errors.append("%s: size %s needs a lowercase hex sha256" % (where, n))
-            if e.get("source") not in ("benchmarks-game-output", "cross-language", "reference"):
+            elif e["sha256"] == EMPTY_SHA:
+                errors.append("%s: size %s expects an empty output, which any program that prints nothing would pass"
+                              % (where, n))
+            if type(e.get("bytes")) is not int or e["bytes"] < 1:
+                errors.append("%s: size %s needs 'bytes' as a positive integer" % (where, n))
+            source = e.get("source")
+            if source not in ("benchmarks-game-output", "cross-language", "reference"):
                 errors.append("%s: size %s has an unknown source" % (where, n))
-            if e.get("source") == "cross-language" and len(e.get("agreeing", [])) < 2:
-                errors.append("%s: size %s is cross-language but fewer than 2 languages agree" % (where, n))
+            agreeing = e.get("agreeing")
+            if agreeing is not None or source == "cross-language":
+                if not isinstance(agreeing, list) or not all(isinstance(x, str) for x in agreeing) \
+                        or len(set(agreeing)) != len(agreeing):
+                    errors.append("%s: size %s 'agreeing' must be a list of distinct language slugs" % (where, n))
+                    continue
+                for slug in agreeing:
+                    if slug not in slugs_by_algo.get(aid, set()):
+                        errors.append("%s: size %s lists '%s' as agreeing but languages/%s/%s does not exist" % (
+                            where, n, slug, slug, aid))
+                if source == "cross-language" and len(agreeing) < 2:
+                    errors.append("%s: size %s is cross-language but fewer than 2 languages agree" % (where, n))
     for l in impls:
         if l["algorithm"] == BASELINE:
             continue
         where = "languages/%s" % l["id"]
+        test = l.get("test")
         if l["algorithm"] not in algos:
             errors.append("%s: no algorithms/%s.json" % (where, l["algorithm"]))
-        elif not l.get("test"):
+        elif not test:
             errors.append("%s: an algorithm needs a test (its output is checked before anything is measured)" % where)
-        elif l["test"].get("kind") == "compile":
+        elif test.get("kind") == "compile":
             errors.append("%s: kind 'compile' does not verify output" % where)
-        elif l["test"].get("group") != "docker":
+        elif test.get("group") != "docker":
             errors.append("%s: algorithms are tested in a pinned docker image" % where)
-        elif "BENCH_N" not in l["test"].get("run", ""):
+        elif not uses_bench_n(str(test.get("run", ""))):
             errors.append("%s: test.run must pass $BENCH_N to the program" % where)
     return errors
 
@@ -500,10 +581,27 @@ def verify_algorithm(algo, returncode, stdout, stderr):
         stdout[:500].decode("utf-8", "replace"), (stderr or b"")[-1000:].decode("utf-8", "replace"))
 
 
+INFRA = "infrastructure: "  # prefix of a failure that says nothing about the program's correctness
+INFRA_MARKERS = ("toomanyrequests", "unable to find image", "pull access denied", "error pulling image",
+                 "error response from daemon", "cannot connect to the docker daemon", "tls handshake timeout",
+                 "i/o timeout", "temporary failure in name resolution")
+
+
 def run_once(l, test, args):
-    """Run one language test in a fresh temp dir; return (ok, output)."""
+    """Run one language test in a fresh temp dir; return (ok, output).
+
+    An algorithm is verified only against a usable algorithms/<id>.json: without one the test fails, it never
+    falls back to the Hello World rule. A failure caused by docker or the registry (not by the program) comes
+    back with the INFRA prefix, which is the only kind of algorithm failure `cmd_test` retries besides timeouts.
+    """
+    is_algorithm = l["algorithm"] != BASELINE
+    algo = load_algorithms().get(l["algorithm"]) if is_algorithm else None
+    if is_algorithm and not usable_definition(algo):
+        return False, "%s: no usable algorithms/%s.json (needs 'check' and expected[check].sha256); run `check`" % (
+            l["id"], l["algorithm"])
+    if algo:
+        algo = dict(algo, id=l["algorithm"])  # the file name is the id; a wrong or missing "id" is `check`'s to report
     tmp = tempfile.mkdtemp(prefix="hello-%s-%s-" % (l["slug"], l["algorithm"]))
-    algo = load_algorithms().get(l["algorithm"])
     env = dict(os.environ, HELLO_ROOT=ROOT)
     if algo:
         # Same variable names as the catalog contract (tools-benchmark spec 010, runner environment).
@@ -538,6 +636,12 @@ def run_once(l, test, args):
             time.sleep(60)  # registry rate limit: wait and retry
         if algo:
             ok, out = verify_algorithm(algo, proc.returncode, proc.stdout, proc.stderr)
+            seen = (proc.stderr or b"").decode("utf-8", "replace").lower()
+            # The container's own exit code passes through `docker run`, so 125 alone proves nothing: docker
+            # itself failed only when the program printed nothing and docker's message is on stderr.
+            if not ok and test["group"] == "docker" and proc.returncode != 0 and not proc.stdout and (
+                    seen.startswith("docker:") or any(m in seen for m in INFRA_MARKERS)):
+                out = INFRA + out
         elif test.get("kind") == "compile":
             ok = proc.returncode == 0
         else:
@@ -547,6 +651,18 @@ def run_once(l, test, args):
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     return ok, out
+
+
+def retryable(l, out):
+    """Whether a failed run may be run again (spec 012 R9).
+
+    Algorithms: only docker/registry failures and timeouts. Other languages (Hello World): transient
+    download failures are common, so everything except a timeout.
+    """
+    timeout = out.startswith("timeout after")
+    if l["algorithm"] != BASELINE:
+        return timeout or out.startswith(INFRA)
+    return not timeout
 
 
 def cmd_test(args):
@@ -586,7 +702,9 @@ def cmd_test(args):
             ok, out = run_once(l, test, args)
             if ok:
                 break
-            if attempt < args.retries and not out.startswith("timeout after"):
+            if not retryable(l, out):
+                break  # a wrong answer or a program error is final
+            if attempt < args.retries:
                 flaky = True
                 print("RETRY %s (attempt %d failed)" % (l["id"], attempt + 1), flush=True)
                 time.sleep(30)  # most failures here are transient downloads
