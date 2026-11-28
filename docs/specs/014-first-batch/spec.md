@@ -13,7 +13,7 @@ Cobertura real verificada em `languages/` (452 linguagens, 377 com teste) e cust
 | Algoritmos sem dependência externa | os cinco numéricos. `merge-sort`, `binary-search` e `sha-256` dependem de [tools-dataset#1](https://github.com/BenchCommons/tools-dataset/issues/1), aberta, e ficam fora |
 | Checksums independentes | `n-body`, `fannkuch-redux` e `spectral-norm` têm saída publicada no Benchmarks Game, e o SHA-256 dela é o da spec 010. `binary-trees` e `mandelbrot` ficam para outro lote (a conferência de `mandelbrot` está em aberto na spec 010) |
 | Linguagens | `c`, `javascript` e `python`: toolchains já usados no catálogo em imagens fixadas (`gcc:14.3.0`, `node:22.20.0-slim`, `python:3.12.11-slim`), reaproveitadas do cache dos testes de Hello World |
-| Custo de CI | 9 execuções no tamanho `check`, cada uma em menos de 1 s além do pull e da compilação; entram nos 4 shards do job `docker` |
+| Custo de CI | 9 execuções no tamanho `check`, duração não medida de forma comparável (localmente, as três execuções de um algoritmo, com imagens em cache, levaram de 3 a 4 s no total); entram nos 4 shards do job `docker` |
 
 ## Requisitos
 1. Implementações escritas à mão, seguindo a definição do Benchmarks Game, em `languages/{c,javascript,python}/{n-body,fannkuch-redux,spectral-norm}/`. Sem bibliotecas além da padrão (`math`, `stdio`).

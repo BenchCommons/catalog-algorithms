@@ -197,7 +197,7 @@ every language in the [TIOBE Index](https://www.tiobe.com/tiobe-index/) top 100,
 computing history, the new languages people are talking about, Brazilian languages, and a long tail of assembly,
 shell, scientific, hardware, markup and esoteric languages.
 
-**{tested} of {count} programs ({pct}%) are checked on every push** by GitHub Actions on Linux, macOS and Windows:
+**{tested} of {count} programs ({pct}%) are checked** by GitHub Actions on Linux, macOS and Windows. Every push to the main branch, the daily schedule and manual runs test all of them; a pull request tests only the languages and algorithms it changes (everything, if `scripts/` or the workflows change):
 
 - ✅ **{run} run** and their output is checked to contain "Hello World";
 - 🔧 **{compiled} are compiled or validated** with the language's official tool, for languages that cannot print text
