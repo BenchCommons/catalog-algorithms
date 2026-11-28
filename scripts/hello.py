@@ -4,10 +4,11 @@
 Usage:
   python3 scripts/hello.py readme                 # regenerate README.md
   python3 scripts/hello.py check                  # validate metadata, files and README
-  python3 scripts/hello.py test [--group G] [--lang SLUG ...] [--strict]
+  python3 scripts/hello.py test [--group G] [--lang SLUG ...] [--algorithm ID ...] [--strict]
   python3 scripts/hello.py apt-packages [--group G]
 """
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -20,6 +21,7 @@ from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANG_DIR = os.path.join(ROOT, "languages")
+ALGO_DIR = os.path.join(ROOT, "algorithms")
 README = os.path.join(ROOT, "README.md")
 REPO = "BenchCommons/catalog-algorithms"
 TIOBE_MONTH = "September 2026"
@@ -53,6 +55,41 @@ SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 
 BASELINE = "hello-world"
 LANGUAGE_FILE = "language.json"
+
+
+def load_algorithms(errors=None):
+    """algorithms/<id>.json: definition of each algorithm and the expected output checksums (spec 010, 012).
+
+    A file that is not valid JSON or not an object is skipped; when `errors` is a list, one message per
+    skipped file is appended (`check` reports them, other commands carry on without that algorithm).
+    """
+    algos = {}
+    if os.path.isdir(ALGO_DIR):
+        for name in sorted(os.listdir(ALGO_DIR)):
+            if not name.endswith(".json"):
+                continue
+            try:
+                with open(os.path.join(ALGO_DIR, name), encoding="utf-8") as fh:
+                    data = json.load(fh)
+            except (ValueError, OSError, RecursionError) as exc:  # RecursionError: absurdly nested JSON
+                if errors is not None:
+                    errors.append("algorithms/%s: cannot read definition: %s" % (name, exc))
+                continue
+            if not isinstance(data, dict):
+                if errors is not None:
+                    errors.append("algorithms/%s: definition must be a JSON object" % name)
+                continue
+            algos[name[:-5]] = data
+    return algos
+
+
+def usable_definition(algo):
+    """True when the definition has what the verifier needs: a positive integer check size and its checksum."""
+    if not isinstance(algo, dict) or type(algo.get("check")) is not int or algo["check"] < 1:
+        return False
+    expected = algo.get("expected")
+    entry = expected.get(str(algo["check"])) if isinstance(expected, dict) else None
+    return isinstance(entry, dict) and bool(SHA_RE.match(str(entry.get("sha256", ""))))
 
 
 def load_implementations():
@@ -109,7 +146,43 @@ def name_key(lang):
     return lang["name"].lower().lstrip("(")
 
 
-def render_readme(langs):
+def algorithm_section(impls, algos):
+    """README table of the algorithms whose output is verified, per language (only what exists in the repo)."""
+    by = {}
+    for i in impls:
+        # An implementation without a definition is an error reported by `check`, not a README row.
+        if i["algorithm"] != BASELINE and isinstance(algos.get(i["algorithm"]), dict):
+            by.setdefault(i["algorithm"], {})[i["slug"]] = i
+    slugs = sorted({s for v in by.values() for s in v})
+    names = {i["slug"]: i["name"] for i in impls if i["slug"] in slugs}
+    n_impl = sum(len(v) for v in by.values())
+    header = ["Algorithm", "Input", "Check size"] + [names[s] for s in slugs]
+    rows = []
+    for aid in sorted(by):
+        a = algos[aid]
+        cells = []
+        for s in slugs:
+            i = by[aid].get(s)
+            cells.append("[✅](languages/%s/%s/)" % (s, aid) if i else "")
+        rows.append(["[`%s`](algorithms/%s.json)" % (aid, aid), str(a.get("input", "")), "`%s`" % a.get("check", "?")] + cells)
+    return ("## Algorithms\n\n"
+            "**%d implementations of %d algorithms in %d languages.** Each one is run in CI in a pinned Docker image at the "
+            "*check* size, and the SHA-256 of its stdout must equal the expected one in `algorithms/<id>.json` "
+            "(see [spec 012](docs/specs/012-correctness-check/spec.md)). ✅ means that check passes in CI.\n\n"
+            "**Nothing is measured yet.** There are no timings, memory or energy numbers in this repository. Measuring needs "
+            "the catalog contract in [tools-benchmark#29](https://github.com/BenchCommons/tools-benchmark/issues/29) "
+            "and the perfratio engine in [tools-benchmark#30](https://github.com/BenchCommons/tools-benchmark/issues/30), "
+            "both still open. The other algorithms planned in [spec 010](docs/specs/010-algorithm-set/spec.md) "
+            "(`binary-trees`, `mandelbrot`, and the name-based `merge-sort`, `binary-search`, `sha-256`) are not implemented; "
+            "the name-based ones also wait on [tools-dataset#1](https://github.com/BenchCommons/tools-dataset/issues/1).\n\n"
+            % (n_impl, len(by), len(slugs)) + table(header, rows) + "\n")
+
+
+def render_readme(langs, impls=None, algos=None):
+    impls = load_implementations() if impls is None else impls
+    algos = load_algorithms() if algos is None else algos
+    # Only implementations of a defined algorithm count; the others are errors reported by `check`.
+    algo_impls = [i for i in impls if i["algorithm"] != BASELINE and isinstance(algos.get(i["algorithm"]), dict)]
     count = len(langs)
     n_tested = sum(1 for l in langs if l.get("test"))
     n_run = sum(1 for l in langs if l.get("test") and l["test"].get("kind") != "compile")
@@ -122,8 +195,9 @@ def render_readme(langs):
     parts = []
     parts.append("""# catalog-algorithms
 
-> Classic algorithm implementations across programming languages, measured by the
-> [BenchCommons](https://github.com/BenchCommons) toolset. It starts with Hello World in {count} languages.
+> Classic algorithm implementations across programming languages, for the
+> [BenchCommons](https://github.com/BenchCommons) toolset. Today: Hello World in {count} languages and
+> {n_algo_impl} implementations of {n_algo} classic algorithms, with output checked in CI. Nothing is measured yet.
 
 [![CI](https://github.com/{repo}/actions/workflows/hello-world.yml/badge.svg)](https://github.com/{repo}/actions/workflows/hello-world.yml)
 ![Languages](https://img.shields.io/badge/languages-{count}-blue)
@@ -131,12 +205,17 @@ def render_readme(langs):
 ![TIOBE coverage](https://img.shields.io/badge/TIOBE%20top%20100-100%25-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-This repository is the BenchCommons catalog of **classic algorithm implementations across languages**:
-n-body, fannkuch-redux, spectral-norm, binary-trees, mandelbrot, sorting, searching, hashing and others.
-Every implementation uses a pinned toolchain and has its output checked against a canonical expected output
-before it is measured for time, memory and energy with [perfratio](https://github.com/BenchCommons/perfratio)
-through [benchmark-tool](https://github.com/BenchCommons/benchmark-tool). The roadmap is tracked in
-[issue #11](https://github.com/{repo}/issues/11) and in [`docs/specs/`](docs/specs/ROADMAP.md).
+This repository is the BenchCommons catalog of **classic algorithm implementations across languages**.
+The goal is to compare languages by running the same algorithm on the same input, with a pinned toolchain and
+output checked against a canonical expected output before anything is measured.
+
+| | Implemented today | Planned (not here yet) |
+|---|---|---|
+| Hello World (startup baseline) | {count} languages, {tested} with a CI test | |
+| Algorithms, output checked in CI | {algo_list}, in {algo_langs} | `binary-trees`, `mandelbrot`, `merge-sort`, `binary-search`, `sha-256` |
+| Measurement of time, memory and energy | none | [perfratio](https://github.com/BenchCommons/perfratio) through [tools-benchmark](https://github.com/BenchCommons/tools-benchmark), after [#29](https://github.com/BenchCommons/tools-benchmark/issues/29) and [#30](https://github.com/BenchCommons/tools-benchmark/issues/30) |
+
+The roadmap is tracked in [issue #11](https://github.com/{repo}/issues/11) and in [`docs/specs/`](docs/specs/ROADMAP.md).
 
 It starts from **Hello World**, the first program almost everyone writes in a new language since Brian Kernighan
 used it in 1974. Hello World does almost no work, so it is the **startup-cost baseline** for each language:
@@ -145,14 +224,18 @@ every language in the [TIOBE Index](https://www.tiobe.com/tiobe-index/) top 100,
 computing history, the new languages people are talking about, Brazilian languages, and a long tail of assembly,
 shell, scientific, hardware, markup and esoteric languages.
 
-**{tested} of {count} programs ({pct}%) are checked on every push** by GitHub Actions on Linux, macOS and Windows:
+**{tested} of {count} programs ({pct}%) are checked** by GitHub Actions on Linux, macOS and Windows. Every push to the main branch, the daily schedule and manual runs test all of them; a pull request tests only the languages and algorithms it changes (everything, if `scripts/` or the workflows change):
 
 - ✅ **{run} run** and their output is checked to contain "Hello World";
 - 🔧 **{compiled} are compiled or validated** with the language's official tool, for languages that cannot print text
   (shaders, smart contracts, hardware, configuration) or have no free runtime.
-""".format(repo=REPO, count=count, tested=n_tested, pct=pct, run=n_run, compiled=n_tested - n_run))
+""".format(repo=REPO, count=count, tested=n_tested, pct=pct, run=n_run, compiled=n_tested - n_run,
+           n_algo_impl=len(algo_impls),
+           n_algo=len({i["algorithm"] for i in algo_impls}),
+           algo_list=", ".join("`%s`" % a for a in sorted({i["algorithm"] for i in algo_impls})),
+           algo_langs=", ".join(sorted({i["name"] for i in algo_impls}))))
 
-    toc = ["- [TIOBE Index — Top 50](#tiobe-index--top-50)", "- [TIOBE Index — 51 to 100](#tiobe-index--51-to-100)"]
+    toc = ["- [Algorithms](#algorithms)", "- [TIOBE Index — Top 50](#tiobe-index--top-50)", "- [TIOBE Index — 51 to 100](#tiobe-index--51-to-100)"]
     sec_with_rows = [s for s in SECTIONS if any(l.get("section") == s[0] for l in langs)]
     for sid, title, _ in sec_with_rows:
         if sid == "esoteric":
@@ -161,6 +244,7 @@ shell, scientific, hardware, markup and esoteric languages.
     toc += ["- [Running the tests](#running-the-tests)", "- [Contributing](#contributing)"]
     parts.append("## Contents\n\n" + "\n".join(toc) + "\n")
 
+    parts.append(algorithm_section(impls, algos))
     parts.append("## TIOBE Index — Top 50\n\nRanking from the TIOBE Index of **%s**. Rankings change every month; "
                  "the list is a snapshot. Purely graphical languages (Scratch, LabVIEW, Ladder Logic) have no text "
                  "syntax, so their files contain a textual representation.\n\n" % TIOBE_MONTH
@@ -197,7 +281,8 @@ shell, scientific, hardware, markup and esoteric languages.
 python3 scripts/hello.py check              # metadata, files and README are consistent
 python3 scripts/hello.py test               # run every language whose toolchain is installed locally
 python3 scripts/hello.py test --lang python --lang rust
-python3 scripts/hello.py test --changed-since origin/master   # only languages changed on this branch
+python3 scripts/hello.py test --algorithm n-body              # only one algorithm: checks stdout against algorithms/n-body.json
+python3 scripts/hello.py test --changed-since origin/master   # only languages and algorithms changed on this branch
 python3 scripts/hello.py readme             # regenerate this README from languages/*/language.json and */meta.json
 ```
 
@@ -211,7 +296,11 @@ languages/<lang>/
 ├── hello-world/           # the startup-cost baseline every language has
 │   ├── meta.json          # files and test of this implementation
 │   └── HelloWorld.<ext>
-└── <algorithm>/           # more classic algorithms (see docs/specs/010-algorithm-set)
+└── <algorithm>/           # n-body, fannkuch-redux, spectral-norm (more in docs/specs/010-algorithm-set)
+    ├── meta.json          # files and a docker test; the run command reads $BENCH_N
+    └── <program>.<ext>
+
+algorithms/<algorithm>.json  # definition: check size and the expected SHA-256 of stdout per size
 ```
 
 1. Check the tables above: is the language already covered?
@@ -230,7 +319,11 @@ languages/<lang>/
    exist (defaults to the first word of `run`). Set `"kind": "compile"` when the program cannot print and the test
    only checks that the official tool accepts it.
 4. The program should be the idiomatic, minimal version for that language; Hello World prints (or displays) `Hello World`.
-5. Run `python3 scripts/hello.py readme` and `python3 scripts/hello.py check`, then open a pull request.
+5. An algorithm other than `hello-world` needs a definition in `algorithms/<id>.json` (spec 010 and 012). Its `test` must use
+   `group: docker` with a pinned image and pass `"$BENCH_N"` to the program; the test passes only if the SHA-256 of
+   stdout equals the expected one for the check size. Do not use the language's built-in sort, search or hash for
+   `merge-sort`, `binary-search` and `sha-256`.
+6. Run `python3 scripts/hello.py readme` and `python3 scripts/hello.py check`, then open a pull request.
 
 ## Contributors
 
@@ -255,7 +348,7 @@ def anchor(title):
 
 def cmd_readme(_args):
     with open(README, "w", encoding="utf-8") as fh:
-        fh.write(render_readme(load_languages()))
+        fh.write(render_readme(load_languages(), load_implementations(), load_algorithms()))
     print("README.md regenerated")
 
 
@@ -325,6 +418,7 @@ def cmd_check(_args):
                     errors.append("%s: docker image must be pinned to a version tag" % where)
             if test.get("kind", "run") not in ("run", "compile"):
                 errors.append("%s: test.kind must be 'run' or 'compile'" % where)
+    errors += check_algorithms(impls)
     platforms = {}
     for l in impls:
         t = l.get("test") or {}
@@ -343,7 +437,7 @@ def cmd_check(_args):
     if stray:
         errors.append("Hello World files outside languages/: %s" % stray)
     with open(README, encoding="utf-8") as fh:
-        if fh.read() != render_readme(langs):
+        if fh.read() != render_readme(langs, impls, load_algorithms()):
             errors.append("README.md is out of date: run `python3 scripts/hello.py readme`")
     for e in errors:
         print("ERROR", e)
@@ -351,26 +445,167 @@ def cmd_check(_args):
     return 1 if errors else 0
 
 
+SHA_RE = re.compile(r"^[0-9a-f]{64}\Z")
+EMPTY_SHA = hashlib.sha256(b"").hexdigest()
+# ASCII decimal without leading zeros. str.isdigit() also accepts characters such as '²' that int() rejects.
+SIZE_RE = re.compile(r"^[1-9][0-9]*\Z")
+
+
+def uses_bench_n(run):
+    """True when the command mentions BENCH_N as a whole variable name outside shell comments."""
+    for line in run.splitlines():
+        quote, out = None, []
+        for i, ch in enumerate(line):
+            if quote:
+                if ch == quote:
+                    quote = None
+            elif ch in "'\"":
+                quote = ch
+            elif ch == "#" and (i == 0 or line[i - 1] in " \t;&|("):
+                break
+            out.append(ch)
+        if re.search(r"(?<![A-Za-z0-9_])BENCH_N(?![A-Za-z0-9_])", "".join(out)):
+            return True
+    return False
+
+
+def check_algorithms(impls):
+    """algorithms/<id>.json is consistent, and every algorithm implementation is tested against it (spec 012).
+
+    Never raises on malformed data: every problem becomes one message.
+    """
+    errors = []
+    algos = load_algorithms(errors)
+    slugs_by_algo = {}
+    for l in impls:
+        slugs_by_algo.setdefault(l["algorithm"], set()).add(l["slug"])
+    for aid, a in sorted(algos.items()):
+        where = "algorithms/%s.json" % aid
+        if a.get("id") != aid:
+            errors.append("%s: id must be '%s'" % (where, aid))
+        for key in ("name", "description", "source", "input"):
+            if not isinstance(a.get(key), str) or not a[key].strip():
+                errors.append("%s: missing or empty '%s'" % (where, key))
+        check = a.get("check")
+        if type(check) is not int or check < 1:
+            errors.append("%s: 'check' must be a positive integer" % where)
+        expected = a.get("expected")
+        if not isinstance(expected, dict) or not expected:
+            errors.append("%s: 'expected' must map each size to its checksum" % where)
+            expected = {}
+        if str(check) not in expected:
+            errors.append("%s: no expected output for the check size" % where)
+        for n, e in sorted(expected.items()):
+            if not SIZE_RE.match(n):
+                errors.append("%s: expected key '%s' is not a size" % (where, n))
+            if not isinstance(e, dict):
+                errors.append("%s: size %s must be an object" % (where, n))
+                continue
+            if not SHA_RE.match(str(e.get("sha256", ""))):
+                errors.append("%s: size %s needs a lowercase hex sha256" % (where, n))
+            elif e["sha256"] == EMPTY_SHA:
+                errors.append("%s: size %s expects an empty output, which any program that prints nothing would pass"
+                              % (where, n))
+            if type(e.get("bytes")) is not int or e["bytes"] < 1:
+                errors.append("%s: size %s needs 'bytes' as a positive integer" % (where, n))
+            source = e.get("source")
+            if source not in ("benchmarks-game-output", "cross-language", "reference"):
+                errors.append("%s: size %s has an unknown source" % (where, n))
+            agreeing = e.get("agreeing")
+            if agreeing is not None or source == "cross-language":
+                if not isinstance(agreeing, list) or not all(isinstance(x, str) for x in agreeing) \
+                        or len(set(agreeing)) != len(agreeing):
+                    errors.append("%s: size %s 'agreeing' must be a list of distinct language slugs" % (where, n))
+                    continue
+                for slug in agreeing:
+                    if slug not in slugs_by_algo.get(aid, set()):
+                        errors.append("%s: size %s lists '%s' as agreeing but languages/%s/%s does not exist" % (
+                            where, n, slug, slug, aid))
+                if source == "cross-language" and len(agreeing) < 2:
+                    errors.append("%s: size %s is cross-language but fewer than 2 languages agree" % (where, n))
+    for l in impls:
+        if l["algorithm"] == BASELINE:
+            continue
+        where = "languages/%s" % l["id"]
+        test = l.get("test")
+        if l["algorithm"] not in algos:
+            errors.append("%s: no algorithms/%s.json" % (where, l["algorithm"]))
+        elif not test:
+            errors.append("%s: an algorithm needs a test (its output is checked before anything is measured)" % where)
+        elif test.get("kind") == "compile":
+            errors.append("%s: kind 'compile' does not verify output" % where)
+        elif test.get("group") != "docker":
+            errors.append("%s: algorithms are tested in a pinned docker image" % where)
+        elif not uses_bench_n(str(test.get("run", ""))):
+            errors.append("%s: test.run must pass $BENCH_N to the program" % where)
+    return errors
+
+
 def normalize(text):
     return re.sub(r"[^a-z]", "", text.lower())
 
 
-def changed_slugs(ref):
-    """Slugs changed since ref, or None when tooling changed and everything must run."""
+def changed_scope(ref):
+    """(slugs, algorithms) changed since ref, or None when tooling changed and everything must run.
+
+    A change in algorithms/<id>.json selects every implementation of that algorithm.
+    """
     out = subprocess.run(["git", "diff", "--name-only", "%s...HEAD" % ref], cwd=ROOT, check=True,
                          stdout=subprocess.PIPE).stdout.decode()
-    slugs = set()
+    slugs, algos = set(), set()
     for path in out.split():
         if path.startswith(("scripts/", ".github/workflows/")):
             return None
         if path.startswith("languages/"):
             slugs.add(path.split("/")[1])
-    return slugs
+        elif path.startswith("algorithms/") and path.endswith(".json"):
+            algos.add(os.path.basename(path)[:-5])
+    return slugs, algos
+
+
+def selected(l, scope):
+    return scope is None or l["slug"] in scope[0] or l["algorithm"] in scope[1]
+
+
+def verify_algorithm(algo, returncode, stdout, stderr):
+    """Untimed correctness check (spec 012): the SHA-256 of stdout must equal the expected one for the check size.
+
+    Only line endings are normalized (CRLF to LF), as in spec 010 R2. Returns (ok, message).
+    """
+    got = hashlib.sha256(stdout.replace(b"\r\n", b"\n")).hexdigest()
+    want = algo["expected"][str(algo["check"])]["sha256"]
+    if returncode == 0 and got == want:
+        return True, "%s n=%s sha256=%s" % (algo["id"], algo["check"], got)
+    return False, "%s n=%s: exit %s, sha256 expected %s got %s\nstdout: %s\nstderr: %s" % (
+        algo["id"], algo["check"], returncode, want, got,
+        stdout[:500].decode("utf-8", "replace"), (stderr or b"")[-1000:].decode("utf-8", "replace"))
+
+
+INFRA = "infrastructure: "  # prefix of a failure that says nothing about the program's correctness
+INFRA_MARKERS = ("toomanyrequests", "unable to find image", "pull access denied", "error pulling image",
+                 "error response from daemon", "cannot connect to the docker daemon", "tls handshake timeout",
+                 "i/o timeout", "temporary failure in name resolution")
 
 
 def run_once(l, test, args):
-    """Run one language test in a fresh temp dir; return (ok, output)."""
+    """Run one language test in a fresh temp dir; return (ok, output).
+
+    An algorithm is verified only against a usable algorithms/<id>.json: without one the test fails, it never
+    falls back to the Hello World rule. A failure caused by docker or the registry (not by the program) comes
+    back with the INFRA prefix, which is the only kind of algorithm failure `cmd_test` retries besides timeouts.
+    """
+    is_algorithm = l["algorithm"] != BASELINE
+    algo = load_algorithms().get(l["algorithm"]) if is_algorithm else None
+    if is_algorithm and not usable_definition(algo):
+        return False, "%s: no usable algorithms/%s.json (needs 'check' and expected[check].sha256); run `check`" % (
+            l["id"], l["algorithm"])
+    if algo:
+        algo = dict(algo, id=l["algorithm"])  # the file name is the id; a wrong or missing "id" is `check`'s to report
     tmp = tempfile.mkdtemp(prefix="hello-%s-%s-" % (l["slug"], l["algorithm"]))
+    env = dict(os.environ, HELLO_ROOT=ROOT)
+    if algo:
+        # Same variable names as the catalog contract (tools-benchmark spec 010, runner environment).
+        env.update(BENCH_ALGORITHM=algo["id"], BENCH_N=str(algo["check"]))
     try:
         for f in l["files"]:
             shutil.copy(os.path.join(l["dir"], f), tmp)
@@ -385,17 +620,29 @@ def run_once(l, test, args):
                 image = "%s/library/%s" % (mirror, image)  # official images, avoids Docker Hub rate limits
             cmd = ["docker", "run", "--rm", "--platform", test.get("platform", "linux/amd64"),
                    "-v", "%s:/src" % tmp, "-w", "/src", "--entrypoint", test.get("shell", "sh")]
+            if algo:
+                cmd += ["-e", "BENCH_ALGORITHM", "-e", "BENCH_N"]
             cmd += test.get("docker_args", []) + [image, "-c", test["run"]]
         else:
             cmd = ["sh", "-c", test["run"]]
         for _ in range(3):
-            proc = subprocess.run(cmd, cwd=tmp, env=dict(os.environ, HELLO_ROOT=ROOT), stdin=subprocess.DEVNULL,
-                                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=test.get("timeout", args.timeout))
+            # An algorithm's stdout is the output under test, so stderr must not be mixed into it.
+            proc = subprocess.run(cmd, cwd=tmp, env=env, stdin=subprocess.DEVNULL,
+                                  stdout=subprocess.PIPE, timeout=test.get("timeout", args.timeout),
+                                  stderr=subprocess.PIPE if algo else subprocess.STDOUT)
             out = proc.stdout.decode("utf-8", "replace")
-            if "toomanyrequests" not in out:
+            if "toomanyrequests" not in out + (proc.stderr or b"").decode("utf-8", "replace"):
                 break
             time.sleep(60)  # registry rate limit: wait and retry
-        if test.get("kind") == "compile":
+        if algo:
+            ok, out = verify_algorithm(algo, proc.returncode, proc.stdout, proc.stderr)
+            seen = (proc.stderr or b"").decode("utf-8", "replace").lower()
+            # The container's own exit code passes through `docker run`, so 125 alone proves nothing: docker
+            # itself failed only when the program printed nothing and docker's message is on stderr.
+            if not ok and test["group"] == "docker" and proc.returncode != 0 and not proc.stdout and (
+                    seen.startswith("docker:") or any(m in seen for m in INFRA_MARKERS)):
+                out = INFRA + out
+        elif test.get("kind") == "compile":
             ok = proc.returncode == 0
         else:
             ok = "helloworld" in normalize(out) and (proc.returncode == 0 or test.get("allow_nonzero"))
@@ -406,17 +653,32 @@ def run_once(l, test, args):
     return ok, out
 
 
+def retryable(l, out):
+    """Whether a failed run may be run again (spec 012 R9).
+
+    Algorithms: only docker/registry failures and timeouts. Other languages (Hello World): transient
+    download failures are common, so everything except a timeout.
+    """
+    timeout = out.startswith("timeout after")
+    if l["algorithm"] != BASELINE:
+        return timeout or out.startswith(INFRA)
+    return not timeout
+
+
 def cmd_test(args):
     langs = [l for l in load_implementations() if l.get("test")]
     if args.changed_since:
-        slugs = changed_slugs(args.changed_since)
-        if slugs is not None:
-            langs = [l for l in langs if l["slug"] in slugs]
-            print("Testing languages changed since %s: %s" % (args.changed_since, ", ".join(sorted(slugs)) or "none"))
+        scope = changed_scope(args.changed_since)
+        if scope is not None:
+            langs = [l for l in langs if selected(l, scope)]
+            print("Testing changed since %s: languages %s, algorithms %s" % (
+                args.changed_since, ", ".join(sorted(scope[0])) or "none", ", ".join(sorted(scope[1])) or "none"))
     if args.group:
         langs = [l for l in langs if l["test"]["group"] == args.group]
     if args.lang:
         langs = [l for l in langs if l["slug"] in args.lang or l["id"] in args.lang]
+    if args.algorithm:
+        langs = [l for l in langs if l["algorithm"] in args.algorithm]
     if args.shard:
         index, total = (int(n) for n in args.shard.split("/"))
         langs = [l for i, l in enumerate(langs) if i % total == index - 1]
@@ -440,7 +702,9 @@ def cmd_test(args):
             ok, out = run_once(l, test, args)
             if ok:
                 break
-            if attempt < args.retries and not out.startswith("timeout after"):
+            if not retryable(l, out):
+                break  # a wrong answer or a program error is final
+            if attempt < args.retries:
                 flaky = True
                 print("RETRY %s (attempt %d failed)" % (l["id"], attempt + 1), flush=True)
                 time.sleep(30)  # most failures here are transient downloads
@@ -448,7 +712,8 @@ def cmd_test(args):
             passed.append(l)
             if flaky:
                 retried.append(l)
-            print("PASS %s%s" % (l["id"], " (after retry)" if flaky else ""), flush=True)
+            print("PASS %s%s%s" % (l["id"], " (after retry)" if flaky else "",
+                                   "  [verified: %s]" % out if l["algorithm"] != BASELINE else ""), flush=True)
         else:
             failed.append((l, out))
             print("FAIL %-24s exit/output:\n%s" % (l["id"], out[-2000:]), flush=True)
@@ -467,9 +732,9 @@ def cmd_test(args):
 
 def cmd_apt(args):
     pkgs = set()
-    slugs = changed_slugs(args.changed_since) if args.changed_since else None
+    scope = changed_scope(args.changed_since) if args.changed_since else None
     for l in load_implementations():
-        if slugs is not None and l["slug"] not in slugs:
+        if not selected(l, scope):
             continue
         t = l.get("test")
         if t and (not args.group or t["group"] == args.group):
@@ -485,6 +750,7 @@ def main():
     t = sub.add_parser("test")
     t.add_argument("--group", choices=TEST_GROUPS)
     t.add_argument("--lang", action="append")
+    t.add_argument("--algorithm", action="append", help="only this algorithm id (e.g. hello-world, n-body)")
     t.add_argument("--strict", action="store_true", help="fail when a toolchain is missing")
     t.add_argument("--timeout", type=int, default=180)
     t.add_argument("--shard", help="run only shard I of N, as I/N")

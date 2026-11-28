@@ -13,3 +13,5 @@
 | [009 — Arrumação pós-mudança](009-post-move/spec.md) | concluída | 003 |
 | [010 — Conjunto de algoritmos e E/S canônica](010-algorithm-set/spec.md) | proposta | — |
 | [011 — Layout por linguagem](011-lang-layout/spec.md) | concluída | 010 |
+| [012 — Verificação de correção sem medição](012-correctness-check/spec.md) | em andamento | 010, 011 |
+| [014 — Primeiro lote de implementações](014-first-batch/spec.md) | em andamento | 010, 011, 012 |

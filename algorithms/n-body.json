@@ -1,0 +1,49 @@
+{
+  "id": "n-body",
+  "name": "n-body",
+  "description": "Simulation of the five Jovian bodies. Prints the system energy before and after n time steps of 0.01, with %.9f, one per line.",
+  "source": "Benchmarks Game, n-body",
+  "input": "n: number of steps",
+  "check": 1000,
+  "expected": {
+    "1000": {
+      "sha256": "76de83d6d51a74f82828547423f516e7815cfe8cfea6290a2831aa173f806de7",
+      "bytes": 26,
+      "source": "benchmarks-game-output",
+      "agreeing": [
+        "c",
+        "javascript",
+        "python"
+      ]
+    },
+    "50000": {
+      "sha256": "bdcf7a5967f944dc85b65e0e03ed5fd5daf6b699793224d6b03c7b2c75ea8790",
+      "bytes": 26,
+      "source": "cross-language",
+      "agreeing": [
+        "c",
+        "javascript",
+        "python"
+      ]
+    },
+    "5000000": {
+      "sha256": "a209785651d3f855b56ffcac6bce1eda49dff67124f34418aedd4ddb91c384c8",
+      "bytes": 26,
+      "source": "cross-language",
+      "agreeing": [
+        "c",
+        "javascript"
+      ]
+    },
+    "50000000": {
+      "sha256": "3e6c9ef9d26cfe312a4cd8e1b81b3f671b88fbce84de543e8c23c206a942504d",
+      "bytes": 26,
+      "source": "cross-language",
+      "agreeing": [
+        "c",
+        "javascript"
+      ]
+    }
+  },
+  "notes": "Size \"check\" is the byte-identical published Benchmarks Game output file (nbody-output.txt). Larger sizes were produced by independent implementations (see \"agreeing\") that gave the same SHA-256; they are not copies of a published file."
+}

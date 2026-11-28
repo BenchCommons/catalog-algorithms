@@ -1,0 +1,49 @@
+{
+  "id": "spectral-norm",
+  "name": "spectral-norm",
+  "description": "Spectral norm of the truncated infinite matrix A (ten power iterations on A^T A). Prints the norm with %.9f.",
+  "source": "Benchmarks Game, spectral-norm",
+  "input": "n: matrix order",
+  "check": 100,
+  "expected": {
+    "100": {
+      "sha256": "a95e11fa07f7b196ef488e73f67afbbbc16cf6a2c6de5f8d54ea49821fe604e6",
+      "bytes": 12,
+      "source": "benchmarks-game-output",
+      "agreeing": [
+        "c",
+        "javascript",
+        "python"
+      ]
+    },
+    "500": {
+      "sha256": "8fdf61c16abc8435add5a81e7f774b75b689673474c916e8859ebe8f8a528277",
+      "bytes": 12,
+      "source": "cross-language",
+      "agreeing": [
+        "c",
+        "javascript",
+        "python"
+      ]
+    },
+    "2000": {
+      "sha256": "a1c719a1eb113f34314469d275635aa2dbdc6aa02020cd8a6aa4503813e8528f",
+      "bytes": 12,
+      "source": "cross-language",
+      "agreeing": [
+        "c",
+        "javascript"
+      ]
+    },
+    "5500": {
+      "sha256": "f9d5b5e3eb7657cf1bbba4cc856651864df9cd9fd9a6be9b9bc5fcbb67150deb",
+      "bytes": 12,
+      "source": "cross-language",
+      "agreeing": [
+        "c",
+        "javascript"
+      ]
+    }
+  },
+  "notes": "Size \"check\" is the byte-identical published Benchmarks Game output file (spectralnorm-output.txt). Larger sizes were produced by independent implementations (see \"agreeing\") that gave the same SHA-256; they are not copies of a published file."
+}

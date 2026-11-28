@@ -1,0 +1,10 @@
+{
+  "files": [
+    "spectralnorm.js"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "node:22.20.0-slim",
+    "run": "node spectralnorm.js \"$BENCH_N\""
+  }
+}

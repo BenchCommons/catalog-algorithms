@@ -1,0 +1,49 @@
+{
+  "id": "fannkuch-redux",
+  "name": "fannkuch-redux",
+  "description": "Prefix reversals over all permutations of n elements. Prints the alternating-sign checksum and \"Pfannkuchen(n) = <max flips>\".",
+  "source": "Benchmarks Game, fannkuch-redux",
+  "input": "n: permutation size",
+  "check": 7,
+  "expected": {
+    "7": {
+      "sha256": "2dc0a3cd4a547ba69389f97f3b447bd4d487fe6216c3cacd2f9bf8c908dc127f",
+      "bytes": 24,
+      "source": "benchmarks-game-output",
+      "agreeing": [
+        "c",
+        "javascript",
+        "python"
+      ]
+    },
+    "9": {
+      "sha256": "8240a83dc671a1906b1f4ce51a46866362bec862c62128f4429ec1f3e7bf1bb8",
+      "bytes": 25,
+      "source": "cross-language",
+      "agreeing": [
+        "c",
+        "javascript",
+        "python"
+      ]
+    },
+    "10": {
+      "sha256": "26f4debed9b9f8db7609e17f35756a3f72c1d85d40977a4377a1ef34ffc4d4c8",
+      "bytes": 27,
+      "source": "cross-language",
+      "agreeing": [
+        "c",
+        "javascript"
+      ]
+    },
+    "12": {
+      "sha256": "4265a65135c506a68d90d6474003fb9030b7ee244a06c046bd89b3932a28ce20",
+      "bytes": 29,
+      "source": "cross-language",
+      "agreeing": [
+        "c",
+        "javascript"
+      ]
+    }
+  },
+  "notes": "Size \"check\" is the byte-identical published Benchmarks Game output file (fannkuchredux-output.txt). Larger sizes were produced by independent implementations (see \"agreeing\") that gave the same SHA-256; they are not copies of a published file."
+}

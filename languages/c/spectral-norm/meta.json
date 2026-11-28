@@ -1,0 +1,10 @@
+{
+  "files": [
+    "spectralnorm.c"
+  ],
+  "test": {
+    "group": "docker",
+    "image": "gcc:14.3.0",
+    "run": "gcc -O2 -ffp-contract=off -o prog spectralnorm.c -lm && ./prog \"$BENCH_N\""
+  }
+}
